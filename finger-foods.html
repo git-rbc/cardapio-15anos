@@ -13,12 +13,14 @@
 @font-face{font-family:'Montserrat';font-weight:400;font-display:swap;src:url('assets/fonts/montserrat-400.woff2') format('woff2');}
 @font-face{font-family:'Montserrat';font-weight:500;font-display:swap;src:url('assets/fonts/montserrat-500.woff2') format('woff2');}
 :root{
-  --paper:#F7F0F2;--paper-2:#EFDFE4;--ink:#1C1418;--ink-soft:#5E4A53;--ink-mute-txt:#71575F;
+  --paper:#F7F0F2;--paper-2:#EFDFE4;--ink:#1C1418;--ink-soft:#5E4A53;--ink-mute:#8F767F;--ink-mute-txt:#71575F;
   --night:#1A1018;--night-2:#110811;--cream:#F5E9EC;--accent:#D06E8F;--accent-txt:#A34667;
   --line-dark:rgba(28,20,24,.14);--line-light:rgba(245,233,236,.16);
   --serif:'Cormorant Garamond',Georgia,serif;--sans:'Montserrat','Segoe UI',system-ui,sans-serif;
   --maxw:1360px;--pad:clamp(1.25rem,5vw,4.5rem);--ease:cubic-bezier(.16,1,.3,1);
+  --cs:1; /* escala do cardapio: 1 = normal, sobe no modo apresentacao */
 }
+body.apresentar{--cs:1.62;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{background:var(--paper);scroll-behavior:smooth;}
 body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.65;
@@ -74,34 +76,81 @@ a{color:inherit;}
 .band__note strong{color:var(--cream);font-weight:500;}
 .band__cap{position:absolute;right:clamp(1.25rem,5vw,4.5rem);bottom:1.2rem;z-index:2;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,233,236,.6);}
 
-/* vitrine escura */
-.stage{background:var(--night);color:var(--cream);padding-block:clamp(4rem,10vh,7rem);}
-.stage__head{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad);margin-bottom:2.4rem;}
-.stage__head .eyebrow{color:var(--accent);margin-bottom:1rem;}
-.stage__head h2{font-family:var(--serif);font-weight:400;line-height:1;font-size:clamp(2.2rem,6vw,4.4rem);}
-.stage__head h2 em{font-style:italic;color:var(--accent);}
-.stage__head p{margin-top:1.2rem;max-width:46ch;color:rgba(245,233,236,.68);font-size:.98rem;}
-.stage__track{display:flex;gap:clamp(1rem,2.4vw,2rem);padding-inline:var(--pad);overflow-x:auto;scroll-snap-type:x mandatory;
-  padding-bottom:1.5rem;scrollbar-width:thin;scrollbar-color:var(--accent) transparent;}
-.stage__track::-webkit-scrollbar{height:3px;}
-.stage__track::-webkit-scrollbar-thumb{background:var(--accent);}
-.card{position:relative;flex:0 0 auto;width:min(64vw,300px);aspect-ratio:3/4;overflow:hidden;background:#0e0711;scroll-snap-align:start;}
-.card img{width:100%;height:100%;object-fit:cover;}
-.card__meta{position:absolute;left:1.1rem;bottom:1.1rem;right:1.1rem;z-index:2;}
-.card__meta::before{content:"";position:absolute;inset:0;top:auto;height:260%;z-index:-1;background:linear-gradient(0deg,rgba(16,7,13,.9),transparent);}
-.card__t{font-family:var(--serif);font-size:1.3rem;line-height:1.1;}
-.card__s{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-top:.35rem;}
-.stage__hint{max-width:var(--maxw);margin:1rem auto 0;padding-inline:var(--pad);font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(245,233,236,.45);}
+/* ===== PACOTES ===== */
+.menus{padding-block:clamp(3rem,8vh,6rem) clamp(2rem,5vh,3rem);}
+.menus__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.6rem,1.2vw,1rem);margin-top:2rem;}
+@media(max-width:900px){.menus__grid{grid-template-columns:1fr;}}
+.nivel{position:relative;text-align:left;background:none;cursor:pointer;font-family:inherit;color:inherit;
+  border:1px solid var(--line-dark);padding:1.5rem 1.3rem 1.3rem;transition:border-color .4s,background .4s,transform .4s var(--ease);
+  display:flex;flex-direction:column;gap:.55rem;}
+.nivel:hover{transform:translateY(-4px);border-color:var(--ink-mute);}
+.nivel__nome{font-family:var(--serif);font-size:clamp(1.4rem,2.2vw,1.75rem);line-height:1.08;}
+.nivel__preco{font-family:var(--serif);font-size:1.15rem;color:var(--accent-txt);}
+.nivel__preco small{font-family:var(--sans);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute-txt);margin-left:.3rem;}
+.nivel__res{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute-txt);line-height:1.9;}
+.nivel[aria-pressed="true"]{border-color:var(--accent);background:linear-gradient(160deg,rgba(208,110,143,.12),transparent);}
+.nivel[aria-pressed="true"]::after{content:"Selecionado";position:absolute;top:-1px;right:-1px;
+  font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;background:var(--accent);color:#fff;padding:.35rem .6rem;}
 
-/* pacotes */
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.6rem,1.2vw,1rem);margin-top:1.6rem;}
-@media(max-width:900px){.grid3{grid-template-columns:1fr;}}
-.pacote{position:relative;border:1px solid var(--line-dark);padding:1.6rem 1.3rem 1.4rem;display:flex;flex-direction:column;gap:.5rem;}
-.pacote__nome{font-family:var(--serif);font-size:clamp(1.35rem,2.2vw,1.7rem);line-height:1.05;}
-.pacote__res{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute-txt);line-height:1.9;}
+/* carrossel */
+.carrossel{margin-top:clamp(2rem,5vh,3rem);}
+.carrossel__head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1rem;}
+.carrossel__titulo{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.2rem);}
+.carrossel__titulo em{font-style:italic;color:var(--accent-txt);}
+.carrossel__hint{font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-mute-txt);}
+.track{display:flex;gap:clamp(.8rem,1.8vw,1.4rem);overflow-x:auto;scroll-snap-type:x mandatory;
+  padding-bottom:1.2rem;scrollbar-width:thin;scrollbar-color:var(--accent) transparent;}
+.track::-webkit-scrollbar{height:3px;}
+.track::-webkit-scrollbar-thumb{background:var(--accent);}
+.dish{position:relative;flex:0 0 auto;width:min(64vw,calc(300px * var(--cs)));aspect-ratio:3/4;overflow:hidden;background:var(--paper-2);scroll-snap-align:start;}
+.dish img{width:100%;height:100%;object-fit:cover;}
+.dish__cap{position:absolute;left:.9rem;bottom:.9rem;right:.9rem;z-index:2;color:#fff;}
+.dish__cap::before{content:"";position:absolute;inset:-1rem -.9rem -.9rem;z-index:-1;background:linear-gradient(0deg,rgba(16,7,13,.85),transparent);}
+.dish__nome{font-family:var(--serif);font-size:calc(1.25rem * var(--cs));line-height:1.12;text-shadow:0 1px 10px rgba(0,0,0,.5);}
+.dish__tag{font-size:calc(.52rem * var(--cs));letter-spacing:.2em;text-transform:uppercase;opacity:.85;}
+.trocando{opacity:.25;transition:opacity .25s;}
+
+/* ===== LISTA DO CARDÁPIO (escala pelo modo apresentação) ===== */
+.cardapio__head{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  margin-top:clamp(1.5rem,4vh,2.5rem);}
+.cardapio__lbl{font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;color:var(--accent-txt);}
+.zoom{display:inline-flex;align-items:center;gap:.6rem;cursor:pointer;font-family:inherit;
+  background:none;border:1px solid var(--line-dark);color:var(--ink-soft);
+  font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:.65rem 1rem;transition:.3s;}
+.zoom:hover{border-color:var(--accent);color:var(--ink);}
+.zoom__aa{font-family:var(--serif);font-size:1.15rem;line-height:1;letter-spacing:0;color:var(--accent-txt);}
+body.apresentar .zoom{background:var(--accent);border-color:var(--accent);color:#fff;}
+body.apresentar .zoom__aa{color:#fff;}
+.zoom__on{display:none;}
+body.apresentar .zoom__off{display:none;}
+body.apresentar .zoom__on{display:inline;}
+
+.cardapio{margin-top:1rem;display:grid;gap:clamp(1.4rem,2.5vw,2.2rem);
+  grid-template-columns:repeat(auto-fit,minmax(calc(228px * var(--cs)),1fr));}
+.cat__head{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;border-top:1px solid var(--ink);padding-top:.8rem;margin-bottom:.4rem;}
+.cat__nome{font-size:calc(.66rem * var(--cs));letter-spacing:.24em;text-transform:uppercase;font-weight:500;}
+.cat ul{list-style:none;}
+.cat li{display:flex;align-items:baseline;gap:.5rem;padding:calc(.5rem * var(--cs)) 0;border-bottom:1px solid var(--line-dark);
+  font-family:var(--serif);font-size:calc(1.02rem * var(--cs));line-height:1.3;}
+.cat li.fora{color:var(--ink-mute);opacity:.45;}
+.cat li .marca{margin-left:auto;flex-shrink:0;font-size:calc(.75rem * var(--cs));color:var(--accent);}
+.cat li.fora .marca{color:var(--ink-mute);}
 .nota{margin-top:1.8rem;padding:1rem 1.2rem;border-left:2px solid var(--accent);background:rgba(208,110,143,.07);
-  font-size:.84rem;line-height:1.7;color:var(--ink-soft);max-width:62ch;}
+  font-size:calc(.84rem * min(var(--cs),1.25));line-height:1.7;color:var(--ink-soft);max-width:62ch;}
 .nota strong{color:var(--ink);font-weight:500;}
+
+/* barra fixa do pacote ativo */
+.tierbar{position:fixed;left:0;right:0;bottom:0;z-index:290;transform:translateY(105%);
+  transition:transform .5s var(--ease);background:rgba(26,16,23,.94);backdrop-filter:blur(12px);color:var(--cream);
+  border-top:1px solid var(--line-light);}
+.tierbar.on{transform:none;}
+.tierbar__in{max-width:var(--maxw);margin-inline:auto;padding:.7rem var(--pad);display:flex;align-items:center;gap:1rem;justify-content:space-between;flex-wrap:wrap;}
+.tierbar__lbl{font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(245,233,236,.55);}
+.tierbar__opts{display:flex;gap:.4rem;flex-wrap:wrap;}
+.tierbar__opt{background:none;border:1px solid var(--line-light);color:rgba(245,233,236,.75);cursor:pointer;
+  font-family:inherit;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;padding:.5rem .8rem;transition:.3s;}
+.tierbar__opt:hover{color:#fff;border-color:var(--accent);}
+.tierbar__opt[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff;}
 
 /* fechamento + footer */
 .fim{padding-block:clamp(3rem,7vh,5rem);text-align:center;}
@@ -115,7 +164,7 @@ a{color:inherit;}
 .footer__links{display:flex;gap:1.4rem;flex-wrap:wrap;}
 .footer__links a{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,233,236,.7);text-decoration:none;}
 .footer__links a:hover{color:var(--accent);}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}.nivel{transition:none;}}
 </style>
 </head>
 <body>
@@ -129,27 +178,27 @@ a{color:inherit;}
     <img class="hero__logo" src="assets/indaia-wordmark-white-trim.png" alt="Eventos Indaiá">
     <p class="eyebrow hero__kicker">Gastronomia Indaiá · 15 Anos</p>
     <h1>Finger<br><em>foods</em></h1>
-    <p class="hero__sub">A festa não para pra comer. Nem precisa.</p>
+    <p class="hero__sub">Uma noite mágica, sabores inesquecíveis.</p>
   </div>
 </header>
 
 <main class="wrap sec">
   <div class="sec__head">
     <p class="eyebrow sec__eyebrow">Comida de mão</p>
-    <h2 class="sec__title">Sabor que <em>acompanha</em></h2>
-    <p class="sec__lead">Comidinhas caprichadas pra comer com a mão, circulando pelo salão a festa inteira: sem prato, sem talher, sem precisar sentar. Ela dança, as amigas dançam, e o sabor vai junto.</p>
+    <h2 class="sec__title">A festa não para <em>pra comer</em></h2>
+    <p class="sec__lead">Comidinhas quentes circulando pelo salão, servidas na mão: sem prato, sem talher, sem precisar sentar. Ela dança, as amigas dançam, e o sabor vai junto.</p>
   </div>
   <div class="gal">
     <div class="gal__col">
       <figure class="frame frame--54">
-        <img class="frame__img" src="fotos/coq/mini-hamburguer-de-picanha-com-queijo-azul-e-c.jpg" alt="Mini hambúrguer de picanha com queijo azul" loading="lazy">
-        <figcaption class="frame__cap">Mini hambúrguer de picanha, foto do acervo</figcaption>
+        <img class="frame__img" src="fotos/ff/mini-hamburguer.jpg" alt="Mini hambúrguer" loading="lazy">
+        <figcaption class="frame__cap">Mini hambúrguer</figcaption>
       </figure>
     </div>
     <div class="gal__col">
       <figure class="frame frame--34">
-        <img class="frame__img" src="fotos/coq/dadinho-de-tapioca-com-geleia-de-pimenta.jpg" alt="Dadinho de tapioca com geleia de pimenta" loading="lazy">
-        <figcaption class="frame__cap">Dadinho de tapioca, foto do acervo</figcaption>
+        <img class="frame__img" src="fotos/ff/mini-churros.jpg" alt="Mini churros com chocolate quente" loading="lazy">
+        <figcaption class="frame__cap">Mini churros c/ chocolate quente</figcaption>
       </figure>
     </div>
   </div>
@@ -162,47 +211,39 @@ a{color:inherit;}
   <div class="band__in wrap">
     <p class="eyebrow band__eyebrow">Na festa dela</p>
     <h2 class="band__title">Boa de comer<br><em>dançando</em>.</h2>
-    <p class="band__note">É o formato que a galera dela ama: <strong>ninguém precisa sentar</strong> pra comer bem, e a pista não esvazia.</p>
+    <p class="band__note">É o formato que a turma dela ama: <strong>ninguém precisa sentar</strong> pra comer bem, e a pista não esvazia.</p>
   </div>
   <p class="band__cap">Foto de evento real</p>
 </section>
 
-<!-- vitrine -->
-<section class="stage">
-  <div class="stage__head">
-    <p class="eyebrow">Do nosso acervo</p>
-    <h2>Na palma da <em>mão</em></h2>
-    <p>Sabores do nosso acervo no espírito finger food: pequenos, caprichados e fáceis de comer em pé.</p>
-  </div>
-  <div class="stage__track">
-    <figure class="card"><img src="fotos/coq/mini-hamburguer-de-picanha-com-queijo-azul-e-c.jpg" alt="Mini hambúrguer de picanha" loading="lazy"><div class="card__meta"><p class="card__t">Mini hambúrguer de picanha</p><p class="card__s">Foto do nosso acervo</p></div></figure>
-    <figure class="card"><img src="fotos/coq/croquette-de-linguica-com-catupiry.jpg" alt="Croquette de linguiça com catupiry" loading="lazy"><div class="card__meta"><p class="card__t">Croquette de linguiça c/ catupiry</p><p class="card__s">Foto do nosso acervo</p></div></figure>
-    <figure class="card"><img src="fotos/coq/dadinho-de-tapioca-com-geleia-de-pimenta.jpg" alt="Dadinho de tapioca com geleia de pimenta" loading="lazy"><div class="card__meta"><p class="card__t">Dadinho de tapioca c/ geleia de pimenta</p><p class="card__s">Foto do nosso acervo</p></div></figure>
-    <figure class="card"><img src="fotos/coq/batata-rustica-com-fondue-de-queijos.jpg" alt="Batatas rústicas com fondue de queijos" loading="lazy"><div class="card__meta"><p class="card__t">Batatas rústicas c/ fondue de queijos</p><p class="card__s">Foto do nosso acervo</p></div></figure>
-    <figure class="card"><img src="fotos/coq/mini-cubos-de-frango-ao-molho-de-curry.jpg" alt="Mini cubos de frango ao molho de curry" loading="lazy"><div class="card__meta"><p class="card__t">Mini cubos de frango ao curry</p><p class="card__s">Foto do nosso acervo</p></div></figure>
-    <figure class="card"><img src="fotos/coq/mini-pastelzinho-de-carne-seca-com-catupiry.jpg" alt="Mini pastelzinho de carne seca com catupiry" loading="lazy"><div class="card__meta"><p class="card__t">Mini pastelzinho de carne seca</p><p class="card__s">Foto do nosso acervo</p></div></figure>
-    <figure class="card"><img src="fotos/coq/bolinho-de-peixe.jpg" alt="Bolinho de peixe" loading="lazy"><div class="card__meta"><p class="card__t">Bolinho de peixe</p><p class="card__s">Foto do nosso acervo</p></div></figure>
-    <figure class="card"><img src="fotos/coq/chips-de-batata-doce.jpg" alt="Chips de batata-doce" loading="lazy"><div class="card__meta"><p class="card__t">Chips de batata-doce</p><p class="card__s">Foto do nosso acervo</p></div></figure>
-    <figure class="card"><img src="fotos/coq/mini-churros.jpg" alt="Mini churros" loading="lazy"><div class="card__meta"><p class="card__t">Mini churros</p><p class="card__s">Foto do nosso acervo</p></div></figure>
-    <figure class="card"><img src="fotos/coq/mini-sorvete.jpg" alt="Mini sorvete" loading="lazy"><div class="card__meta"><p class="card__t">Mini sorvete</p><p class="card__s">Foto do nosso acervo</p></div></figure>
-    <figure class="card"><img src="fotos/coq/verrine-de-chocolate-com-frutas.jpg" alt="Verrine de chocolate com frutas" loading="lazy"><div class="card__meta"><p class="card__t">Verrine de chocolate c/ frutas</p><p class="card__s">Foto do nosso acervo</p></div></figure>
-  </div>
-  <p class="stage__hint">Deslize para o lado →</p>
-</section>
-
-<!-- pacotes -->
-<section class="wrap sec" id="pacotes">
+<!-- PACOTES -->
+<section class="menus wrap" id="pacotes">
   <div class="sec__head">
     <p class="eyebrow sec__eyebrow">Escolham o da festa</p>
     <h2 class="sec__title">Três <em>pacotes</em></h2>
-    <p class="sec__lead">O que muda de um pro outro é o tamanho da experiência: mais sabores circulando pela festa.</p>
+    <p class="sec__lead">O que muda de um pro outro é o tamanho da experiência: mais sabores circulando e mais tempo de serviço.</p>
   </div>
-  <div class="grid3">
-    <div class="pacote"><p class="pacote__nome">Finger Foods 1</p><p class="pacote__res">O ponto de partida</p></div>
-    <div class="pacote"><p class="pacote__nome">Finger Foods 2</p><p class="pacote__res">Mais sabores na festa</p></div>
-    <div class="pacote"><p class="pacote__nome">Finger Foods 3</p><p class="pacote__res">A experiência completa</p></div>
+  <div class="menus__grid" id="menusGrid" role="group" aria-label="Pacotes de finger foods"></div>
+
+  <div class="carrossel" id="carrossel">
+    <div class="carrossel__head">
+      <h3 class="carrossel__titulo">Na mão, o <em id="carrosselNome"></em></h3>
+      <p class="carrossel__hint">Deslize para o lado →</p>
+    </div>
+    <div class="track" id="track"></div>
   </div>
-  <p class="nota"><strong>O cardápio de cada pacote, item a item, e os valores, o nosso time apresenta com vocês.</strong> E tem também a versão infantil, pensada pros primos pequenos.</p>
+
+  <div class="cardapio__head">
+    <p class="cardapio__lbl" id="cardapioLbl"></p>
+    <button type="button" class="zoom" id="zoom" aria-pressed="false">
+      <span class="zoom__aa" aria-hidden="true">Aa</span>
+      <span class="zoom__off">Modo apresentação</span>
+      <span class="zoom__on">Voltar ao normal</span>
+    </button>
+  </div>
+  <div class="cardapio" id="cardapio"></div>
+
+  <p class="nota"><strong>Bom saber.</strong> A disponibilidade varia conforme o ambiente do evento, é só consultar o nosso time. As escolhas ficam registradas na Reunião Final, cerca de 30 dias antes. Os valores de tabela podem ser reajustados até a data do evento, mas quem já tem contrato fechado <strong>mantém os valores combinados</strong>. As fotos dos itens são ilustrativas.</p>
 </section>
 
 <section class="fim wrap">
@@ -222,5 +263,121 @@ a{color:inherit;}
     </div>
   </div>
 </footer>
+
+<div class="tierbar" id="tierbar">
+  <div class="tierbar__in">
+    <span class="tierbar__lbl">Pacote exibido</span>
+    <div class="tierbar__opts" id="tierbarOpts" role="group" aria-label="Trocar pacote"></div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   DADOS — PDF oficial "Cardápio Finger Food 15 Anos" (Drive,
+   arquivo 1Tu9-vvVAoTzfI9pd3UygUmYca2cmzUBC, matriz da pág. 19).
+   p1/p2/p3 = está incluso no Pacote 1 / 2 / 3.
+   ============================================================ */
+const ITENS = [
+  {n:'Batata frita c/ creme de cheddar e bacon', f:'batata-frita',        p:[1,1,1]},
+  {n:'Pipoca salgada',                           f:'pipoca',              p:[1,1,1]},
+  {n:'Mini hambúrguer',                          f:'mini-hamburguer',     p:[1,1,1]},
+  {n:'Mini churros c/ chocolate quente',         f:'mini-churros',        p:[1,1,1]},
+  {n:'Salgadinhos tradicionais diversos',        f:null,                  p:[1,1,1]},
+  {n:'Pão de queijo recheado c/ catupiry',       f:'pao-queijo-catupiry', p:[0,1,1]},
+  {n:'Coxinha de frango c/ catupiry quente',     f:'coxinha',             p:[0,1,1]},
+  {n:'Mini hot dog c/ salsicha Vienna',          f:'hot-dog',             p:[0,0,1]},
+  {n:'Fondue de chocolate c/ frutas',            f:'mini-fondue',         p:[0,0,1]},
+  {n:'Pão de queijo c/ Nutella',                 f:'pao-queijo-nutella',  p:[0,0,1]},
+  {n:'Mini casquinha de sorvete',                f:'mini-casquinha',      p:[0,0,1]},
+];
+const PACOTES = [
+  {id:'p1', nome:'Finger Foods 1', curto:'Pacote 1', preco:'R$ 90,00',  tempo:'120 minutos de serviço'},
+  {id:'p2', nome:'Finger Foods 2', curto:'Pacote 2', preco:'R$ 120,00', tempo:'120 minutos de serviço'},
+  {id:'p3', nome:'Finger Foods 3', curto:'Pacote 3', preco:'R$ 140,00', tempo:'150 minutos de serviço'},
+];
+const FOTO = f => 'fotos/ff/' + f + '.jpg';
+
+let atual = 'p3';
+
+/* cards do seletor + barra fixa */
+const grid = document.getElementById('menusGrid');
+const bar  = document.getElementById('tierbarOpts');
+PACOTES.forEach((p, i) => {
+  const n = ITENS.filter(it => it.p[i]).length;
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'nivel'; b.dataset.id = p.id; b.setAttribute('aria-pressed','false');
+  b.innerHTML = `<p class="nivel__nome">${p.nome}</p>
+    <p class="nivel__preco">${p.preco}<small>por pessoa</small></p>
+    <p class="nivel__res">${n} sabores<br>${p.tempo}</p>`;
+  b.addEventListener('click', () => selecionar(p.id, true));
+  grid.appendChild(b);
+
+  const t = document.createElement('button');
+  t.type = 'button'; t.className = 'tierbar__opt'; t.dataset.id = p.id; t.textContent = p.curto;
+  t.setAttribute('aria-pressed','false');
+  t.addEventListener('click', () => selecionar(p.id, false));
+  bar.appendChild(t);
+});
+
+function render(i){
+  const p = PACOTES[i];
+  document.getElementById('carrosselNome').textContent = p.nome;
+  document.getElementById('cardapioLbl').textContent = 'O que vem no ' + p.nome;
+
+  const dentro = ITENS.filter(it => it.p[i]);
+  const track = document.getElementById('track');
+  track.innerHTML = dentro.filter(it => it.f).map(it => `
+    <figure class="dish"><img src="${FOTO(it.f)}" alt="${it.n}" loading="lazy">
+      <figcaption class="dish__cap"><p class="dish__nome">${it.n}</p><p class="dish__tag">Foto ilustrativa</p></figcaption>
+    </figure>`).join('');
+  track.scrollLeft = 0;
+
+  /* a lista mostra TODOS os itens: os do pacote em destaque, os de fora apagados,
+     pra conversa de upgrade acontecer na tela ("no 3 entra também...") */
+  const linha = it => {
+    const tem = it.p[i];
+    return `<li class="${tem ? '' : 'fora'}">${it.n}<span class="marca">${tem ? '✓' : '·'}</span></li>`;
+  };
+  document.getElementById('cardapio').innerHTML = `
+    <div class="cat">
+      <div class="cat__head"><span class="cat__nome">Salgados</span></div>
+      <ul>${ITENS.slice(0,8).filter(it => !/churros|fondue|nutella|casquinha/i.test(it.n)).map(linha).join('')}</ul>
+    </div>
+    <div class="cat">
+      <div class="cat__head"><span class="cat__nome">Doces</span></div>
+      <ul>${ITENS.filter(it => /churros|fondue|nutella|casquinha/i.test(it.n)).map(linha).join('')}</ul>
+    </div>`;
+}
+
+function selecionar(id, rolar){
+  const i = Math.max(0, PACOTES.findIndex(p => p.id === id));
+  atual = PACOTES[i].id;
+  document.querySelectorAll('.nivel').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.id === atual)));
+  document.querySelectorAll('.tierbar__opt').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.id === atual)));
+  const alvos = [document.getElementById('track'), document.getElementById('cardapio')];
+  alvos.forEach(el => el.classList.add('trocando'));
+  setTimeout(() => { render(i); alvos.forEach(el => el.classList.remove('trocando')); }, 160);
+  if(rolar) document.getElementById('carrossel').scrollIntoView({behavior:'smooth', block:'start'});
+}
+selecionar(atual, false);
+
+/* ---- modo apresentação: letra grande pra reunião (fica salvo no navegador) ---- */
+const zoom = document.getElementById('zoom');
+function aplicarZoom(on){
+  document.body.classList.toggle('apresentar', on);
+  zoom.setAttribute('aria-pressed', String(on));
+  try{ localStorage.setItem('indaia-apresentar', on ? '1' : '0'); }catch(e){}
+}
+zoom.addEventListener('click', () => aplicarZoom(!document.body.classList.contains('apresentar')));
+try{ if(localStorage.getItem('indaia-apresentar') === '1') aplicarZoom(true); }catch(e){}
+
+/* ---- barra fixa aparece enquanto a seção de pacotes está na tela ---- */
+const tierbar = document.getElementById('tierbar');
+const zona = document.getElementById('pacotes');
+addEventListener('scroll', () => {
+  const y = window.scrollY + window.innerHeight * 0.5;
+  tierbar.classList.toggle('on', y > zona.offsetTop + 200 && y < zona.offsetTop + zona.offsetHeight);
+}, {passive:true});
+</script>
 </body>
 </html>

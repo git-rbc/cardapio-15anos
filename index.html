@@ -233,6 +233,35 @@ a{color:inherit;}
 .legenda span{display:inline-flex;align-items:center;gap:.45rem;}
 .legenda__txt{font-size:.78rem;letter-spacing:.02em;text-transform:none;color:var(--ink-soft);}
 
+/* ===== MODO APRESENTAÇÃO (letra grande pra reunião) =====
+   --cs escala a lista inteira; o minmax cresce junto, então as categorias
+   passam de 5 colunas apertadas pra 2/3 colunas largas sozinhas. */
+.cardapio__head{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  margin-top:clamp(1.5rem,4vh,2.5rem);}
+.cardapio__lbl{font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;color:var(--accent-txt);}
+.zoom{display:inline-flex;align-items:center;gap:.6rem;cursor:pointer;font-family:inherit;
+  background:none;border:1px solid var(--line-dark);color:var(--ink-soft);
+  font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:.65rem 1rem;transition:.3s;}
+.zoom:hover{border-color:var(--accent);color:var(--ink);}
+.zoom__aa{font-family:var(--serif);font-size:1.15rem;line-height:1;letter-spacing:0;color:var(--accent-txt);}
+body.apresentar .zoom{background:var(--accent);border-color:var(--accent);color:#fff;}
+body.apresentar .zoom__aa{color:#fff;}
+.zoom__on{display:none;}
+body.apresentar .zoom__off{display:none;}
+body.apresentar .zoom__on{display:inline;}
+body.apresentar .cardapio{grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(1.6rem,3vw,2.6rem);}
+body.apresentar .cat li{font-size:1.62rem;padding:.78rem 0;gap:.7rem;}
+body.apresentar .cat__nome{font-size:.95rem;letter-spacing:.22em;}
+body.apresentar .cat__n{font-size:.8rem;padding:.35rem .7rem;}
+body.apresentar .d{width:11px;height:11px;}
+body.apresentar .cat li .dots{gap:6px;}
+body.apresentar .legenda{font-size:.82rem;}
+body.apresentar .legenda__txt{font-size:1rem;}
+body.apresentar .dish{width:min(72vw,420px);}
+body.apresentar .dish__nome{font-size:1.7rem;}
+body.apresentar .dish__tag{font-size:.68rem;}
+body.apresentar .nota{font-size:1.02rem;max-width:78ch;}
+
 /* barra fixa do menu ativo */
 .tierbar{position:fixed;left:0;right:0;bottom:0;z-index:290;transform:translateY(105%);
   transition:transform .5s var(--ease);background:rgba(26,16,23,.94);backdrop-filter:blur(12px);color:var(--cream);
@@ -497,6 +526,14 @@ a{color:inherit;}
     <div class="track" id="track"></div>
   </div>
 
+  <div class="cardapio__head">
+    <p class="cardapio__lbl" id="cardapioLbl">O que vocês escolhem</p>
+    <button type="button" class="zoom" id="zoom" aria-pressed="false">
+      <span class="zoom__aa" aria-hidden="true">Aa</span>
+      <span class="zoom__off">Modo apresentação</span>
+      <span class="zoom__on">Voltar ao normal</span>
+    </button>
+  </div>
   <div class="cardapio" id="cardapio"></div>
 
   <div class="legenda">
@@ -2309,6 +2346,7 @@ const ioDish = new IntersectionObserver(es=>{
 
 function render(nv){
   document.getElementById('carrosselNome').textContent = nv.nome;
+  document.getElementById('cardapioLbl').textContent = 'O que vocês escolhem no ' + nv.nome;
 
   const track = document.getElementById('track');
   track.innerHTML = nv.fotos.map(([key,cap,pos])=>`
@@ -2339,6 +2377,16 @@ function selecionar(id, rolar){
   if(rolar) document.getElementById('carrossel').scrollIntoView({behavior:'smooth', block:'start'});
 }
 selecionar(atual,false);
+
+/* ---- modo apresentação: letra grande pra reunião (fica salvo no navegador) ---- */
+const zoom = document.getElementById('zoom');
+function aplicarZoom(on){
+  document.body.classList.toggle('apresentar', on);
+  zoom.setAttribute('aria-pressed', String(on));
+  try{ localStorage.setItem('indaia-apresentar', on ? '1' : '0'); }catch(e){}
+}
+zoom.addEventListener('click', ()=> aplicarZoom(!document.body.classList.contains('apresentar')));
+try{ if(localStorage.getItem('indaia-apresentar') === '1') aplicarZoom(true); }catch(e){}
 
 /* ---- barra fixa: aparece enquanto o cardápio está na tela ---- */
 const tierbar = document.getElementById('tierbar');

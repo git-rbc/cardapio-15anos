@@ -91,6 +91,27 @@ a{color:inherit;}
 .cat__nome{font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;}
 .cat ul{list-style:none;}
 .cat li{padding:.45rem 0;border-bottom:1px solid var(--line-dark);font-family:var(--serif);font-size:1rem;line-height:1.3;}
+/* ===== MODO APRESENTAÇÃO (letra grande pra reunião) ===== */
+.cardapio__head{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  margin-top:clamp(1.2rem,3vh,2rem);}
+.cardapio__lbl{font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--accent-txt);}
+.zoom{display:inline-flex;align-items:center;gap:.6rem;cursor:pointer;font-family:inherit;
+  background:none;border:1px solid var(--line-dark);color:var(--ink-soft);
+  font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:.65rem 1rem;transition:.3s;}
+.zoom:hover{border-color:var(--accent);color:var(--ink);}
+.zoom__aa{font-family:var(--serif);font-size:1.15rem;line-height:1;letter-spacing:0;color:var(--accent-txt);}
+body.apresentar .zoom{background:var(--accent);border-color:var(--accent);color:#fff;}
+body.apresentar .zoom__aa{color:#fff;}
+.zoom__on{display:none;}
+body.apresentar .zoom__off{display:none;}
+body.apresentar .zoom__on{display:inline;}
+body.apresentar .cardapio{grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(1.6rem,3vw,2.6rem);margin-top:1rem;}
+body.apresentar .cat li{font-size:1.62rem;padding:.75rem 0;}
+body.apresentar .cat__nome{font-size:.95rem;letter-spacing:.22em;}
+body.apresentar .dish{width:min(72vw,420px);}
+body.apresentar .dish__nome{font-size:1.6rem;}
+body.apresentar .dish__tag{font-size:.68rem;}
+body.apresentar .nota{font-size:1.02rem;max-width:78ch;}
 .nota{margin-top:1.8rem;padding:1rem 1.2rem;border-left:2px solid var(--accent);background:rgba(208,110,143,.07);
   font-size:.84rem;line-height:1.7;color:var(--ink-soft);max-width:62ch;}
 .nota strong{color:var(--ink);font-weight:500;}
@@ -139,6 +160,14 @@ a{color:inherit;}
   </div>
   <div class="track" id="track"></div>
 
+  <div class="cardapio__head">
+    <p class="cardapio__lbl" id="cardapioLbl">O que vem no coquetel</p>
+    <button type="button" class="zoom" id="zoom" aria-pressed="false">
+      <span class="zoom__aa" aria-hidden="true">Aa</span>
+      <span class="zoom__off">Modo apresentação</span>
+      <span class="zoom__on">Voltar ao normal</span>
+    </button>
+  </div>
   <div class="cardapio" id="cardapio"></div>
 
   <p class="nota"><strong>Sem pressa.</strong> As escolhas são feitas na Reunião Final, cerca de 30 dias antes do evento, e podem ser alteradas até essa data sem qualquer transtorno. Consulte a disponibilidade de acordo com o ambiente do seu evento.</p>
@@ -808,6 +837,7 @@ function selecionar(id, rolar){
   atual = c.id;
   document.querySelectorAll('.pacote').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.id===c.id)));
   document.getElementById('nomeSel').textContent = c.nome;
+  document.getElementById('cardapioLbl').textContent = 'O que vem no ' + c.nome;
   const alvos=[document.getElementById('track'),document.getElementById('cardapio')];
   alvos.forEach(el=>el.classList.add('trocando'));
   setTimeout(()=>{
@@ -826,6 +856,16 @@ function selecionar(id, rolar){
   if(rolar) document.querySelector('.carrossel__head').scrollIntoView({behavior:'smooth',block:'start'});
 }
 selecionar(atual,false);
+
+/* ---- modo apresentação: letra grande pra reunião (fica salvo no navegador) ---- */
+const zoom = document.getElementById('zoom');
+function aplicarZoom(on){
+  document.body.classList.toggle('apresentar', on);
+  zoom.setAttribute('aria-pressed', String(on));
+  try{ localStorage.setItem('indaia-apresentar', on ? '1' : '0'); }catch(e){}
+}
+zoom.addEventListener('click', ()=> aplicarZoom(!document.body.classList.contains('apresentar')));
+try{ if(localStorage.getItem('indaia-apresentar') === '1') aplicarZoom(true); }catch(e){}
 </script>
 </body>
 </html>
