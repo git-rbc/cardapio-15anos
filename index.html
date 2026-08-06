@@ -84,8 +84,7 @@ a{color:inherit;}
              linear-gradient(180deg,rgba(18,10,16,.5),transparent 26%,var(--night) 100%);}
 .overture__in{position:relative;z-index:2;padding:7rem var(--pad) 4rem;max-width:var(--maxw);margin-inline:auto;width:100%;}
 .overture__logo{height:34px;width:auto;margin-bottom:2.2rem;opacity:.95;}
-.overture__kicker{color:var(--accent);margin-bottom:1.6rem;display:flex;gap:1rem;align-items:center;}
-.overture__kicker::before{content:"";width:44px;height:1px;background:var(--accent);}
+.overture__kicker{color:var(--accent);margin-bottom:1.6rem;}
 .hero-title{font-family:var(--serif);font-weight:400;line-height:.9;font-size:clamp(3.4rem,14vw,10rem);letter-spacing:.005em;text-transform:uppercase;}
 .hero-title .row{display:block;overflow:hidden;}
 .hero-title .row i{display:inline-block;font-style:normal;transform:translateY(115%);}
@@ -117,8 +116,7 @@ a{color:inherit;}
 /* ===== HISTÓRIA ===== */
 .statement{position:relative;}
 .statement__pin{min-height:92vh;min-height:92svh;display:flex;align-items:center;padding-block:4rem;}
-.statement__eyebrow{color:var(--accent-txt);margin-bottom:2.2rem;display:flex;gap:1rem;align-items:center;}
-.statement__eyebrow::before{content:"";width:44px;height:1px;background:var(--accent);}
+.statement__eyebrow{color:var(--accent-txt);margin-bottom:2.2rem;}
 .statement__text{font-family:var(--serif);font-weight:400;line-height:1.22;
   font-size:clamp(1.6rem,4.2vw,3.2rem);max-width:30ch;letter-spacing:-.01em;}
 .statement__text .w{transition:opacity .3s linear;}
@@ -209,58 +207,39 @@ a{color:inherit;}
 .dish__tag{font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;opacity:.85;}
 .trocando{opacity:.25;transition:opacity .25s;}
 
-/* ===== MENUS: LISTAS COMPACTAS ===== */
-.cardapio{margin-top:clamp(1.5rem,4vh,2.5rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:clamp(1.4rem,2.5vw,2.2rem);}
-/* desktop: todas as categorias na MESMA linha (auto-fit c/ min 0 = 1 coluna por
-   categoria, mesmo o Superior tendo 4 e os demais 5) */
-@media(min-width:1080px){
-  .cardapio{grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:clamp(1rem,1.7vw,1.7rem);}
-  .cat li{font-size:.95rem;gap:.4rem;}
-  .cat__nome{font-size:.6rem;letter-spacing:.18em;}
-  .cat__n{font-size:.54rem;padding:.22rem .42rem;}
-}
-.cat__head{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;border-top:1px solid var(--ink);padding-top:.8rem;margin-bottom:.4rem;}
-.cat__nome{font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;}
-.cat__n{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-txt);white-space:nowrap;border:1px solid var(--accent);padding:.25rem .5rem;}
+/* ===== MENUS: CARDÁPIO GRANDE QUE ROLA PRO LADO =====
+   Uma categoria por painel, tipo grande: dá pra ler de longe numa reunião,
+   e as outras categorias vêm rolando pro lado. */
+.cardapio__head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  margin-top:clamp(2rem,5vh,3rem);}
+.cardapio__lbl{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.2rem);}
+.cardapio__lbl em{font-style:italic;color:var(--accent-txt);}
+.cardapio__hint{font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-mute-txt);}
+.setas{display:flex;gap:.5rem;align-items:center;}
+.seta{width:46px;height:46px;display:flex;align-items:center;justify-content:center;cursor:pointer;
+  background:none;border:1px solid var(--line-dark);color:var(--ink-soft);transition:.3s;}
+.seta:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
+.seta svg{width:18px;height:18px;}
+.seta[disabled]{opacity:.25;cursor:default;}
+.seta[disabled]:hover{background:none;border-color:var(--line-dark);color:var(--ink-soft);}
+.cardapio{display:flex;gap:clamp(1.6rem,3.5vw,3rem);overflow-x:auto;scroll-snap-type:x mandatory;
+  margin-top:1.2rem;padding-bottom:1.6rem;scrollbar-width:thin;scrollbar-color:var(--accent) transparent;}
+.cardapio::-webkit-scrollbar{height:4px;}
+.cardapio::-webkit-scrollbar-thumb{background:var(--accent);}
+.cat{flex:0 0 auto;width:min(88vw,600px);scroll-snap-align:start;}
+.cat__head{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;border-top:2px solid var(--ink);padding-top:.9rem;margin-bottom:.5rem;}
+.cat__nome{font-size:.95rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;}
+.cat__n{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-txt);white-space:nowrap;border:1px solid var(--accent);padding:.32rem .65rem;}
 .cat ul{list-style:none;}
-.cat li{display:flex;align-items:baseline;gap:.5rem;padding:.5rem 0;border-bottom:1px solid var(--line-dark);
-  font-family:var(--serif);font-size:1.02rem;line-height:1.3;}
-.cat li .dots{margin-left:auto;display:inline-flex;gap:4px;flex-shrink:0;transform:translateY(-1px);}
-.d{width:7px;height:7px;border-radius:50%;display:inline-block;}
+.cat li{display:flex;align-items:baseline;gap:.7rem;padding:.78rem 0;border-bottom:1px solid var(--line-dark);
+  font-family:var(--serif);font-size:1.62rem;line-height:1.28;}
+.cat li .dots{margin-left:auto;display:inline-flex;gap:6px;flex-shrink:0;transform:translateY(-2px);}
+.d{width:11px;height:11px;border-radius:50%;display:inline-block;}
 .d--sg{background:var(--sg);}.d--sl{background:var(--sl);}.d--vg{background:var(--vg);}
 .legenda{margin-top:1.6rem;display:flex;gap:1.2rem 1.6rem;flex-wrap:wrap;align-items:center;
-  font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute-txt);}
-.legenda span{display:inline-flex;align-items:center;gap:.45rem;}
-.legenda__txt{font-size:.78rem;letter-spacing:.02em;text-transform:none;color:var(--ink-soft);}
-
-/* ===== MODO APRESENTAÇÃO (letra grande pra reunião) =====
-   --cs escala a lista inteira; o minmax cresce junto, então as categorias
-   passam de 5 colunas apertadas pra 2/3 colunas largas sozinhas. */
-.cardapio__head{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
-  margin-top:clamp(1.5rem,4vh,2.5rem);}
-.cardapio__lbl{font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;color:var(--accent-txt);}
-.zoom{display:inline-flex;align-items:center;gap:.6rem;cursor:pointer;font-family:inherit;
-  background:none;border:1px solid var(--line-dark);color:var(--ink-soft);
-  font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:.65rem 1rem;transition:.3s;}
-.zoom:hover{border-color:var(--accent);color:var(--ink);}
-.zoom__aa{font-family:var(--serif);font-size:1.15rem;line-height:1;letter-spacing:0;color:var(--accent-txt);}
-body.apresentar .zoom{background:var(--accent);border-color:var(--accent);color:#fff;}
-body.apresentar .zoom__aa{color:#fff;}
-.zoom__on{display:none;}
-body.apresentar .zoom__off{display:none;}
-body.apresentar .zoom__on{display:inline;}
-body.apresentar .cardapio{grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(1.6rem,3vw,2.6rem);}
-body.apresentar .cat li{font-size:1.62rem;padding:.78rem 0;gap:.7rem;}
-body.apresentar .cat__nome{font-size:.95rem;letter-spacing:.22em;}
-body.apresentar .cat__n{font-size:.8rem;padding:.35rem .7rem;}
-body.apresentar .d{width:11px;height:11px;}
-body.apresentar .cat li .dots{gap:6px;}
-body.apresentar .legenda{font-size:.82rem;}
-body.apresentar .legenda__txt{font-size:1rem;}
-body.apresentar .dish{width:min(72vw,420px);}
-body.apresentar .dish__nome{font-size:1.7rem;}
-body.apresentar .dish__tag{font-size:.68rem;}
-body.apresentar .nota{font-size:1.02rem;max-width:78ch;}
+  font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute-txt);}
+.legenda span{display:inline-flex;align-items:center;gap:.5rem;}
+.legenda__txt{font-size:1rem;letter-spacing:.02em;text-transform:none;color:var(--ink-soft);}
 
 /* barra fixa do menu ativo */
 .tierbar{position:fixed;left:0;right:0;bottom:0;z-index:290;transform:translateY(105%);
@@ -282,8 +261,7 @@ body.apresentar .nota{font-size:1.02rem;max-width:78ch;}
 .band.in .band__img{transform:scale(1.02);}
 .band__scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,10,16,.5) 0%,rgba(18,10,16,.05) 30%,rgba(18,10,16,.86) 100%);}
 .band__in{position:relative;z-index:2;width:100%;padding-bottom:clamp(3rem,8vh,6rem);}
-.band__eyebrow{color:var(--accent);margin-bottom:1rem;display:flex;gap:1rem;align-items:center;}
-.band__eyebrow::before{content:"";width:40px;height:1px;background:var(--accent);}
+.band__eyebrow{color:var(--accent);margin-bottom:1rem;}
 .band__title{font-family:var(--serif);font-weight:400;line-height:.96;font-size:clamp(2.6rem,8.4vw,6.4rem);letter-spacing:-.005em;}
 .band__title em{font-style:italic;color:var(--accent);}
 .band__note{margin-top:1.4rem;max-width:54ch;font-size:.88rem;line-height:1.8;color:rgba(245,233,236,.75);}
@@ -527,12 +505,16 @@ body.apresentar .nota{font-size:1.02rem;max-width:78ch;}
   </div>
 
   <div class="cardapio__head">
-    <p class="cardapio__lbl" id="cardapioLbl">O que vocês escolhem</p>
-    <button type="button" class="zoom" id="zoom" aria-pressed="false">
-      <span class="zoom__aa" aria-hidden="true">Aa</span>
-      <span class="zoom__off">Modo apresentação</span>
-      <span class="zoom__on">Voltar ao normal</span>
-    </button>
+    <h3 class="cardapio__lbl" id="cardapioLbl">O que vocês escolhem</h3>
+    <div class="setas">
+      <p class="cardapio__hint">Deslize para o lado</p>
+      <button type="button" class="seta" id="setaEsq" aria-label="Categoria anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </button>
+      <button type="button" class="seta" id="setaDir" aria-label="Próxima categoria">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
   </div>
   <div class="cardapio" id="cardapio"></div>
 
@@ -2346,7 +2328,7 @@ const ioDish = new IntersectionObserver(es=>{
 
 function render(nv){
   document.getElementById('carrosselNome').textContent = nv.nome;
-  document.getElementById('cardapioLbl').textContent = 'O que vocês escolhem no ' + nv.nome;
+  document.getElementById('cardapioLbl').innerHTML = 'O que vocês escolhem no <em>' + nv.nome + '</em>';
 
   const track = document.getElementById('track');
   track.innerHTML = nv.fotos.map(([key,cap,pos])=>`
@@ -2378,15 +2360,25 @@ function selecionar(id, rolar){
 }
 selecionar(atual,false);
 
-/* ---- modo apresentação: letra grande pra reunião (fica salvo no navegador) ---- */
-const zoom = document.getElementById('zoom');
-function aplicarZoom(on){
-  document.body.classList.toggle('apresentar', on);
-  zoom.setAttribute('aria-pressed', String(on));
-  try{ localStorage.setItem('indaia-apresentar', on ? '1' : '0'); }catch(e){}
+/* ---- setas do cardápio: rolam de categoria em categoria ---- */
+const cardapioEl = document.getElementById('cardapio');
+const setaEsq = document.getElementById('setaEsq'), setaDir = document.getElementById('setaDir');
+function passo(){
+  const cat = cardapioEl.querySelector('.cat');
+  if(!cat) return 400;
+  const gap = parseFloat(getComputedStyle(cardapioEl).columnGap) || 24;
+  return cat.getBoundingClientRect().width + gap;
 }
-zoom.addEventListener('click', ()=> aplicarZoom(!document.body.classList.contains('apresentar')));
-try{ if(localStorage.getItem('indaia-apresentar') === '1') aplicarZoom(true); }catch(e){}
+function estadoSetas(){
+  const max = cardapioEl.scrollWidth - cardapioEl.clientWidth - 4;
+  setaEsq.disabled = cardapioEl.scrollLeft <= 4;
+  setaDir.disabled = cardapioEl.scrollLeft >= max;
+}
+setaEsq.addEventListener('click', ()=> cardapioEl.scrollBy({left:-passo(), behavior:'smooth'}));
+setaDir.addEventListener('click', ()=> cardapioEl.scrollBy({left: passo(), behavior:'smooth'}));
+cardapioEl.addEventListener('scroll', estadoSetas, {passive:true});
+addEventListener('resize', estadoSetas, {passive:true});
+setTimeout(estadoSetas, 300);
 
 /* ---- barra fixa: aparece enquanto o cardápio está na tela ---- */
 const tierbar = document.getElementById('tierbar');
