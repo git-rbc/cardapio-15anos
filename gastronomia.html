@@ -32,7 +32,9 @@ a{color:inherit;}
 .eyebrow{font-size:.68rem;letter-spacing:.34em;text-transform:uppercase;font-weight:500;color:var(--accent);}
 h1{font-family:var(--serif);font-weight:400;line-height:1.05;font-size:clamp(1.9rem,5vw,4.1rem);margin-top:.8rem;white-space:nowrap;}
 h1 em{font-style:italic;color:var(--accent);}
-.head p{margin:1.1rem auto 0;color:rgba(245,233,236,.7);font-size:clamp(.85rem,1.6vw,1rem);white-space:nowrap;}
+.head__emo{margin:1.4rem auto 0;max-width:56ch;color:rgba(245,233,236,.88);
+  font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,2.1vw,1.45rem);line-height:1.45;}
+.head__fn{margin:1rem auto 0;color:rgba(245,233,236,.6);font-size:clamp(.8rem,1.5vw,.92rem);}
 .bloco{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);width:100%;}
 .bloco__label{margin:clamp(1.5rem,4vh,2.5rem) 0 1.2rem;
   font-size:.68rem;letter-spacing:.34em;text-transform:uppercase;font-weight:500;color:var(--accent);}
@@ -52,7 +54,7 @@ h1 em{font-style:italic;color:var(--accent);}
 .exp__s{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-top:.45rem;}
 .rodape{margin-top:auto;padding:1.6rem var(--pad) 2rem;text-align:center;font-size:.62rem;letter-spacing:.14em;
   text-transform:uppercase;color:rgba(245,233,236,.4);border-top:1px solid var(--line-light);}
-@media(max-width:600px){h1{white-space:normal;}.head p{white-space:normal;}}
+@media(max-width:600px){h1{white-space:normal;}}
 @media(prefers-reduced-motion:reduce){.exp,.exp img{transition:none;}}
 </style>
 </head>
@@ -63,8 +65,9 @@ h1 em{font-style:italic;color:var(--accent);}
 
 <header class="head">
   <p class="eyebrow">Gastronomia Indaiá · 15 Anos</p>
-  <h1>O sabor da <em>festa dela</em></h1>
-  <p>Comida e bebida pensadas pra festa de 15.</p>
+  <h1>Um dia só, <em>pra vida inteira</em></h1>
+  <p class="head__emo">A menininha da mamãe e do papai chega aos quinze. É uma tradição que atravessa gerações e acontece uma vez só na vida dela, do jeito que ela sonhou desde pequena.</p>
+  <p class="head__fn">A comida e a bebida dessa noite, num lugar só.</p>
 </header>
 
 <main class="bloco">
@@ -87,12 +90,12 @@ h1 em{font-style:italic;color:var(--accent);}
   <p class="bloco__label">Bebidas</p>
   <div class="grade grade--beb">
     <a class="exp" href="open-bar.html">
-      <img src="fotos/beb-openbar.jpg" alt="Bebidas geladas do open bar">
+      <img src="fotos/beb-openbar.jpg" alt="Torre de taças montada no salão da festa">
       <div class="exp__meta"><p class="exp__t">Open Bar</p><p class="exp__s">Conhecer →</p></div>
     </a>
     <a class="exp" href="open-drinks.html">
-      <img src="fotos/beb-drinks.jpg" alt="Drinks coloridos em taças de vidro">
-      <div class="exp__meta"><p class="exp__t">Open Drinks</p><p class="exp__s">Conhecer →</p></div>
+      <img src="fotos/beb-drinks.jpg" alt="Drinks coloridos servidos em taças e copos de vidro">
+      <div class="exp__meta"><p class="exp__t">Open Drinks</p><p class="exp__s">Ver as quatro cartas →</p></div>
     </a>
   </div>
   <div class="fecho"></div>

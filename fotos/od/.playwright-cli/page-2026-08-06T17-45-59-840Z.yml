@@ -1,0 +1,492 @@
+- generic [active] [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#conteudo"
+  - navigation [ref=e3]:
+    - link "Início" [ref=e4] [cursor=pointer]:
+      - /url: "#topo"
+      - img "Eventos Indaiá" [ref=e5]
+    - generic [ref=e6]:
+      - generic [ref=e7]:
+        - link "A experiência" [ref=e8] [cursor=pointer]:
+          - /url: "#experiencia"
+        - link "Pacotes" [ref=e9] [cursor=pointer]:
+          - /url: "#pacotes"
+        - link "Sem álcool" [ref=e10] [cursor=pointer]:
+          - /url: "#semalcool"
+        - link "Valores" [ref=e11] [cursor=pointer]:
+          - /url: "#valores"
+        - link "Como funciona" [ref=e12] [cursor=pointer]:
+          - /url: "#regras"
+      - link "Escolher nosso open" [ref=e13] [cursor=pointer]:
+        - /url: "#fechamento"
+  - banner [ref=e14]:
+    - img "Brinde dos convidados erguendo as taças" [ref=e15]
+    - generic [ref=e17]:
+      - img "Eventos Indaiá" [ref=e18]
+      - paragraph [ref=e19]: Open Bar de Drinks
+      - heading "O brinde que fica" [level=1] [ref=e20]:
+        - generic [ref=e21]: O BRINDE
+        - generic [ref=e23]: que fica
+      - paragraph [ref=e25]: Uma carta de drinks servida na mão, do primeiro brinde à última música.
+      - generic [ref=e26]:
+        - link "Ver os pacotes" [ref=e27] [cursor=pointer]:
+          - /url: "#pacotes"
+        - link "Como funciona" [ref=e30] [cursor=pointer]:
+          - /url: "#regras"
+    - paragraph [ref=e31]: Role
+  - main [ref=e33]:
+    - generic [ref=e36]:
+      - paragraph [ref=e37]: A festa inteira brinda
+      - paragraph [ref=e38]: "O drink encontra o convidado: na mesa, na pista, no meio de uma risada. Sem fila. Só brindar."
+    - generic [ref=e40]:
+      - generic [ref=e41]: B
+      - generic [ref=e42]: r
+      - generic [ref=e43]: i
+      - generic [ref=e44]: "n"
+      - generic [ref=e45]: d
+      - generic [ref=e46]: e
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - generic [ref=e49]:
+          - generic [ref=e50]: "01"
+          - paragraph [ref=e51]: A experiência
+        - heading [level=2] [ref=e52]:
+          - text: Servido na
+          - emphasis [ref=e53]: mão
+        - paragraph [ref=e54]: "Serviço volante: os garçons levam os drinks até os convidados, em taças e copos de vidro."
+      - generic [ref=e55]:
+        - figure "Serviço volante, foto real" [ref=e57]:
+          - img "Bandeja de drinks servida no salão" [ref=e58]
+        - figure "Taça de vidro, fruta de verdade" [ref=e61]:
+          - img "Drink servido em taça de vidro com flor" [ref=e62]
+      - list [ref=e64]:
+        - listitem [ref=e65]:
+          - heading "Sem fila" [level=3] [ref=e70]
+          - paragraph [ref=e71]:
+            - text: O drink vai até
+            - strong [ref=e72]: a mesa e a pista
+            - text: . Ninguém perde a festa.
+        - listitem [ref=e73]:
+          - heading "Sempre um sabor novo" [level=3] [ref=e77]
+          - paragraph [ref=e78]:
+            - text: O copo é trocado
+            - strong [ref=e79]: sem precisar pedir
+            - text: . A surpresa faz parte.
+        - listitem [ref=e80]:
+          - heading "Capricho de bar" [level=3] [ref=e85]
+          - paragraph [ref=e86]:
+            - text: Fruta de verdade, gelo cheio e
+            - strong [ref=e87]: a taça certa
+            - text: pra cada receita.
+    - generic [ref=e88]:
+      - img "Bartender preparando drinks na festa" [ref=e89]
+      - generic [ref=e91]:
+        - paragraph [ref=e92]: Serviço volante
+        - heading [level=2] [ref=e93]:
+          - text: O drink encontraa
+          - emphasis [ref=e94]: festa
+          - text: .
+        - paragraph [ref=e95]:
+          - text: Na mesa ou na pista, sempre gelado, sempre na taça certa.
+          - strong [ref=e96]: É disso que os convidados falam depois.
+      - paragraph [ref=e97]: Foto de evento real
+    - generic [ref=e98]:
+      - generic [ref=e99]:
+        - paragraph [ref=e100]: Do nosso acervo
+        - heading [level=2] [ref=e101]:
+          - text: De verdade,
+          - emphasis [ref=e102]: na taça
+      - generic [ref=e103]:
+        - figure [ref=e104]:
+          - img "Três drinks da casa no bar" [ref=e105]
+          - generic [ref=e106]:
+            - paragraph [ref=e107]: Drinks da casa
+            - paragraph [ref=e108]: Foto do nosso acervo
+        - figure [ref=e109]:
+          - img "Caipirinha de limão" [ref=e110]
+          - generic [ref=e111]:
+            - paragraph [ref=e112]: Caipirinha de limão
+            - paragraph [ref=e113]: Foto do nosso acervo
+        - figure [ref=e114]:
+          - img "Caipirinha de morango" [ref=e115]
+          - generic [ref=e116]:
+            - paragraph [ref=e117]: Caipirinha de morango
+            - paragraph [ref=e118]: Foto do nosso acervo
+        - figure [ref=e119]:
+          - img "Caipirinha de uva" [ref=e120]
+          - generic [ref=e121]:
+            - paragraph [ref=e122]: Caipirinha de uva
+            - paragraph [ref=e123]: Foto do nosso acervo
+        - figure [ref=e124]:
+          - img "Cascata de Negroni em fonte de cobre com laranjas" [ref=e125]
+          - generic [ref=e126]:
+            - paragraph [ref=e127]: Cascata de Negroni
+            - paragraph [ref=e128]: Experiência adicional
+        - figure [ref=e129]:
+          - img "Cascata de Negroni montada no salão" [ref=e130]
+          - generic [ref=e131]:
+            - paragraph [ref=e132]: Cascata no salão
+            - paragraph [ref=e133]: Foto de evento real
+      - paragraph [ref=e134]: Deslize para o lado →
+    - generic [ref=e135]:
+      - generic [ref=e136]:
+        - generic [ref=e137]:
+          - generic [ref=e138]: "02"
+          - paragraph [ref=e139]: Escolham o de vocês
+        - heading [level=2] [ref=e140]:
+          - text: Quatro
+          - emphasis [ref=e141]: cartas
+        - paragraph [ref=e142]: "O serviço é o mesmo nas quatro: volante, à vontade, 8 horas. O que muda é o tamanho da carta."
+      - group "Pacotes de open de drinks" [ref=e143]:
+        - button [ref=e144] [cursor=pointer]:
+          - paragraph [ref=e145]: Open Classic
+          - paragraph [ref=e146]: a partir de R$ 79,00por pessoa
+          - paragraph [ref=e147]: 10 drinks na carta6 também sem álcool
+          - paragraph [ref=e148]: A carta que abre a experiência
+        - button [ref=e149] [cursor=pointer]:
+          - paragraph [ref=e150]: Open Premium
+          - paragraph [ref=e151]: a partir de R$ 89,00por pessoa
+          - paragraph [ref=e152]: 12 drinks na carta6 também sem álcool
+          - paragraph [ref=e153]: Tudo do Classic + Aperol Spritz e Cuba Libre
+        - button [pressed] [ref=e154] [cursor=pointer]:
+          - paragraph [ref=e155]: Open Extra Premium
+          - paragraph [ref=e156]: a partir de R$ 99,00por pessoa
+          - paragraph [ref=e157]: 19 drinks na carta12 também sem álcool
+          - paragraph [ref=e158]: Tudo do Premium + as seis caipirinhas e Penicillin
+          - text: Selecionado
+        - button [ref=e159] [cursor=pointer]:
+          - paragraph [ref=e160]: Open Luxo
+          - paragraph [ref=e161]: a partir de R$ 119,00por pessoa
+          - paragraph [ref=e162]: 23 drinks na carta12 também sem álcool
+          - paragraph [ref=e163]: Tudo do Extra Premium + Carajillo, Garibaldi, Margarita e Whiskey Sour
+      - generic [ref=e164]:
+        - generic [ref=e165]:
+          - heading [level=3] [ref=e166]:
+            - text: Na taça, o
+            - emphasis [ref=e167]: Open Extra Premium
+          - paragraph [ref=e168]: Deslize para o lado →
+        - generic [ref=e169]:
+          - figure [ref=e170]:
+            - img "Ilustração do drink Bourbon Peach" [ref=e172]
+            - generic [ref=e183]:
+              - paragraph [ref=e184]: Bourbon Peach
+              - paragraph [ref=e185]: Whiskey Bourbon, limão, xarope de pêssego, hortelã e zest de limão siciliano
+              - paragraph [ref=e186]: Também sem álcool
+          - figure [ref=e187]:
+            - img "Ilustração do drink Cosmopolitan" [ref=e189]
+            - generic [ref=e196]:
+              - paragraph [ref=e197]: Cosmopolitan
+              - paragraph [ref=e198]: Vodka, limão, licor de laranja, suco de cranberry e zest de laranja
+          - figure [ref=e199]:
+            - img "Ilustração do drink Gin Tônica Clássico" [ref=e201]
+            - generic [ref=e237]:
+              - paragraph [ref=e238]: Gin Tônica Clássico
+              - paragraph [ref=e239]: Gin, tônica, limão siciliano, zest de laranja e alecrim
+              - paragraph [ref=e240]: Também sem álcool
+          - figure [ref=e241]:
+            - img "Ilustração do drink Gin Tônica Maracujá" [ref=e243]
+            - generic [ref=e273]:
+              - paragraph [ref=e274]: Gin Tônica Maracujá
+              - paragraph [ref=e275]: Gin, tônica, maracujá e alecrim
+              - paragraph [ref=e276]: Também sem álcool
+          - figure [ref=e277]:
+            - img "Ilustração do drink Gin Tônica Morango" [ref=e279]
+            - generic [ref=e299]:
+              - paragraph [ref=e300]: Gin Tônica Morango
+              - paragraph [ref=e301]: Gin, morango, zest de limão siciliano e alecrim
+              - paragraph [ref=e302]: Também sem álcool
+          - figure [ref=e303]:
+            - img "Ilustração do drink Strawberry Julep Cremoso" [ref=e305]
+            - generic [ref=e317]:
+              - paragraph [ref=e318]: Strawberry Julep Cremoso
+              - paragraph [ref=e319]: Whiskey Bourbon, limão, morango, xarope de açúcar, hortelã e espuma de gengibre
+          - figure [ref=e320]:
+            - img "Ilustração do drink New York Sour" [ref=e322]
+            - generic [ref=e330]:
+              - paragraph [ref=e331]: New York Sour
+              - paragraph [ref=e332]: Whiskey Bourbon, limão, xarope de açúcar e float de vinho tinto
+          - figure [ref=e333]:
+            - img "Ilustração do drink Moscow Mule" [ref=e335]
+            - generic [ref=e348]:
+              - paragraph [ref=e349]: Moscow Mule
+              - paragraph [ref=e350]: Vodka, limão, xarope de gengibre, água com gás e espuma de gengibre
+              - paragraph [ref=e351]: Também sem álcool
+          - figure [ref=e352]:
+            - img "Ilustração do drink Negroni" [ref=e354]
+            - generic [ref=e367]:
+              - paragraph [ref=e368]: Negroni
+              - paragraph [ref=e369]: Gin, campari, vermute e zest de laranja
+          - figure [ref=e370]:
+            - img "Ilustração do drink Mojito" [ref=e372]
+            - generic [ref=e390]:
+              - paragraph [ref=e391]: Mojito
+              - paragraph [ref=e392]: Rum, limão, xarope de açúcar, hortelã e água com gás
+              - paragraph [ref=e393]: Também sem álcool
+          - figure [ref=e394]:
+            - img "Ilustração do drink Aperol Spritz" [ref=e396]
+            - generic [ref=e432]:
+              - paragraph [ref=e433]: Aperol Spritz
+              - paragraph [ref=e434]: Aperol, espumante brut, água com gás, laranja bahia e alecrim
+          - figure [ref=e435]:
+            - img "Ilustração do drink Cuba Libre" [ref=e437]
+            - generic [ref=e457]:
+              - paragraph [ref=e458]: Cuba Libre
+              - paragraph [ref=e459]: Rum, limão e coca-cola
+          - figure [ref=e460]:
+            - img "Caipirinha de Limão" [ref=e461]
+            - generic [ref=e462]:
+              - paragraph [ref=e463]: Caipirinha de Limão
+              - paragraph [ref=e464]: Vodka ou cachaça, limão e cordial de limão
+              - paragraph [ref=e465]: Também sem álcool
+              - paragraph [ref=e466]: Foto do nosso acervo
+          - figure [ref=e467]:
+            - img "Ilustração do drink Caipirinha de Limão Siciliano" [ref=e469]
+            - generic [ref=e482]:
+              - paragraph [ref=e483]: Caipirinha de Limão Siciliano
+              - paragraph [ref=e484]: Vodka ou cachaça, limão siciliano e cordial de limão
+              - paragraph [ref=e485]: Também sem álcool
+          - figure [ref=e486]:
+            - img "Caipirinha de Morango" [ref=e487]
+            - generic [ref=e488]:
+              - paragraph [ref=e489]: Caipirinha de Morango
+              - paragraph [ref=e490]: Vodka ou cachaça, morango, cordial de morango e alecrim
+              - paragraph [ref=e491]: Também sem álcool
+              - paragraph [ref=e492]: Foto do nosso acervo
+          - figure [ref=e493]:
+            - img "Ilustração do drink Caipirinha de Maracujá" [ref=e495]
+            - generic [ref=e518]:
+              - paragraph [ref=e519]: Caipirinha de Maracujá
+              - paragraph [ref=e520]: Vodka ou cachaça, maracujá, cordial de maracujá e alecrim
+              - paragraph [ref=e521]: Também sem álcool
+          - figure [ref=e522]:
+            - img "Caipirinha de Uva" [ref=e523]
+            - generic [ref=e524]:
+              - paragraph [ref=e525]: Caipirinha de Uva
+              - paragraph [ref=e526]: Vodka ou cachaça, uva niágara e cordial de uva
+              - paragraph [ref=e527]: Também sem álcool
+              - paragraph [ref=e528]: Foto do nosso acervo
+          - figure [ref=e529]:
+            - img "Ilustração do drink Caipirinha de Vinho" [ref=e531]
+            - generic [ref=e544]:
+              - paragraph [ref=e545]: Caipirinha de Vinho
+              - paragraph [ref=e546]: Vinho tinto, limão e cordial de limão
+              - paragraph [ref=e547]: Também sem álcool
+          - figure [ref=e548]:
+            - img "Ilustração do drink Penicillin" [ref=e550]
+            - generic [ref=e563]:
+              - paragraph [ref=e564]: Penicillin
+              - paragraph [ref=e565]: Whisky Scotch, limão, xarope de gengibre e mel
+      - generic [ref=e566]:
+        - generic [ref=e567]:
+          - generic [ref=e568]: A carta completa do Open Extra Premium
+          - generic [ref=e569]: 19 drinks
+        - list [ref=e570]:
+          - listitem [ref=e571]: Bourbon Peach
+          - listitem [ref=e574]: Cosmopolitan
+          - listitem [ref=e575]: Gin Tônica Clássico
+          - listitem [ref=e578]: Gin Tônica Maracujá
+          - listitem [ref=e581]: Gin Tônica Morango
+          - listitem [ref=e584]: Strawberry Julep Cremoso
+          - listitem [ref=e585]: New York Sour
+          - listitem [ref=e586]: Moscow Mule
+          - listitem [ref=e589]: Negroni
+          - listitem [ref=e590]: Mojito
+          - listitem [ref=e593]: Aperol Spritz
+          - listitem [ref=e594]: Cuba Libre
+          - listitem [ref=e595]: Caipirinha de Limão
+          - listitem [ref=e598]: Caipirinha de Limão Siciliano
+          - listitem [ref=e601]: Caipirinha de Morango
+          - listitem [ref=e604]: Caipirinha de Maracujá
+          - listitem [ref=e607]: Caipirinha de Uva
+          - listitem [ref=e610]: Caipirinha de Vinho
+          - listitem [ref=e613]: Penicillin
+      - generic [ref=e614]:
+        - paragraph [ref=e615]: "A bolinha dourada marca os drinks que também existem em versão sem álcool:"
+        - generic [ref=e616]: Também sem álcool
+      - paragraph [ref=e618]:
+        - text: O valor por pessoa diminui conforme o open bar do evento. Tabela completa em
+        - link "Valores" [ref=e619] [cursor=pointer]:
+          - /url: "#valores"
+        - text: .
+    - generic [ref=e621]:
+      - generic [ref=e622]:
+        - generic [ref=e623]:
+          - generic [ref=e624]: "03"
+          - paragraph [ref=e625]: O cuidado com cada um
+        - heading [level=2] [ref=e626]:
+          - text: Todo mundo
+          - emphasis [ref=e627]: brinda
+        - paragraph [ref=e628]: São 12 receitas sem álcool, na mesma taça e com o mesmo capricho.
+      - generic [ref=e629]:
+        - figure "A mesma taça, o mesmo capricho" [ref=e631]:
+          - img "Caipirinha em copo de vidro com frutas vermelhas" [ref=e632]
+        - generic [ref=e635]:
+          - paragraph [ref=e636]:
+            - text: "No lugar do destilado:"
+            - strong [ref=e637]: gin e whiskey zero álcool
+            - text: ", água com gás ou suco de uva integral."
+          - generic [ref=e638]:
+            - generic [ref=e639]: Bourbon Peach
+            - generic [ref=e640]: Gin Tônica Clássico
+            - generic [ref=e641]: Gin Tônica Maracujá
+            - generic [ref=e642]: Gin Tônica Morango
+            - generic [ref=e643]: Moscow Mule
+            - generic [ref=e644]: Mojito
+            - generic [ref=e645]: Caipirinha de Limão
+            - generic [ref=e646]: Caipirinha de Limão Siciliano
+            - generic [ref=e647]: Caipirinha de Morango
+            - generic [ref=e648]: Caipirinha de Maracujá
+            - generic [ref=e649]: Caipirinha de Uva
+            - generic [ref=e650]: Caipirinha de Vinho
+      - generic [ref=e651]:
+        - heading "E se a festa for toda sem álcool?" [level=3] [ref=e652]
+        - paragraph [ref=e653]:
+          - text: Existe o
+          - strong [ref=e654]: Open de Drinks Sem Álcool
+          - text: ": as 12 receitas à vontade, no mesmo serviço volante. Valores na tabela abaixo."
+    - generic [ref=e655]:
+      - img "Torre de copos iluminada na festa" [ref=e656]
+      - generic [ref=e658]:
+        - paragraph [ref=e659]:
+          - text: Mais do que drinks,
+          - emphasis [ref=e660]: é sobre celebrar cada momento.
+        - paragraph [ref=e661]: Open Bar de Drinks Indaiá
+    - generic [ref=e662]:
+      - generic [ref=e663]:
+        - generic [ref=e664]:
+          - generic [ref=e665]: "04"
+          - paragraph [ref=e666]: Transparente do início ao fim
+        - heading [level=2] [ref=e667]:
+          - text: Os
+          - emphasis [ref=e668]: valores
+        - paragraph [ref=e669]: Valor por pessoa, fechado no contrato. Quanto mais completo o open bar do evento, menor o valor do open de drinks.
+      - table [ref=e671]:
+        - rowgroup [ref=e672]:
+          - row [ref=e673]:
+            - columnheader "Por pessoa, 8 horas de serviço" [ref=e674]
+            - columnheader "Open Classic" [ref=e675]: OpenClassic
+            - columnheader "Open Premium" [ref=e676]: OpenPremium
+            - columnheader "Open Extra Premium" [ref=e677]: Open ExtraPremium
+            - columnheader "Open Luxo" [ref=e678]: OpenLuxo
+        - rowgroup [ref=e679]:
+          - row [ref=e680]:
+            - cell "Sem open bar contratado" [ref=e681]
+            - cell "R$ 119,00" [ref=e682]
+            - cell "R$ 129,00" [ref=e683]
+            - cell "R$ 139,00" [ref=e684]
+            - cell "R$ 149,00" [ref=e685]
+          - row [ref=e686]:
+            - cell "Com Open Bar 01" [ref=e687]
+            - cell "R$ 109,00" [ref=e688]
+            - cell "R$ 119,00" [ref=e689]
+            - cell "R$ 129,00" [ref=e690]
+            - cell "R$ 139,00" [ref=e691]
+          - row [ref=e692]:
+            - cell "Com Open Bar 02" [ref=e693]
+            - cell "R$ 99,00" [ref=e694]
+            - cell "R$ 109,00" [ref=e695]
+            - cell "R$ 119,00" [ref=e696]
+            - cell "R$ 129,00" [ref=e697]
+          - row [ref=e698]:
+            - cell "Com Open Bar 03" [ref=e699]
+            - cell "R$ 89,00" [ref=e700]
+            - cell "R$ 99,00" [ref=e701]
+            - cell "R$ 109,00" [ref=e702]
+            - cell "R$ 119,00" [ref=e703]
+          - row [ref=e704]:
+            - cell "Com Open Bar 04" [ref=e705]
+            - cell "R$ 79,00" [ref=e706]
+            - cell "R$ 89,00" [ref=e707]
+            - cell "R$ 99,00" [ref=e708]
+            - cell "R$ 119,00" [ref=e709]
+          - row [ref=e710]:
+            - cell "Hora adicional (por hora e por convidado)" [ref=e711]
+            - cell "R$ 10,00" [ref=e712]
+            - cell "R$ 10,00" [ref=e713]
+            - cell "R$ 15,00" [ref=e714]
+            - cell "R$ 15,00" [ref=e715]
+      - heading "Open de Drinks Sem Álcool" [level=3] [ref=e716]
+      - table [ref=e718]:
+        - rowgroup [ref=e719]:
+          - row [ref=e720]:
+            - cell "Sem open bar contratado" [ref=e721]
+            - cell "R$ 109,90" [ref=e722]
+          - row [ref=e723]:
+            - cell "Com Open Bar 01" [ref=e724]
+            - cell "R$ 89,90" [ref=e725]
+          - row [ref=e726]:
+            - cell "Hora adicional (por hora e por convidado)" [ref=e727]
+            - cell "R$ 10,00" [ref=e728]
+      - paragraph [ref=e729]:
+        - strong [ref=e730]: "Bom saber:"
+        - text: quem já tem contrato fechado
+        - strong [ref=e731]: mantém os preços combinados
+        - text: ; valores atualizados valem só pra adicionais contratados depois. Fotos de eventos e produções da Eventos Indaiá; ilustrações dos drinks são representativas.
+    - generic [ref=e732]:
+      - generic [ref=e733]:
+        - generic [ref=e734]:
+          - generic [ref=e735]: "05"
+          - paragraph [ref=e736]: Simples assim
+        - heading [level=2] [ref=e737]:
+          - text: Como
+          - emphasis [ref=e738]: funciona
+      - list [ref=e739]:
+        - listitem [ref=e740]:
+          - heading "À vontade, de verdade" [level=3] [ref=e745]
+          - paragraph [ref=e746]:
+            - text: "Sem limite de quantidade:"
+            - strong [ref=e747]: beber um ou beber dez, o valor é o mesmo
+            - text: .
+        - listitem [ref=e748]:
+          - heading "A conta é uma só" [level=3] [ref=e753]
+          - paragraph [ref=e754]:
+            - strong [ref=e755]: Nada vai pra conta do convidado.
+            - text: O valor fica fechado no contrato, sem surpresa no final.
+        - listitem [ref=e756]:
+          - heading "Oito horas de serviço" [level=3] [ref=e761]
+          - paragraph [ref=e762]:
+            - text: O open acompanha a festa por
+            - strong [ref=e763]: 8 horas
+            - text: . Quer esticar? Hora adicional por convidado.
+        - listitem [ref=e764]:
+          - heading "Cuidado com quem não bebe" [level=3] [ref=e769]
+          - paragraph [ref=e770]:
+            - text: "Versões sem álcool na carta e equipe treinada:"
+            - strong [ref=e771]: menor de idade não recebe álcool
+            - text: .
+    - generic [ref=e773]:
+      - generic:
+        - generic: Um brinde, uma memória · Um brinde, uma memória · Um brinde, uma memória ·
+        - generic: Um brinde, uma memória · Um brinde, uma memória · Um brinde, uma memória ·
+      - figure [ref=e774]:
+        - img "Torre de taças iluminada na festa" [ref=e775]
+      - img "Eventos Indaiá" [ref=e776]
+      - paragraph [ref=e777]: Daqui a alguns anos, um brinde vai trazer todo mundo de volta pra essa noite.
+    - generic [ref=e779]:
+      - paragraph [ref=e780]: O próximo passo
+      - heading "Escolham a carta. O brinde a gente garante." [level=2] [ref=e781]
+      - paragraph [ref=e782]: O nosso time monta com vocês a combinação entre o open bar do evento e a carta de drinks, com o valor fechado antes da festa.
+      - link "Rever os pacotes" [ref=e783] [cursor=pointer]:
+        - /url: "#pacotes"
+  - contentinfo [ref=e786]:
+    - generic [ref=e787]:
+      - img "Eventos Indaiá" [ref=e788]
+      - generic [ref=e789]:
+        - link "Topo" [ref=e790] [cursor=pointer]:
+          - /url: "#topo"
+        - link "Pacotes" [ref=e791] [cursor=pointer]:
+          - /url: "#pacotes"
+        - link "Valores" [ref=e792] [cursor=pointer]:
+          - /url: "#valores"
+        - link "Como funciona" [ref=e793] [cursor=pointer]:
+          - /url: "#regras"
+        - link "eventosindaia.com.br" [ref=e794] [cursor=pointer]:
+          - /url: https://www.eventosindaia.com.br
+    - paragraph [ref=e795]: "Open Bar de Drinks da Eventos Indaiá. Este material não substitui o contrato: em caso de diferença, valem os itens e valores registrados no contrato do evento."
+  - generic [ref=e797]:
+    - generic [ref=e798]: Carta exibida
+    - group "Trocar pacote" [ref=e799]:
+      - button "Classic" [ref=e800] [cursor=pointer]
+      - button "Premium" [ref=e801] [cursor=pointer]
+      - button "Extra Premium" [pressed] [ref=e802] [cursor=pointer]
+      - button "Luxo" [ref=e803] [cursor=pointer]
