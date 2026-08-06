@@ -1,0 +1,2577 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cardápio de Buffet 15 Anos Indaiá</title>
+<meta name="description" content="O cardápio de buffet 15 anos da Eventos Indaiá. Cinco menus, fotos dos pratos e tudo o que a família escolhe num lugar só.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231A1018'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='13' fill='%23D06E8F' text-anchor='middle'%3E15%3C/text%3E%3C/svg%3E">
+<style>
+@font-face{font-family:'Cormorant Garamond';font-weight:400;font-display:swap;src:url('assets/fonts/cormorant-garamond-400.woff2') format('woff2');}
+@font-face{font-family:'Cormorant Garamond';font-weight:600;font-display:swap;src:url('assets/fonts/cormorant-garamond-600.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-weight:300;font-display:swap;src:url('assets/fonts/montserrat-300.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-weight:400;font-display:swap;src:url('assets/fonts/montserrat-400.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-weight:500;font-display:swap;src:url('assets/fonts/montserrat-500.woff2') format('woff2');}
+
+:root{
+  --paper:#F7F0F2;--paper-2:#EFDFE4;--ink:#1C1418;--ink-soft:#5E4A53;--ink-mute:#8F767F;--ink-mute-txt:#71575F;
+  --night:#1A1018;--night-2:#110811;--cream:#F5E9EC;--accent:#D06E8F;--accent-txt:#A34667;--gold:#D06E8F;
+  --sg:#C4763B;--sl:#5F7E9E;--vg:#6E8B57;
+  --line-dark:rgba(28,20,24,.14);--line-light:rgba(245,233,236,.16);
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Montserrat','Segoe UI',system-ui,sans-serif;
+  --maxw:1360px;--pad:clamp(1.25rem,5vw,4.5rem);--ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.65;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;}
+img{display:block;max-width:100%;}
+a{color:inherit;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+.grain{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:400;background:var(--accent);}
+.skip{position:absolute;left:-9999px;}
+.skip:focus{left:1rem;top:1rem;z-index:9999;background:var(--night);color:var(--cream);padding:.8rem 1.2rem;}
+
+.eyebrow{font-size:.68rem;letter-spacing:.34em;text-transform:uppercase;font-weight:500;}
+.num{font-family:var(--serif);font-size:.95rem;letter-spacing:.1em;opacity:.5;}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad);}
+
+.reveal{opacity:0;transform:translateY(30px);filter:blur(6px);
+  transition:opacity 1s var(--ease),transform 1s var(--ease),filter 1s var(--ease);}
+.reveal.in{opacity:1;transform:none;filter:none;}
+.reveal[data-d="1"]{transition-delay:.12s}.reveal[data-d="2"]{transition-delay:.24s}
+.reveal[data-d="3"]{transition-delay:.36s}.reveal[data-d="4"]{transition-delay:.48s}
+
+/* ===== NAV ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:space-between;
+  padding:1rem clamp(1rem,4vw,2.4rem);transition:background .4s,backdrop-filter .4s,border-color .4s;
+  border-bottom:1px solid transparent;}
+.nav.scrolled{background:rgba(247,240,242,.82);backdrop-filter:blur(12px);border-color:var(--line-dark);}
+.nav__logo{height:26px;width:auto;}
+.nav.scrolled .nav__logo{filter:brightness(0);}
+.nav__right{display:flex;align-items:center;gap:1.6rem;}
+.nav__links{display:flex;gap:1.5rem;}
+.nav__links a{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);text-decoration:none;opacity:.85;transition:opacity .3s,color .3s;}
+.nav.scrolled .nav__links a{color:var(--ink);}
+.nav__links a:hover{opacity:1;}
+.nav__cta{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;padding:.7rem 1.1rem;
+  border:1px solid var(--line-light);color:var(--cream);text-decoration:none;transition:.3s;}
+.nav.scrolled .nav__cta{border-color:var(--ink);color:var(--ink);}
+.nav__cta:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
+.nav__burger{display:none;flex-direction:column;align-items:center;justify-content:center;
+  width:44px;height:44px;background:transparent;border:0;padding:0;cursor:pointer;color:var(--cream);}
+.nav.scrolled .nav__burger{color:var(--ink);}
+.nav__burger span{display:block;width:22px;height:1px;background:currentColor;transition:transform .35s var(--ease),opacity .25s;}
+.nav__burger span+span{margin-top:6px;}
+.nav__burger[aria-expanded="true"] span:first-child{transform:translateY(3.5px) rotate(45deg);}
+.nav__burger[aria-expanded="true"] span:last-child{transform:translateY(-3.5px) rotate(-45deg);}
+.menu{position:fixed;inset:0;z-index:460;background:var(--night);display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s;}
+.menu.aberto{opacity:1;visibility:visible;}
+.menu__in{display:flex;flex-direction:column;gap:.2rem;text-align:center;padding:2rem;}
+.menu__in a{font-family:var(--serif);font-size:clamp(2rem,8.5vw,3rem);line-height:1.3;color:var(--cream);text-decoration:none;padding:.55rem 1rem;}
+.menu__in a:active{color:var(--accent);}
+
+/* ===== ABERTURA ===== */
+.overture{position:relative;min-height:100vh;min-height:100svh;background:var(--night);display:flex;align-items:center;overflow:hidden;color:var(--cream);}
+.overture__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:47% 30%;
+  filter:saturate(.98) contrast(1.03);transform:scale(1.06);}
+.overture__scrim{position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(18,10,16,.9) 0%,rgba(18,10,16,.52) 44%,rgba(18,10,16,.14) 100%),
+             linear-gradient(180deg,rgba(18,10,16,.5),transparent 26%,var(--night) 100%);}
+.overture__in{position:relative;z-index:2;padding:7rem var(--pad) 4rem;max-width:var(--maxw);margin-inline:auto;width:100%;}
+.overture__logo{height:34px;width:auto;margin-bottom:2.2rem;opacity:.95;}
+.overture__kicker{color:var(--accent);margin-bottom:1.6rem;display:flex;gap:1rem;align-items:center;}
+.overture__kicker::before{content:"";width:44px;height:1px;background:var(--accent);}
+.hero-title{font-family:var(--serif);font-weight:400;line-height:.9;font-size:clamp(3.4rem,14vw,10rem);letter-spacing:.005em;text-transform:uppercase;}
+.hero-title .row{display:block;overflow:hidden;}
+.hero-title .row i{display:inline-block;font-style:normal;transform:translateY(115%);}
+.hero-title .row.it{font-style:italic;color:var(--accent);text-transform:none;}
+.overture__sub{font-family:var(--serif);font-style:italic;font-size:clamp(1.1rem,2.6vw,1.7rem);
+  color:rgba(245,233,236,.85);margin:1.6rem 0 0;max-width:34ch;}
+.overture__cta-row{display:flex;gap:1.1rem;align-items:center;flex-wrap:wrap;margin-top:2.6rem;}
+.scrollcue{position:absolute;bottom:1.6rem;left:50%;transform:translateX(-50%);z-index:2;
+  font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,233,236,.6);}
+.scrollcue::after{content:"";display:block;width:1px;height:32px;margin:.6rem auto 0;background:linear-gradient(var(--accent),transparent);}
+
+.btn{position:relative;display:inline-flex;align-items:center;gap:.7rem;font-family:var(--sans);
+  font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;padding:1.05rem 1.9rem;
+  color:var(--cream);text-decoration:none;border:1px solid var(--line-light);background:rgba(255,255,255,.02);
+  overflow:hidden;transition:color .4s,background .4s;cursor:pointer;}
+.btn svg{width:15px;height:15px;}
+.btn--beam::before{content:"";position:absolute;inset:0;padding:1px;
+  background:conic-gradient(from var(--a,0deg),transparent 25%,var(--accent) 50%,transparent 75%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin 5s linear infinite;}
+@property --a{syntax:'<angle>';inherits:false;initial-value:0deg;}
+@keyframes spin{to{--a:360deg}}
+.btn:hover{background:rgba(208,110,143,.16);color:#fff;}
+.btn--ghost{border-color:rgba(245,233,236,.3);}
+.btn--dark{color:var(--ink);border-color:var(--ink);}
+.btn--dark:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
+
+.dawn{height:24vh;background:linear-gradient(180deg,var(--night) 0%,#3a2532 42%,#8a6478 70%,var(--paper) 100%);}
+
+/* ===== HISTÓRIA ===== */
+.statement{position:relative;}
+.statement__pin{min-height:92vh;min-height:92svh;display:flex;align-items:center;padding-block:4rem;}
+.statement__eyebrow{color:var(--accent-txt);margin-bottom:2.2rem;display:flex;gap:1rem;align-items:center;}
+.statement__eyebrow::before{content:"";width:44px;height:1px;background:var(--accent);}
+.statement__text{font-family:var(--serif);font-weight:400;line-height:1.22;
+  font-size:clamp(1.6rem,4.2vw,3.2rem);max-width:30ch;letter-spacing:-.01em;}
+.statement__text .w{transition:opacity .3s linear;}
+.statement__text .accent{color:var(--accent-txt);font-style:italic;}
+
+/* ===== TÍTULO-FANTASMA ===== */
+.ghost{padding:clamp(2rem,8vh,5rem) 0;overflow:hidden;display:flex;justify-content:center;}
+.ghost__word{
+  --ghost-base:color-mix(in oklab,var(--ink-soft) 48%,var(--paper));
+  --ghost-glow:color-mix(in oklab,var(--ghost-base) 86%,var(--accent));
+  --ghost-mid:color-mix(in oklab,var(--ink-mute) 30%,var(--paper));
+  --ghost-top:color-mix(in oklab,var(--paper-2) 40%,var(--paper));
+  font-family:var(--serif);font-weight:600;text-transform:uppercase;line-height:1;text-align:center;
+  font-size:clamp(1.5rem,11.4vw,18rem);letter-spacing:.01em;white-space:nowrap;will-change:transform;
+  color:color-mix(in oklab,var(--ink-soft) 34%,var(--paper));animation:ghostFloat 7s ease-in-out infinite;}
+@keyframes ghostFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.ghost__word .gl{display:inline-block;will-change:transform,opacity;}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .ghost__word .gl{background-image:linear-gradient(to top,var(--ghost-glow) 0%,var(--ghost-base) 28%,var(--ghost-mid) 64%,var(--ghost-top) 100%);
+    background-repeat:no-repeat;background-size:100% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;}}
+@media(prefers-reduced-motion:reduce){.ghost__word{animation:none;}}
+
+/* ===== SEÇÃO ===== */
+.sec{padding-block:clamp(4rem,10vh,8rem);}
+.sec__head{border-top:1px solid var(--line-dark);padding-top:1.4rem;margin-bottom:clamp(2.2rem,5vh,3.6rem);}
+.sec__meta{display:flex;gap:1.4rem;align-items:baseline;}
+.sec__eyebrow{color:var(--accent-txt);}
+.sec__title{font-family:var(--serif);font-weight:400;line-height:.98;font-size:clamp(2.4rem,7.4vw,5.6rem);letter-spacing:-.01em;margin-top:.6rem;}
+.sec__title em{font-style:italic;}
+.sec__lead{max-width:48ch;color:var(--ink-soft);margin-top:1.1rem;font-size:clamp(1rem,1.5vw,1.12rem);}
+.gal{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(1rem,3vw,2.2rem);align-items:end;margin-top:.5rem;}
+.gal--rev{grid-template-columns:.85fr 1.15fr;}
+.gal__col--offset{transform:translateY(-3rem);}
+.frame{position:relative;overflow:hidden;background:var(--paper-2);}
+.frame--45{aspect-ratio:4/5;}.frame--34{aspect-ratio:3/4;}.frame--54{aspect-ratio:5/4;}.frame--11{aspect-ratio:1/1;}
+.frame__img{width:100%;height:100%;object-fit:cover;object-position:center;
+  filter:saturate(.95) contrast(1.03);transform:scale(1.09);transition:transform 1.6s var(--ease);}
+.frame.in .frame__img{transform:scale(1);}
+.frame__cap{position:absolute;left:1rem;bottom:.9rem;z-index:2;font-size:.58rem;letter-spacing:.2em;
+  text-transform:uppercase;color:#fff;opacity:.9;text-shadow:0 1px 8px rgba(0,0,0,.6);}
+.sec--dark{background:var(--night);color:var(--cream);}
+.sec--dark .sec__head{border-color:var(--line-light);}
+.sec--dark .sec__title{color:var(--cream);}
+.sec--dark .sec__eyebrow{color:var(--accent);}
+.sec--dark .sec__lead{color:rgba(245,233,236,.75);}
+.sec--dark .num{color:rgba(245,233,236,.5);}
+.sec--dark .nota{color:rgba(245,233,236,.86);background:rgba(255,255,255,.04);}
+.sec--dark .nota strong{color:var(--accent);}
+.sec--dark .frame{background:#261a23;}
+.nota{margin-top:1.8rem;padding:1rem 1.2rem;border-left:2px solid var(--accent);background:rgba(208,110,143,.07);
+  font-size:.84rem;line-height:1.7;color:var(--ink-soft);max-width:62ch;}
+.nota strong{color:var(--ink);font-weight:500;}
+
+/* ===== MENUS: SELETOR ===== */
+.menus{padding-block:clamp(3rem,8vh,6rem) clamp(2rem,5vh,3rem);}
+.menus__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(.6rem,1.2vw,1rem);margin-top:2rem;}
+@media(max-width:1080px){.menus__grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.menus__grid{grid-template-columns:1fr;}}
+.nivel{position:relative;text-align:left;background:none;cursor:pointer;font-family:inherit;color:inherit;
+  border:1px solid var(--line-dark);padding:1.4rem 1.2rem 1.2rem;transition:border-color .4s,background .4s,transform .4s var(--ease);
+  display:flex;flex-direction:column;gap:.55rem;}
+.nivel:hover{transform:translateY(-4px);border-color:var(--ink-mute);}
+.nivel__nome{font-family:var(--serif);font-size:clamp(1.3rem,2vw,1.6rem);line-height:1.08;}
+.nivel__preco{font-family:var(--serif);font-size:1.05rem;color:var(--accent-txt);}
+.nivel__preco small{font-family:var(--sans);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute-txt);margin-left:.3rem;}
+.nivel__res{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute-txt);line-height:1.9;}
+.nivel__inclui{margin-top:auto;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-txt);line-height:1.8;border-top:1px solid var(--line-dark);padding-top:.6rem;}
+.nivel[aria-pressed="true"]{border-color:var(--accent);background:linear-gradient(160deg,rgba(208,110,143,.1),transparent);}
+.nivel[aria-pressed="true"]::after{content:"Selecionado";position:absolute;top:-1px;right:-1px;
+  font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;background:var(--accent);color:#fff;padding:.35rem .6rem;}
+
+/* ===== MENUS: CARROSSEL (rolagem pro lado) ===== */
+.carrossel{margin-top:clamp(2rem,5vh,3rem);}
+.carrossel__head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1rem;}
+.carrossel__titulo{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.2rem);}
+.carrossel__titulo em{font-style:italic;color:var(--accent-txt);}
+.carrossel__hint{font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-mute-txt);}
+.track{display:flex;gap:clamp(.8rem,1.8vw,1.4rem);overflow-x:auto;scroll-snap-type:x mandatory;
+  padding-bottom:1.2rem;scrollbar-width:thin;scrollbar-color:var(--accent) transparent;}
+.track::-webkit-scrollbar{height:3px;}
+.track::-webkit-scrollbar-thumb{background:var(--accent);}
+.dish{position:relative;flex:0 0 auto;width:min(64vw,300px);aspect-ratio:3/4;overflow:hidden;background:var(--paper-2);scroll-snap-align:start;}
+.dish img{width:100%;height:100%;object-fit:cover;filter:saturate(.98) contrast(1.03);transform:scale(1.08);transition:transform 1.2s var(--ease);}
+.dish.in img{transform:scale(1);}
+.dish__cap{position:absolute;left:.9rem;bottom:.9rem;right:.9rem;z-index:2;color:#fff;}
+.dish__cap::before{content:"";position:absolute;inset:-1rem -.9rem -.9rem;z-index:-1;background:linear-gradient(0deg,rgba(16,7,13,.82),transparent);}
+.dish__nome{font-family:var(--serif);font-size:1.25rem;line-height:1.1;text-shadow:0 1px 10px rgba(0,0,0,.5);}
+.dish__tag{font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;opacity:.85;}
+.trocando{opacity:.25;transition:opacity .25s;}
+
+/* ===== MENUS: LISTAS COMPACTAS ===== */
+.cardapio{margin-top:clamp(1.5rem,4vh,2.5rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:clamp(1.4rem,2.5vw,2.2rem);}
+/* desktop: todas as categorias na MESMA linha (auto-fit c/ min 0 = 1 coluna por
+   categoria, mesmo o Superior tendo 4 e os demais 5) */
+@media(min-width:1080px){
+  .cardapio{grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:clamp(1rem,1.7vw,1.7rem);}
+  .cat li{font-size:.95rem;gap:.4rem;}
+  .cat__nome{font-size:.6rem;letter-spacing:.18em;}
+  .cat__n{font-size:.54rem;padding:.22rem .42rem;}
+}
+.cat__head{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;border-top:1px solid var(--ink);padding-top:.8rem;margin-bottom:.4rem;}
+.cat__nome{font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;}
+.cat__n{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-txt);white-space:nowrap;border:1px solid var(--accent);padding:.25rem .5rem;}
+.cat ul{list-style:none;}
+.cat li{display:flex;align-items:baseline;gap:.5rem;padding:.5rem 0;border-bottom:1px solid var(--line-dark);
+  font-family:var(--serif);font-size:1.02rem;line-height:1.3;}
+.cat li .dots{margin-left:auto;display:inline-flex;gap:4px;flex-shrink:0;transform:translateY(-1px);}
+.d{width:7px;height:7px;border-radius:50%;display:inline-block;}
+.d--sg{background:var(--sg);}.d--sl{background:var(--sl);}.d--vg{background:var(--vg);}
+.legenda{margin-top:1.6rem;display:flex;gap:1.2rem 1.6rem;flex-wrap:wrap;align-items:center;
+  font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute-txt);}
+.legenda span{display:inline-flex;align-items:center;gap:.45rem;}
+.legenda__txt{font-size:.78rem;letter-spacing:.02em;text-transform:none;color:var(--ink-soft);}
+
+/* barra fixa do menu ativo */
+.tierbar{position:fixed;left:0;right:0;bottom:0;z-index:290;transform:translateY(105%);
+  transition:transform .5s var(--ease);background:rgba(26,16,23,.94);backdrop-filter:blur(12px);color:var(--cream);
+  border-top:1px solid var(--line-light);}
+.tierbar.on{transform:none;}
+.tierbar__in{max-width:var(--maxw);margin-inline:auto;padding:.7rem var(--pad);display:flex;align-items:center;gap:1rem;justify-content:space-between;flex-wrap:wrap;}
+.tierbar__lbl{font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(245,233,236,.55);}
+.tierbar__opts{display:flex;gap:.4rem;flex-wrap:wrap;}
+.tierbar__opt{background:none;border:1px solid var(--line-light);color:rgba(245,233,236,.75);cursor:pointer;
+  font-family:inherit;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;padding:.5rem .8rem;transition:.3s;}
+.tierbar__opt:hover{color:#fff;border-color:var(--accent);}
+.tierbar__opt[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff;}
+
+/* ===== BANDA ESCURA ===== */
+.band{position:relative;min-height:92vh;min-height:92svh;overflow:hidden;display:flex;align-items:flex-end;background:var(--night);color:var(--cream);}
+.band__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;
+  filter:saturate(.95) contrast(1.05) brightness(.9);transform:scale(1.12);transition:transform 2.2s var(--ease);}
+.band.in .band__img{transform:scale(1.02);}
+.band__scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,10,16,.5) 0%,rgba(18,10,16,.05) 30%,rgba(18,10,16,.86) 100%);}
+.band__in{position:relative;z-index:2;width:100%;padding-bottom:clamp(3rem,8vh,6rem);}
+.band__eyebrow{color:var(--accent);margin-bottom:1rem;display:flex;gap:1rem;align-items:center;}
+.band__eyebrow::before{content:"";width:40px;height:1px;background:var(--accent);}
+.band__title{font-family:var(--serif);font-weight:400;line-height:.96;font-size:clamp(2.6rem,8.4vw,6.4rem);letter-spacing:-.005em;}
+.band__title em{font-style:italic;color:var(--accent);}
+.band__note{margin-top:1.4rem;max-width:54ch;font-size:.88rem;line-height:1.8;color:rgba(245,233,236,.75);}
+.band__note strong{color:var(--cream);font-weight:500;}
+.band__cap{position:absolute;right:clamp(1.25rem,5vw,4.5rem);bottom:1.2rem;z-index:2;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,233,236,.6);}
+
+/* ===== FRASE ===== */
+.frase{position:relative;min-height:76svh;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--night);color:var(--cream);}
+.frase__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;filter:saturate(.9) contrast(1.05);}
+.frase__scrim{position:absolute;inset:0;background:radial-gradient(120% 100% at 50% 50%,rgba(18,10,16,.4),rgba(18,10,16,.8));}
+.frase__in{position:relative;z-index:2;padding:4rem var(--pad);}
+.frase__txt{font-family:var(--serif);font-size:clamp(1.7rem,4.8vw,3.6rem);line-height:1.22;max-width:20ch;margin-inline:auto;}
+.frase__txt em{font-style:italic;color:var(--accent);}
+.frase__assin{margin-top:1.6rem;font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,233,236,.5);}
+
+/* ===== EXTRAS: lojinha em overlay (abre pela aba da navegação) ===== */
+.loja{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:clamp(1rem,2vw,1.6rem);}
+.loja .card{width:auto;height:auto;aspect-ratio:3/4;cursor:pointer;transition:transform .5s var(--ease);}
+.loja .card:hover{transform:translateY(-5px);}
+.loja .card:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+.extras--detalhe{z-index:490;}
+/* blocos de conteudo das subpaginas (pacotes, estacoes, categorias) */
+.det-blocos{max-width:var(--maxw);margin:2.5rem auto 0;padding-inline:var(--pad);display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:clamp(1.2rem,2.4vw,2rem);color:var(--cream);}
+.det-bloco{border-top:1px solid var(--line-light);padding-top:1rem;display:flex;flex-direction:column;}
+.det-bloco h3{font-family:var(--serif);font-weight:600;font-size:1.35rem;line-height:1.15;}
+.det-bloco .meta{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,233,236,.55);margin:.35rem 0 .5rem;}
+.det-bloco ul{list-style:none;}
+.det-bloco li{font-family:var(--serif);font-size:1.02rem;line-height:1.35;padding:.38rem 0;border-bottom:1px solid rgba(245,233,236,.08);}
+.det-bloco .preco{margin-top:auto;padding-top:.9rem;font-family:var(--serif);font-size:1.2rem;color:var(--accent);}
+.det-bloco .selo{margin-top:.5rem;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
+  border:1px solid var(--accent);padding:.3rem .55rem;align-self:flex-start;}
+.det-preco{max-width:var(--maxw);margin:2.5rem auto 0;padding-inline:var(--pad);color:var(--cream);}
+.det-preco strong{font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,3vw,2.1rem);color:var(--accent);display:block;}
+.det-preco span{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,233,236,.6);}
+.det-preco .selo{display:inline-block;margin-top:.7rem;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);border:1px solid var(--accent);padding:.3rem .55rem;}
+/* desktop: blocos das subpaginas SEMPRE na mesma linha */
+@media(min-width:1080px){
+  .det-blocos{grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:clamp(.9rem,1.5vw,1.5rem);}
+  .det-bloco h3{font-size:1.15rem;}
+  .det-bloco li{font-size:.92rem;}
+}
+/* abas de pacote (Lanche da Madrugada) */
+.det-tabs{max-width:var(--maxw);margin:0 auto 1.4rem;padding-inline:var(--pad);display:flex;gap:.5rem;flex-wrap:wrap;}
+.det-tab{background:none;border:1px solid var(--line-light);color:rgba(245,233,236,.75);cursor:pointer;
+  font-family:inherit;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;padding:.65rem 1rem;transition:.3s;}
+.det-tab:hover{color:#fff;border-color:var(--accent);}
+.det-tab[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff;}
+.extras__voltar{position:fixed;top:1.1rem;left:1.3rem;z-index:2;padding:0 1rem;height:44px;
+  display:flex;align-items:center;background:rgba(255,255,255,.06);border:1px solid var(--line-light);
+  color:var(--cream);font-family:var(--sans);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:.3s;}
+.extras__voltar:hover{background:var(--accent);border-color:var(--accent);}
+.extras{position:fixed;inset:0;z-index:480;background:var(--night);overflow-y:auto;
+  opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s;}
+.extras.aberto{opacity:1;visibility:visible;}
+.extras__fechar{position:fixed;top:1.1rem;right:1.3rem;z-index:2;width:44px;height:44px;
+  display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.06);
+  border:1px solid var(--line-light);color:var(--cream);font-size:1.5rem;line-height:1;cursor:pointer;transition:.3s;}
+.extras__fechar:hover{background:var(--accent);border-color:var(--accent);}
+
+/* ===== VITRINE (rolagem lateral escura) ===== */
+.stage{background:var(--night);color:var(--cream);padding-block:clamp(4rem,10vh,7rem);}
+.stage__head{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad);margin-bottom:2.4rem;}
+.stage__head .eyebrow{color:var(--accent);margin-bottom:1rem;}
+.stage__head h2{font-family:var(--serif);font-weight:400;line-height:1;font-size:clamp(2.2rem,6vw,4.4rem);}
+.stage__head h2 em{font-style:italic;color:var(--accent);}
+.stage__head p{margin-top:1.2rem;max-width:46ch;color:rgba(245,233,236,.68);font-size:.98rem;}
+.stage__track{display:flex;gap:clamp(1rem,2.4vw,2rem);padding-inline:var(--pad);overflow-x:auto;scroll-snap-type:x mandatory;
+  padding-bottom:1.5rem;scrollbar-width:thin;scrollbar-color:var(--accent) transparent;}
+.stage__track::-webkit-scrollbar{height:3px;}
+.stage__track::-webkit-scrollbar-thumb{background:var(--accent);}
+.card{position:relative;flex:0 0 auto;width:min(74vw,400px);height:min(66vh,540px);overflow:hidden;background:#0f0711;scroll-snap-align:center;}
+.card img{width:100%;height:100%;object-fit:cover;filter:saturate(.95) contrast(1.04) brightness(.9);transform:scale(1.12);transition:transform 1.4s var(--ease);}
+.card.in img{transform:scale(1);}
+.card__meta{position:absolute;left:1.1rem;bottom:1.1rem;right:1.1rem;z-index:2;}
+.card__meta::before{content:"";position:absolute;inset:0;top:auto;height:260%;z-index:-1;background:linear-gradient(0deg,rgba(16,7,13,.9),transparent);}
+.card__t{font-family:var(--serif);font-size:1.55rem;line-height:1.1;}
+.card__s{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-top:.35rem;}
+.stage__hint{max-width:var(--maxw);margin:1rem auto 0;padding-inline:var(--pad);font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(245,233,236,.45);}
+
+/* ===== COMO FUNCIONA ===== */
+.regras{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(1.2rem,3vw,2rem);margin-top:1rem;}
+.regras li{border-top:1px solid var(--line-dark);padding-top:1.4rem;}
+.regras__ic{display:block;width:38px;height:38px;color:var(--accent);margin-bottom:1.1rem;}
+.regras__ic svg{display:block;width:38px;height:38px;}
+.regras h3{font-family:var(--serif);font-weight:600;font-size:1.45rem;margin-bottom:.5rem;line-height:1.15;}
+.regras p{color:var(--ink-soft);font-size:.92rem;line-height:1.65;max-width:52ch;}
+.regras strong{color:var(--ink);font-weight:500;}
+@media(max-width:820px){.regras{grid-template-columns:1fr;}}
+.escopo{margin-top:clamp(2.5rem,6vh,4rem);padding:1.6rem 1.9rem;border:1px solid var(--line-dark);
+  background:linear-gradient(160deg,rgba(208,110,143,.06),transparent);font-size:.9rem;line-height:1.75;color:var(--ink-soft);}
+.escopo strong{color:var(--ink);font-weight:500;}
+
+/* ===== ASSINATURA ===== */
+.sig{background:var(--night-2);color:var(--cream);}
+.sig__pin{position:relative;min-height:100svh;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4rem 1rem;}
+.sig__marquee{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:2vh;pointer-events:none;opacity:.06;overflow:hidden;}
+.sig__row{white-space:nowrap;font-family:var(--serif);font-weight:600;text-transform:uppercase;font-size:clamp(3rem,9vw,8rem);letter-spacing:.02em;}
+.sig__row--a{animation:mqA 40s linear infinite;}
+.sig__row--b{align-self:flex-end;animation:mqB 46s linear infinite;}
+@keyframes mqA{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes mqB{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.sig__hero{position:relative;z-index:1;width:min(76vw,460px);aspect-ratio:3/2;overflow:hidden;background:#0f0711;}
+.sig__hero img{width:100%;height:100%;object-fit:cover;object-position:center;}
+.sig__logo{position:relative;z-index:2;width:min(42vw,260px);height:auto;margin-top:2rem;}
+.sig__headline{position:relative;z-index:2;text-align:center;margin-top:1.2rem;font-family:var(--serif);
+  font-size:clamp(1.2rem,3vw,2rem);font-style:italic;color:rgba(245,233,236,.9);line-height:1.35;max-width:26ch;}
+
+/* ===== FECHAMENTO ===== */
+.valor{padding-block:clamp(4rem,10vh,8rem);text-align:center;}
+.valor__card{max-width:700px;margin-inline:auto;padding:clamp(2.5rem,6vw,4.5rem) clamp(1.5rem,5vw,3.5rem);
+  border:1px solid var(--accent);background:linear-gradient(160deg,color-mix(in oklab,var(--accent) 9%,transparent),transparent);}
+.valor__selo{color:var(--accent-txt);margin-bottom:1.6rem;}
+.valor__titulo{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.4rem,3.3vw,2.1rem);margin-bottom:1.4rem;line-height:1.3;}
+.valor__txt{color:var(--ink-soft);max-width:46ch;margin:0 auto 2.2rem;font-size:.95rem;}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--night);color:var(--cream);padding:clamp(3rem,7vh,5rem) 0 2rem;}
+.footer__in{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad);display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;}
+.footer__logo{height:30px;width:auto;opacity:.9;}
+.footer__links{display:flex;gap:1.4rem;flex-wrap:wrap;}
+.footer__links a{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,233,236,.7);text-decoration:none;}
+.footer__links a:hover{color:var(--accent);}
+.footer__fine{max-width:var(--maxw);margin:2.5rem auto 0;padding-inline:var(--pad);font-size:.66rem;line-height:1.9;color:rgba(245,233,236,.42);border-top:1px solid var(--line-light);padding-top:1.5rem;}
+
+@media(max-width:820px){
+  .nav__links{display:none;}
+  .nav__cta{display:none;}
+  .nav__burger{display:flex;}
+  .tierbar__in{gap:.5rem;justify-content:center;}
+  .tierbar__lbl{width:100%;text-align:center;}
+  .tierbar__opt{padding:.45rem .55rem;font-size:.54rem;}
+  .gal,.gal--rev{grid-template-columns:1fr;}
+  .gal__col--offset{transform:none;}
+  .frame--34,.frame--45{aspect-ratio:4/5;}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .reveal{opacity:1;transform:none;filter:none;}
+  .sig__row--a,.sig__row--b{animation:none;}
+  .frame__img,.band__img,.card img,.dish img{transform:none;}
+}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<nav class="nav" id="nav">
+  <a href="#topo" aria-label="Início"><img class="nav__logo" src="assets/indaia-wordmark-white-trim.png" alt="Eventos Indaiá"></a>
+  <div class="nav__right">
+    <div class="nav__links">
+      <a href="#menus">Menus</a>
+      <a href="#entradas">Entradas</a>
+      <a href="#cuidado">Restrições</a>
+      <a href="#regras">Como funciona</a>
+      <a href="#extras" data-abre-extras>Extras</a>
+    </div>
+    <a class="nav__cta" href="#fechamento">Montar o menu da festa</a>
+    <button class="nav__burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="menu" id="menu">
+  <div class="menu__in">
+    <a href="#menus">Menus</a>
+    <a href="#entradas">Entradas</a>
+    <a href="#cuidado">Restrições</a>
+    <a href="#regras">Como funciona</a>
+    <a href="#extras" data-abre-extras>Extras</a>
+    <a href="#fechamento">Montar o menu da festa</a>
+  </div>
+</div>
+
+<!-- ===== ABERTURA ===== -->
+<header class="overture" id="topo">
+  <img class="overture__bg" src="fotos/hero-debutante.jpg" alt="Debutante de tiara ao lado do bolo de 15 anos, em evento real Indaiá" fetchpriority="high">
+  <div class="overture__scrim" aria-hidden="true"></div>
+  <div class="overture__in">
+    <img class="overture__logo" src="assets/indaia-wordmark-white-trim.png" alt="Eventos Indaiá">
+    <p class="eyebrow overture__kicker">Cardápio de Buffet · 15 Anos</p>
+    <h1 class="hero-title" id="heroTitle" aria-label="A noite que ela sonhou">
+      <span class="row"><i>A&nbsp;NOITE</i></span>
+      <span class="row it"><i>que ela sonhou</i></span>
+    </h1>
+    <p class="overture__sub">São quinze anos de espera pra uma noite só. E cada sabor fica na memória.</p>
+    <div class="overture__cta-row">
+      <a class="btn btn--beam" href="#menus">Ver os menus
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn--ghost" href="#regras">Como funciona</a>
+    </div>
+  </div>
+  <p class="scrollcue" aria-hidden="true">Role</p>
+</header>
+<div class="dawn" aria-hidden="true"></div>
+
+<main id="conteudo">
+
+<!-- ===== HISTÓRIA ===== -->
+<section class="statement" id="historia">
+  <div class="statement__pin wrap">
+    <div>
+      <p class="eyebrow statement__eyebrow">O que fica</p>
+      <p class="statement__text" id="manifesto">Uma festa de 15 anos se guarda de muitos jeitos. Um deles é o sabor. <span class="accent">Cada escolha conta uma história. Cada prato vira lembrança.</span></p>
+    </div>
+  </div>
+</section>
+
+<div class="ghost" aria-hidden="true"><div class="ghost__word" id="ghost">Sabor</div></div>
+
+<!-- ===== BANDA: A FESTA SENTA ===== -->
+<section class="band" id="jantar">
+  <img class="band__img" src="fotos/buffet-luzes.jpg" alt="Mesa do buffet montada com luzes" loading="lazy">
+  <div class="band__scrim" aria-hidden="true"></div>
+  <div class="band__in wrap">
+    <p class="eyebrow band__eyebrow">O jantar</p>
+    <h2 class="band__title">Um jantar à altura<br>do <em>sonho dela</em>.</h2>
+    <p class="band__note">Um buffet feito pra <strong>encher os olhos</strong> de quem chega e ser lembrado por quem prova. É o que os convidados mais comentam depois da festa.</p>
+  </div>
+  <p class="band__cap">Foto de evento real</p>
+</section>
+
+<!-- ===== MENUS ===== -->
+<section class="menus wrap" id="menus">
+  <div class="sec__head">
+    <div class="sec__meta"><span class="num">01</span><p class="eyebrow sec__eyebrow">Escolham o de vocês</p></div>
+    <h2 class="sec__title reveal">Cinco <em>menus</em></h2>
+    <p class="sec__lead reveal" data-d="1">O que muda de um menu pro outro é o tamanho da experiência: mais sabores, mais surpresas, mais momentos na festa. E a certeza de impressionar em qualquer uma das escolhas.</p>
+  </div>
+  <div class="menus__grid" id="menusGrid" role="group" aria-label="Menus de buffet"></div>
+
+  <div class="carrossel" id="carrossel">
+    <div class="carrossel__head">
+      <h3 class="carrossel__titulo">À mesa no <em id="carrosselNome"></em></h3>
+      <p class="carrossel__hint">Deslize para o lado →</p>
+    </div>
+    <div class="track" id="track"></div>
+  </div>
+
+  <div class="cardapio" id="cardapio"></div>
+
+  <div class="legenda">
+    <p class="legenda__txt">As bolinhas ao lado dos pratos mostram o que já é naturalmente:</p>
+    <span><i class="d d--sg"></i> Sem glúten</span>
+    <span><i class="d d--sl"></i> Sem lactose</span>
+    <span><i class="d d--vg"></i> Vegetariano</span>
+  </div>
+
+  <p class="nota"><strong>Sem pressa.</strong> As escolhas do cardápio são feitas na Reunião Final, cerca de 30 dias antes do evento, e podem ser alteradas até essa data sem qualquer transtorno.</p>
+</section>
+
+<!-- ===== ENTRADAS ===== -->
+<section class="sec wrap" id="entradas">
+  <div class="sec__head">
+    <div class="sec__meta"><span class="num">02</span><p class="eyebrow sec__eyebrow">Enquanto isso, no salão</p></div>
+    <h2 class="sec__title reveal">As <em>entradas</em></h2>
+    <p class="sec__lead reveal" data-d="1">Antes do jantar, a festa tem os seus momentos, e cada família celebra do seu jeito. Enquanto tudo isso acontece, as entradas já circulam pelo salão: todo mundo se acomoda, conversa e belisca desde o início. Quando o jantar chega, ninguém ficou esperando: a festa já começou.</p>
+  </div>
+  <div class="gal">
+    <div class="gal__col">
+      <figure class="frame frame--54 reveal">
+        <img class="frame__img" src="fotos/entradinhas.jpg" alt="Entradinhas da casa com patês" loading="lazy">
+        <figcaption class="frame__cap">Entradinhas da casa, foto real</figcaption>
+      </figure>
+    </div>
+    <div class="gal__col gal__col--offset">
+      <figure class="frame frame--34 reveal" data-d="1">
+        <img class="frame__img" src="fotos/entrada-premium.jpg" alt="Escondidinho de camarão em taça de vidro" loading="lazy">
+        <figcaption class="frame__cap">Escondidinho de camarão, foto real</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESTRIÇÕES ===== -->
+<section class="sec sec--dark" id="cuidado">
+  <div class="wrap">
+    <div class="sec__head">
+      <div class="sec__meta"><span class="num">03</span><p class="eyebrow sec__eyebrow">O cuidado com cada um</p></div>
+      <h2 class="sec__title reveal">Ninguém fica de <em>fora</em></h2>
+      <p class="sec__lead reveal" data-d="1">Dos primos pequenos aos avós: uma gastronomia pensada em cada detalhe pra agradar todos os paladares da festa.</p>
+    </div>
+    <div class="gal">
+      <div class="gal__col">
+        <figure class="frame frame--54 reveal">
+          <img class="frame__img" src="fotos/legumes-coloridos.jpg" alt="Legumes coloridos no buffet, foto real" loading="lazy">
+          <figcaption class="frame__cap">Foto real do nosso buffet</figcaption>
+        </figure>
+      </div>
+      <div class="gal__col">
+        <p class="sec__lead reveal" data-d="1" style="max-width:44ch">Festa de 15 anos junta gerações: as amigas e os amigos dela, os primos pequenos, os avós que gostam de uma comidinha bem feita. O cardápio nasce pensado nessa mistura, com variedade pra cada um encontrar o seu prato. E já vem com opções pra quem tem <strong style="color:var(--accent);font-weight:500">intolerância a glúten ou lactose</strong> e pros <strong style="color:var(--accent);font-weight:500">vegetarianos</strong>: avisando a gente sobre os convidados, as escolhas certas entram no buffet, e todo mundo aproveita a noite do mesmo jeito.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FRASE ===== -->
+<section class="frase">
+  <img class="frase__img" src="fotos/caldeirada.jpg" alt="Caldeirada de frutos do mar" loading="lazy">
+  <div class="frase__scrim" aria-hidden="true"></div>
+  <div class="frase__in">
+    <p class="frase__txt">Cada prato,<br><em>uma memória.</em></p>
+    <p class="frase__assin">Buffet Indaiá</p>
+  </div>
+</section>
+
+<!-- ===== EXTRAS nível 1: as 4 experiências (abre pela aba "Extras") ===== -->
+<div class="extras" id="extrasOverlay" role="dialog" aria-modal="true" aria-label="Extras: experiências além do jantar" aria-hidden="true">
+  <button type="button" class="extras__fechar" id="fecharExtras" aria-label="Fechar">×</button>
+  <div class="stage">
+    <div class="stage__head">
+      <p class="eyebrow">Extras</p>
+      <h2>A noite não termina<br><em>no jantar.</em></h2>
+      <p>Quatro experiências pra esticar a festa. Toque numa delas pra ver a apresentação completa. Valores e combinações, o nosso time apresenta com vocês.</p>
+    </div>
+    <div class="loja wrap">
+      <figure class="card in" role="button" tabindex="0" data-extra="lanche"><img src="fotos/lanche-capa.jpg" alt="Lanche da Madrugada: mini burgers, churros, porções e coxinha"><div class="card__meta"><p class="card__t">Lanche da Madrugada</p><p class="card__s">Incluso no Privilege e no Excellence</p></div></figure>
+      <figure class="card in" role="button" tabindex="0" data-extra="mediterranea"><img src="fotos/mediterranea-1.jpg" alt="Mesa Mediterrânea com queijos e antepastos"><div class="card__meta"><p class="card__t">Mesa Mediterrânea</p><p class="card__s">Inclusa no Menu Excellence</p></div></figure>
+      <figure class="card in" role="button" tabindex="0" data-extra="fondue"><img src="fotos/fondue.jpg" alt="Fondue de chocolate sendo servido"><div class="card__meta"><p class="card__t">Fondue</p><p class="card__s">Experiência adicional</p></div></figure>
+      <figure class="card in" role="button" tabindex="0" data-extra="ilha"><img src="fotos/ilha.jpg" alt="Ilha gourmet montada no salão"><div class="card__meta"><p class="card__t">Ilha Gourmet</p><p class="card__s">Experiência adicional</p></div></figure>
+    </div>
+    <p class="stage__hint">Toque numa experiência pra abrir a apresentação completa.</p>
+  </div>
+</div>
+
+<!-- ===== EXTRAS nível 2: apresentação completa da experiência ===== -->
+<div class="extras extras--detalhe" id="extraDetail" role="dialog" aria-modal="true" aria-label="Apresentação da experiência" aria-hidden="true">
+  <button type="button" class="extras__voltar" id="voltarExtras">‹ Voltar</button>
+  <button type="button" class="extras__fechar" id="fecharDetalhe" aria-label="Fechar">×</button>
+  <div class="stage">
+    <div class="stage__head">
+      <p class="eyebrow" id="detEyebrow">Extras</p>
+      <h2 id="detTitulo"></h2>
+      <p id="detTexto"></p>
+    </div>
+    <div class="det-tabs" id="detTabs" role="group" aria-label="Pacotes"></div>
+    <div class="stage__track" id="detTrack"></div>
+    <p class="stage__hint">Deslize para o lado →</p>
+    <div class="det-blocos" id="detBlocos"></div>
+    <p class="det-preco" id="detPreco"></p>
+  </div>
+</div>
+
+<!-- ===== COMO FUNCIONA ===== -->
+<section class="sec wrap" id="regras">
+  <div class="sec__head">
+    <div class="sec__meta"><span class="num">04</span><p class="eyebrow sec__eyebrow">Simples assim</p></div>
+    <h2 class="sec__title reveal">Como <em>funciona</em></h2>
+  </div>
+  <ul class="regras">
+    <li class="reveal">
+      <span class="regras__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+      <h3>Duas horas de buffet</h3>
+      <p>São <strong>2 horas de buffet servido</strong>, com reposição constante e sem limitação: apresentação impecável pra cada convidado que vai se servir, do primeiro ao último.</p>
+    </li>
+    <li class="reveal" data-d="1">
+      <span class="regras__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M3 12h18M3 12a9 9 0 0 1 18 0M7 12v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-5"/></svg></span>
+      <h3>Vocês escolhem, a gente prepara</h3>
+      <p>Cada menu mostra <strong>quantas opções vocês escolhem</strong> em cada parte: entradas, principais, massas, guarnições e saladas. Dentro do número, a combinação é livre.</p>
+    </li>
+    <li class="reveal">
+      <span class="regras__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M12 21s-7-4.6-7-10a7 7 0 0 1 14 0c0 5.4-7 10-7 10z"/><circle cx="12" cy="11" r="2.4"/></svg></span>
+      <h3>Todo convidado bem servido</h3>
+      <p>O cardápio tem pratos pensados pra quem não pode <strong>glúten ou lactose</strong>. É só avisar sobre os convidados que a gente cuida do resto.</p>
+    </li>
+    <li class="reveal" data-d="1">
+      <span class="regras__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 11v10M18 3c-1.5 2-2 4-2 6s.5 3 2 3v9"/></svg></span>
+      <h3>Decidido na Reunião Final</h3>
+      <p>As escolhas do cardápio são registradas na <strong>Reunião Final</strong>, com o nosso time de Pós-Vendas, cerca de 30 dias antes do evento. Até lá, podem ser alteradas sem transtorno.</p>
+    </li>
+  </ul>
+  <p class="escopo"><strong>Bom saber:</strong> aos valores de cada menu soma-se a taxa de serviço de 15% sobre o consumo. Os valores de tabela podem ser reajustados até a data do evento, mas quem já tem contrato fechado <strong>mantém os preços combinados</strong>: valores atualizados valem apenas pra adicionais e alterações feitas depois da contratação. As fotos deste material são de eventos reais da Eventos Indaiá. Algum ingrediente pode mudar conforme a época do ano. Nesse caso, a troca é sempre combinada com vocês.</p>
+</section>
+
+<!-- ===== ASSINATURA ===== -->
+<section class="sig">
+  <div class="sig__pin">
+    <div class="sig__marquee" aria-hidden="true">
+      <div class="sig__row sig__row--a">Cada prato, uma memória &nbsp;·&nbsp; Cada prato, uma memória &nbsp;·&nbsp; Cada prato, uma memória &nbsp;·&nbsp;</div>
+      <div class="sig__row sig__row--b">Cada prato, uma memória &nbsp;·&nbsp; Cada prato, uma memória &nbsp;·&nbsp; Cada prato, uma memória &nbsp;·&nbsp;</div>
+    </div>
+    <figure class="sig__hero"><img src="fotos/sig-doces.jpg" alt="Debutante na mesa de doces da festa de 15 anos" loading="lazy"></figure>
+    <img class="sig__logo" src="assets/indaia-wordmark-white-trim.png" alt="Eventos Indaiá">
+    <p class="sig__headline">Daqui a outros quinze anos, um prato vai trazer ela de volta pra essa noite.</p>
+  </div>
+</section>
+
+<!-- ===== FECHAMENTO ===== -->
+<section class="valor wrap" id="fechamento">
+  <div class="valor__card reveal">
+    <p class="eyebrow valor__selo">O próximo passo</p>
+    <h2 class="valor__titulo">Escolham o menu. O resto a gente monta com vocês.</h2>
+    <p class="valor__txt">Na Reunião Final, cerca de 30 dias antes do evento, o nosso time de Pós-Vendas passa prato por prato com vocês e registra as escolhas. Leva menos de meia hora e sai de lá decidido.</p>
+    <a class="btn btn--dark" href="#menus">Rever os menus
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__in">
+    <img class="footer__logo" src="assets/indaia-wordmark-white-trim.png" alt="Eventos Indaiá">
+    <div class="footer__links">
+      <a href="./">Gastronomia</a>
+      <a href="#topo">Topo</a>
+      <a href="#menus">Menus</a>
+      <a href="#regras">Como funciona</a>
+      <a href="https://www.eventosindaia.com.br" target="_blank" rel="noopener">eventosindaia.com.br</a>
+    </div>
+  </div>
+  <p class="footer__fine">Cardápio de Buffet 15 Anos da Eventos Indaiá. Fotos de eventos reais. Este material não substitui o contrato: em caso de diferença, valem os itens e valores registrados no contrato e no formulário de Buffet do evento.</p>
+</footer>
+
+<div class="tierbar" id="tierbar">
+  <div class="tierbar__in">
+    <span class="tierbar__lbl">Menu exibido</span>
+    <div class="tierbar__opts" id="tierbarOpts" role="group" aria-label="Trocar menu"></div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   DADOS — extraídos do PDF oficial "Buffet Indaiá" (Drive,
+   cardápio 2026). Gerados por script a partir do PDF; ao
+   atualizar o cardápio, gerar de novo (ver README).
+   dieta: sg = sem glúten · sl = sem lactose · vg = vegano
+   ============================================================ */
+const NIVEIS = [
+ {
+  "id": "superior",
+  "nome": "Menu Superior",
+  "curtoNome": "Superior",
+  "preco": "R$ 169,90",
+  "inclui": [],
+  "secoes": [
+   {
+    "label": "Pratos principais",
+    "curto": "principais",
+    "n": 3,
+    "itens": [
+     {
+      "n": "Frango bechamel c/ bacon",
+      "d": []
+     },
+     {
+      "n": "Frango strogonoff",
+      "d": []
+     },
+     {
+      "n": "Picanha Suína mostarda e mel",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Picanha Suína barbecue c/ cebola",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Filet strogonoff",
+      "d": [
+       "sg"
+      ]
+     }
+    ]
+   },
+   {
+    "label": "Massas",
+    "curto": "massas",
+    "n": 1,
+    "itens": [
+     {
+      "n": "Spaghetti ao molho Pomodoro c/ manjericão",
+      "d": [
+       "vg"
+      ]
+     },
+     {
+      "n": "Spaghetti ao pesto de manjericão",
+      "d": [
+       "vg"
+      ]
+     },
+     {
+      "n": "Penne ao molho suíço",
+      "d": [
+       "vg"
+      ]
+     },
+     {
+      "n": "Penne na manteiga",
+      "d": [
+       "vg"
+      ]
+     }
+    ]
+   },
+   {
+    "label": "Guarnições",
+    "curto": "guarnições",
+    "n": 3,
+    "itens": [
+     {
+      "n": "Arroz branco na manteiga",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Batatas assadas c/ alecrim",
+      "d": [
+       "sg",
+       "vg"
+      ]
+     },
+     {
+      "n": "Batata palha",
+      "d": []
+     },
+     {
+      "n": "Arroz à grega",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Arroz c/ brócolis e nozes",
+      "d": [
+       "sg",
+       "vg"
+      ]
+     },
+     {
+      "n": "Legumes ao vapor c/ tomilho",
+      "d": [
+       "sg",
+       "sl",
+       "vg"
+      ]
+     },
+     {
+      "n": "Farofa de pão, bacon, castanhas e passas",
+      "d": []
+     },
+     {
+      "n": "Purê de batata c/ ervas finas",
+      "d": []
+     }
+    ]
+   },
+   {
+    "label": "Saladas",
+    "curto": "saladas",
+    "n": 4,
+    "itens": [
+     {
+      "n": "Salada de maçã",
+      "d": []
+     },
+     {
+      "n": "Salpicão de frango",
+      "d": []
+     },
+     {
+      "n": "Mix de folhas verdes",
+      "d": [
+       "sg",
+       "sl",
+       "vg"
+      ]
+     },
+     {
+      "n": "Rúcula c/ tomate seco",
+      "d": [
+       "sg",
+       "sl",
+       "vg"
+      ]
+     },
+     {
+      "n": "Mix de folhas c/ mostarda, mel e gorgonzola",
+      "d": [
+       "sg"
+      ]
+     },
+     {
+      "n": "Folhas nobres c/ amêndoas, parmesão e balsâmico",
+      "d": [
+       "sg"
+      ]
+     }
+    ]
+   }
+  ],
+  "fotos": [
+   [
+    "frango",
+    "Frango bechamel c/ bacon"
+   ],
+   [
+    "penne",
+    "Penne na manteiga"
+   ],
+   [
+    "strog",
+    "Strogonoff"
+   ],
+   [
+    "batataassada",
+    "Batatas assadas c/ alecrim"
+   ],
+   [
+    "noisette",
+    "Batata noissete"
+   ],
+   [
+    "legumesvapor",
+    "Legumes ao vapor"
+   ],
+   [
+    "batatapalha",
+    "Batata palha"
+   ],
+   [
+    "saladagrande",
+    "Mix de folhas"
+   ]
+  ]
+ },
+ {
+  "id": "superior2",
+  "nome": "Menu Superior II",
+  "curtoNome": "Superior II",
+  "preco": "R$ 189,90",
+  "inclui": [],
+  "secoes": [
+   {
+    "label": "Entradas",
+    "curto": "entradas",
+    "n": 2,
+    "itens": [
+     {
+      "n": "Escondidinho de Carne Seca",
+      "d": []
+     },
+     {
+      "n": "Pães caseiros c/ patês (linguiça e truta)",
+      "d": []
+     },
+     {
+      "n": "Mini Risoto de alecrim c/ cogumelos",
+      "d": [
+       "sg"
+      ]
+     },
+     {
+      "n": "Batata Noissete ao molho tártaro",
+      "d": [
+       "vg"
+      ]
+     },
+     {
+      "n": "Queijo de colono em cubos",
+      "d": [
+       "sg",
+       "vg"
+      ]
+     },
+     {
+      "n": "Mini Risoto Gorgonzola",
+      "d": [
+       "sg",
+       "vg"
+      ]
+     }
+    ]
+   },
+   {
+    "label": "Pratos principais",
+    "curto": "principais",
+    "n": 3,
+    "itens": [
+     {
+      "n": "Frango bechamel c/ bacon",
+      "d": []
+     },
+     {
+      "n": "Frango strogonoff",
+      "d": []
+     },
+     {
+      "n": "Picanha Suína mostarda e mel",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Picanha Suína barbecue c/ cebola",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Camarão ao molho catupiry",
+      "d": []
+     },
+     {
+      "n": "Camarão na moranga",
+      "d": []
+     },
+     {
+      "n": "Filet ao molho mostarda",
+      "d": [
+       "sg"
+      ]
+     },
+     {
+      "n": "Filet ao molho madeira",
+      "d": []
+     }
+    ]
+   },
+   {
+    "label": "Massas",
+    "curto": "massas",
+    "n": 2,
+    "itens": [
+     {
+      "n": "Gnocchi ao molho Suíço",
+      "d": []
+     },
+     {
+      "n": "Gnocchi ao molho de Champignons",
+      "d": []
+     },
+     {
+      "n": "Spaghetti ao Frutos do Mar c/ Açafrão",
+      "d": [
+       "sl"
+      ]
+     },
+     {
+      "n": "Spaghetti c/ Bacon e manjericão",
+      "d": []
+     },
+     {
+      "n": "Penne ao molho de Camarões c/ limão",
+      "d": []
+     },
+     {
+      "n": "Penne na Manteiga",
+      "d": []
+     }
+    ]
+   },
+   {
+    "label": "Guarnições",
+    "curto": "guarnições",
+    "n": 4,
+    "itens": [
+     {
+      "n": "Arroz branco na manteiga",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Batatas assadas c/ alecrim",
+      "d": [
+       "sg",
+       "vg"
+      ]
+     },
+     {
+      "n": "Batata palha",
+      "d": []
+     },
+     {
+      "n": "Arroz à grega",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Arroz c/ brócolis e nozes",
+      "d": [
+       "sg",
+       "vg"
+      ]
+     },
+     {
+      "n": "Legumes ao vapor c/ tomilho",
+      "d": [
+       "sg",
+       "sl",
+       "vg"
+      ]
+     },
+     {
+      "n": "Farofa de pão, bacon, castanhas e passas",
+      "d": []
+     },
+     {
+      "n": "Purê de batata c/ ervas finas",
+      "d": []
+     },
+     {
+      "n": "Purê de aipim c/ bacon",
+      "d": []
+     }
+    ]
+   },
+   {
+    "label": "Saladas",
+    "curto": "saladas",
+    "n": 5,
+    "itens": [
+     {
+      "n": "Salada de maçã",
+      "d": []
+     },
+     {
+      "n": "Salpicão de frango",
+      "d": []
+     },
+     {
+      "n": "Ovos de codorna",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Salada de folhas c/ camarões e tomate seco",
+      "d": [
+       "sg",
+       "sl",
+       "vg"
+      ]
+     },
+     {
+      "n": "Mix de folhas c/ mostarda, mel e gorgonzola",
+      "d": [
+       "sg"
+      ]
+     },
+     {
+      "n": "Folhas c/ palmito, frango, bacon e parmesão",
+      "d": []
+     },
+     {
+      "n": "Tomate cereja c/ azeitona e champignon",
+      "d": [
+       "sg",
+       "sl",
+       "vg"
+      ]
+     },
+     {
+      "n": "Folhas nobres c/ amêndoas, parmesão e balsâmico",
+      "d": [
+       "sg"
+      ]
+     }
+    ]
+   }
+  ],
+  "fotos": [
+   [
+    "moranga",
+    "Camarão na moranga"
+   ],
+   [
+    "noisette",
+    "Batata noissete"
+   ],
+   [
+    "filetm",
+    "Filet ao molho madeira"
+   ],
+   [
+    "gnocchi",
+    "Gnocchi"
+   ],
+   [
+    "batatapalha",
+    "Batata palha"
+   ],
+   [
+    "camarao",
+    "Camarão ao molho catupiry"
+   ],
+   [
+    "aipim",
+    "Purê de aipim c/ bacon"
+   ],
+   [
+    "arrozbranco",
+    "Arroz branco na manteiga"
+   ],
+   [
+    "caprese",
+    "Tomate cereja c/ azeitona"
+   ],
+   [
+    "saladagrande",
+    "Mix de folhas"
+   ]
+  ]
+ },
+ {
+  "id": "premium",
+  "nome": "Menu Premium",
+  "curtoNome": "Premium",
+  "preco": "R$ 199,90",
+  "inclui": [],
+  "secoes": [
+   {
+    "label": "Entradas",
+    "curto": "entradas",
+    "n": 3,
+    "itens": [
+     {
+      "n": "Bolinho de peixe",
+      "d": []
+     },
+     {
+      "n": "Pães caseiros c/ patês (linguiça e truta)",
+      "d": []
+     },
+     {
+      "n": "Mini risoto de alecrim c/ cogumelos",
+      "d": [
+       "sg"
+      ]
+     },
+     {
+      "n": "Batata Noissete ao molho tártaro",
+      "d": [
+       "vg"
+      ]
+     },
+     {
+      "n": "Escondidinho de Filet",
+      "d": [
+       "vg"
+      ]
+     },
+     {
+      "n": "Mini risoto de alho poró",
+      "d": [
+       "sg"
+      ]
+     }
+    ]
+   },
+   {
+    "label": "Pratos principais",
+    "curto": "principais",
+    "n": 4,
+    "itens": [
+     {
+      "n": "Frango bechamel c/ bacon",
+      "d": []
+     },
+     {
+      "n": "Frango strogonoff",
+      "d": []
+     },
+     {
+      "n": "Picanha Suína mostarda e mel",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Picanha Suína barbecue c/ cebola",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Camarão ao molho catupiry",
+      "d": []
+     },
+     {
+      "n": "Camarões ao creme de moranga, dendê e crocante de alho poró",
+      "d": []
+     },
+     {
+      "n": "Filet ao molho mostarda",
+      "d": [
+       "sg"
+      ]
+     },
+     {
+      "n": "Filet ao molho madeira",
+      "d": []
+     }
+    ]
+   },
+   {
+    "label": "Massas",
+    "curto": "massas",
+    "n": 2,
+    "itens": [
+     {
+      "n": "Gnocchi ao molho suíço",
+      "d": []
+     },
+     {
+      "n": "Gnocchi ao molho de champignons",
+      "d": []
+     },
+     {
+      "n": "Spaghetti ao frutos do mar c/ açafrão",
+      "d": [
+       "sl"
+      ]
+     },
+     {
+      "n": "Spaghetti c/ bacon e manjericão",
+      "d": []
+     },
+     {
+      "n": "Penne ao molho de camarão c/ limão",
+      "d": []
+     },
+     {
+      "n": "Penne na manteiga",
+      "d": []
+     },
+     {
+      "n": "Caneloni de frango c/ catupiry",
+      "d": []
+     },
+     {
+      "n": "Caneloni de Camarão c/ catupiry",
+      "d": []
+     }
+    ]
+   },
+   {
+    "label": "Guarnições",
+    "curto": "guarnições",
+    "n": 5,
+    "itens": [
+     {
+      "n": "Paella de frutos do mar",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Arroz branco na manteiga",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Batatas assadas c/ alecrim",
+      "d": [
+       "sg",
+       "vg"
+      ]
+     },
+     {
+      "n": "Batata palha",
+      "d": [
+       "sg"
+      ]
+     },
+     {
+      "n": "Arroz à grega",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Arroz c/ brócolis e nozes",
+      "d": [
+       "sg",
+       "vg"
+      ]
+     },
+     {
+      "n": "Legumes ao vapor c/ tomilho",
+      "d": [
+       "sg",
+       "sl",
+       "vg"
+      ]
+     },
+     {
+      "n": "Farofa de pão, bacon, castanhas e passas",
+      "d": []
+     },
+     {
+      "n": "Purê de batata c/ ervas finas",
+      "d": []
+     },
+     {
+      "n": "Purê de aipim c/ bacon",
+      "d": []
+     }
+    ]
+   },
+   {
+    "label": "Saladas",
+    "curto": "saladas",
+    "n": 5,
+    "itens": [
+     {
+      "n": "Pupunha laminada c/ camarões e vinagrete de frutas amarelas",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Burrata artesanal c/ folhas baby, parma e tomates ao pesto",
+      "d": []
+     },
+     {
+      "n": "Salada de maçã",
+      "d": []
+     },
+     {
+      "n": "Salpicão de frango",
+      "d": [
+       "sg",
+       "sl",
+       "vg"
+      ]
+     },
+     {
+      "n": "Ovos de codorna",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Salada de folhas c/ camarões e tomate seco",
+      "d": [
+       "sg",
+       "sl",
+       "vg"
+      ]
+     },
+     {
+      "n": "Mix de folhas c/ mostarda, mel e gorgonzola",
+      "d": [
+       "sg"
+      ]
+     },
+     {
+      "n": "Folhas c/ palmito, frango, bacon e parmesão",
+      "d": []
+     },
+     {
+      "n": "Tomate cereja c/ azeitona e champignon",
+      "d": [
+       "sg",
+       "sl",
+       "vg"
+      ]
+     }
+    ]
+   }
+  ],
+  "fotos": [
+   [
+    "moranga",
+    "Camarões na moranga"
+   ],
+   [
+    "entradinhas",
+    "Bolinho de peixe"
+   ],
+   [
+    "filetm",
+    "Filet ao molho madeira"
+   ],
+   [
+    "paella",
+    "Paella de frutos do mar"
+   ],
+   [
+    "camarao",
+    "Camarão ao molho catupiry"
+   ],
+   [
+    "aipim",
+    "Purê de aipim c/ bacon"
+   ],
+   [
+    "gnocchi",
+    "Gnocchi"
+   ],
+   [
+    "legumesvapor",
+    "Legumes ao vapor"
+   ],
+   [
+    "caprese",
+    "Tomate cereja c/ azeitona"
+   ]
+  ]
+ },
+ {
+  "id": "privilege",
+  "nome": "Menu Privilege",
+  "curtoNome": "Privilege",
+  "preco": "R$ 269,90",
+  "inclui": [
+   "Decoração Elegance",
+   "Lanche da Madrugada"
+  ],
+  "secoes": [
+   {
+    "label": "Entradas",
+    "curto": "entradas",
+    "n": 4,
+    "itens": [
+     {
+      "n": "Bolinho de peixe",
+      "d": []
+     },
+     {
+      "n": "Pães caseiros c/ patês (linguiça e truta)",
+      "d": []
+     },
+     {
+      "n": "Mini risoto de salmão",
+      "d": [
+       "sg"
+      ]
+     },
+     {
+      "n": "Escondidinho de camarão c/ catupiry",
+      "d": []
+     },
+     {
+      "n": "Mini paella de frutos do mar",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Batata Noissete ao molho tártaro",
+      "d": [
+       "sl",
+       "vg"
+      ]
+     },
+     {
+      "n": "Queijo de colono em cubos",
+      "d": [
+       "sg",
+       "vg"
+      ]
+     },
+     {
+      "n": "Mini caldeirada de frutos do mar",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     }
+    ]
+   },
+   {
+    "label": "Pratos principais",
+    "curto": "principais",
+    "n": 4,
+    "itens": [
+     {
+      "n": "Frango bechamel c/ bacon",
+      "d": []
+     },
+     {
+      "n": "Frango strogonoff",
+      "d": []
+     },
+     {
+      "n": "Picanha Suína mostarda e mel",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Picanha Suína barbecue c/ cebola",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Salmão à Belle Meunière",
+      "d": [
+       "sg"
+      ]
+     },
+     {
+      "n": "Salmão ao molho de camarão",
+      "d": []
+     },
+     {
+      "n": "Filet ao molho mostarda",
+      "d": [
+       "sg"
+      ]
+     },
+     {
+      "n": "Filet ao molho madeira",
+      "d": []
+     },
+     {
+      "n": "Camarão ao molho catupiry",
+      "d": []
+     },
+     {
+      "n": "Camarões ao creme de moranga, dendê e alho poró",
+      "d": []
+     },
+     {
+      "n": "Carré de Cordeiro ao vinho e ervas",
+      "d": [
+       "sg"
+      ]
+     },
+     {
+      "n": "Carré de Cordeiro na manteiga e alho",
+      "d": [
+       "sg"
+      ]
+     }
+    ]
+   },
+   {
+    "label": "Massas",
+    "curto": "massas",
+    "n": 2,
+    "itens": [
+     {
+      "n": "Gnocchi ao molho suíço",
+      "d": []
+     },
+     {
+      "n": "Gnocchi ao molho de champignons",
+      "d": []
+     },
+     {
+      "n": "Caneloni de frango c/ catupiry",
+      "d": []
+     },
+     {
+      "n": "Caneloni de camarão c/ catupiry",
+      "d": []
+     },
+     {
+      "n": "Penne ao molho de camarão c/ limão",
+      "d": []
+     },
+     {
+      "n": "Penne na manteiga",
+      "d": []
+     },
+     {
+      "n": "Spaghetti ao frutos do mar c/ açafrão",
+      "d": [
+       "sl"
+      ]
+     },
+     {
+      "n": "Spaghetti c/ bacon e manjericão",
+      "d": []
+     }
+    ]
+   },
+   {
+    "label": "Guarnições",
+    "curto": "guarnições",
+    "n": 5,
+    "itens": [
+     {
+      "n": "Paella de frutos do mar",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Arroz branco na manteiga",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Purê de aipim c/ bacon",
+      "d": []
+     },
+     {
+      "n": "Batata palha",
+      "d": []
+     },
+     {
+      "n": "Arroz à grega",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Arroz c/ brócolis e nozes",
+      "d": [
+       "sg",
+       "vg"
+      ]
+     },
+     {
+      "n": "Farofa de camarão",
+      "d": []
+     },
+     {
+      "n": "Arroz c/ nozes",
+      "d": []
+     },
+     {
+      "n": "Farofa de pão, bacon, castanhas e passas",
+      "d": []
+     },
+     {
+      "n": "Purê de batata c/ ervas finas",
+      "d": [
+       "sg",
+       "vg"
+      ]
+     },
+     {
+      "n": "Batatas assadas c/ alecrim",
+      "d": [
+       "sg",
+       "sl",
+       "vg"
+      ]
+     },
+     {
+      "n": "Legumes ao vapor c/ tomilho",
+      "d": [
+       "sg",
+       "sl",
+       "vg"
+      ]
+     },
+     {
+      "n": "Legumes salteados c/ bacon e tomilho",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Coração de palmito in natura ao vapor",
+      "d": [
+       "sg",
+       "sl",
+       "vg"
+      ]
+     }
+    ]
+   },
+   {
+    "label": "Saladas",
+    "curto": "saladas",
+    "n": 6,
+    "itens": [
+     {
+      "n": "Pupunha laminada c/ camarões e vinagrete de frutas amarelas",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Burrata artesanal c/ folhas baby, parma e tomates ao pesto",
+      "d": []
+     },
+     {
+      "n": "Salada de folhas c/ camarões e tomate seco",
+      "d": []
+     },
+     {
+      "n": "Mix de folhas c/ mostarda, mel e gorgonzola",
+      "d": []
+     },
+     {
+      "n": "Folhas c/ palmito, frango, bacon e parmesão",
+      "d": []
+     },
+     {
+      "n": "Tomate cereja c/ azeitona e champignon",
+      "d": []
+     },
+     {
+      "n": "Folhas c/ peras, gorgonzola e nozes",
+      "d": [
+       "sg"
+      ]
+     },
+     {
+      "n": "Carpaccio de Filet c/ rúcula e alcaparras",
+      "d": [
+       "sg"
+      ]
+     },
+     {
+      "n": "Salada de maçã",
+      "d": []
+     },
+     {
+      "n": "Salpicão de frango",
+      "d": []
+     },
+     {
+      "n": "Ovos de codorna",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Salada de frutos do mar",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     }
+    ]
+   }
+  ],
+  "fotos": [
+   [
+    "carre",
+    "Carré de cordeiro"
+   ],
+   [
+    "moranga",
+    "Camarões na moranga"
+   ],
+   [
+    "camarao",
+    "Camarão ao molho catupiry"
+   ],
+   [
+    "esccam",
+    "Escondidinho de camarão"
+   ],
+   [
+    "entradinhas",
+    "Bolinho de peixe"
+   ],
+   [
+    "filetm",
+    "Filet ao molho madeira"
+   ],
+   [
+    "paella",
+    "Paella de frutos do mar"
+   ],
+   [
+    "legumessalt",
+    "Legumes salteados"
+   ],
+   [
+    "caprese",
+    "Tomate cereja c/ azeitona"
+   ],
+   [
+    "saladagrande",
+    "Mix de folhas"
+   ],
+   [
+    "burger",
+    "Lanche da Madrugada (incluso)"
+   ]
+  ]
+ },
+ {
+  "id": "excellence",
+  "nome": "Menu Excellence",
+  "curtoNome": "Excellence",
+  "preco": "R$ 299,90",
+  "inclui": [
+   "Decoração Elegance",
+   "Lanche da Madrugada",
+   "Mesa Mediterrânea"
+  ],
+  "secoes": [
+   {
+    "label": "Entradas",
+    "curto": "entradas",
+    "n": 4,
+    "itens": [
+     {
+      "n": "Bolinho de peixe",
+      "d": []
+     },
+     {
+      "n": "Pães caseiros c/ patês (linguiça e truta)",
+      "d": []
+     },
+     {
+      "n": "Mini risoto de salmão",
+      "d": [
+       "sg"
+      ]
+     },
+     {
+      "n": "Escondidinho de camarão c/ catupiry",
+      "d": []
+     },
+     {
+      "n": "Mini paella de frutos do mar",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Batata Noissete ao molho tártaro",
+      "d": [
+       "vg"
+      ]
+     },
+     {
+      "n": "Queijo de colono em cubos",
+      "d": [
+       "sg"
+      ]
+     },
+     {
+      "n": "Mini caldeirada de frutos do mar",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     }
+    ]
+   },
+   {
+    "label": "Pratos principais",
+    "curto": "principais",
+    "n": 4,
+    "itens": [
+     {
+      "n": "Frango bechamel c/ bacon",
+      "d": []
+     },
+     {
+      "n": "Frango strogonoff",
+      "d": []
+     },
+     {
+      "n": "Picanha Suína mostarda e mel",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Picanha Suína barbecue c/ cebola",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Salmão à Belle Meunière",
+      "d": [
+       "sg"
+      ]
+     },
+     {
+      "n": "Salmão ao molho de camarão",
+      "d": []
+     },
+     {
+      "n": "Filet ao molho mostarda",
+      "d": [
+       "sg"
+      ]
+     },
+     {
+      "n": "Filet ao molho madeira",
+      "d": []
+     },
+     {
+      "n": "Camarão ao molho catupiry",
+      "d": []
+     },
+     {
+      "n": "Camarões ao creme de moranga, dendê e alho poró",
+      "d": []
+     },
+     {
+      "n": "Carré de Cordeiro ao vinho e ervas",
+      "d": [
+       "sg"
+      ]
+     },
+     {
+      "n": "Carré de Cordeiro na manteiga e alho",
+      "d": [
+       "sg"
+      ]
+     }
+    ]
+   },
+   {
+    "label": "Massas",
+    "curto": "massas",
+    "n": 2,
+    "itens": [
+     {
+      "n": "Gnocchi ao molho suíço",
+      "d": []
+     },
+     {
+      "n": "Gnocchi ao molho de champignons",
+      "d": []
+     },
+     {
+      "n": "Caneloni de frango c/ catupiry",
+      "d": []
+     },
+     {
+      "n": "Caneloni de camarão c/ catupiry",
+      "d": []
+     },
+     {
+      "n": "Penne ao molho de camarão c/ limão",
+      "d": []
+     },
+     {
+      "n": "Penne na manteiga",
+      "d": []
+     },
+     {
+      "n": "Spaghetti ao frutos do mar c/ açafrão",
+      "d": [
+       "sl"
+      ]
+     },
+     {
+      "n": "Spaghetti c/ bacon e manjericão",
+      "d": []
+     }
+    ]
+   },
+   {
+    "label": "Guarnições",
+    "curto": "guarnições",
+    "n": 5,
+    "itens": [
+     {
+      "n": "Paella de frutos do mar",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Arroz branco na manteiga",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Purê de aipim c/ bacon",
+      "d": []
+     },
+     {
+      "n": "Batata palha",
+      "d": []
+     },
+     {
+      "n": "Arroz à grega",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Arroz c/ brócolis e nozes",
+      "d": [
+       "sg",
+       "vg"
+      ]
+     },
+     {
+      "n": "Farofa de camarão",
+      "d": []
+     },
+     {
+      "n": "Arroz c/ nozes",
+      "d": []
+     },
+     {
+      "n": "Farofa de pão, bacon, castanhas e passas",
+      "d": []
+     },
+     {
+      "n": "Purê de batata c/ ervas finas",
+      "d": []
+     },
+     {
+      "n": "Batatas assadas c/ alecrim",
+      "d": [
+       "sg",
+       "vg"
+      ]
+     },
+     {
+      "n": "Legumes ao vapor c/ tomilho",
+      "d": [
+       "sg",
+       "sl",
+       "vg"
+      ]
+     },
+     {
+      "n": "Legumes salteados c/ bacon e tomilho",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Coração de palmito in natura ao vapor",
+      "d": [
+       "sg",
+       "sl",
+       "vg"
+      ]
+     }
+    ]
+   },
+   {
+    "label": "Saladas",
+    "curto": "saladas",
+    "n": 6,
+    "itens": [
+     {
+      "n": "Pupunha laminada c/ camarões e vinagrete de frutas amarelas",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Burrata artesanal c/ folhas baby, parma e tomates ao pesto",
+      "d": []
+     },
+     {
+      "n": "Salada de folhas c/ camarões e tomate seco",
+      "d": []
+     },
+     {
+      "n": "Mix de folhas c/ mostarda, mel e gorgonzola",
+      "d": []
+     },
+     {
+      "n": "Folhas c/ palmito, frango, bacon e parmesão",
+      "d": []
+     },
+     {
+      "n": "Tomate cereja c/ azeitona e champignon",
+      "d": []
+     },
+     {
+      "n": "Folhas c/ peras, gorgonzola e nozes",
+      "d": [
+       "sg"
+      ]
+     },
+     {
+      "n": "Carpaccio de Filet c/ rúcula e alcaparras",
+      "d": [
+       "sg"
+      ]
+     },
+     {
+      "n": "Salada de maçã",
+      "d": []
+     },
+     {
+      "n": "Salpicão de frango",
+      "d": []
+     },
+     {
+      "n": "Ovos de codorna",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     },
+     {
+      "n": "Salada de frutos do mar",
+      "d": [
+       "sg",
+       "sl"
+      ]
+     }
+    ]
+   }
+  ],
+  "fotos": [
+   [
+    "carre",
+    "Carré de cordeiro"
+   ],
+   [
+    "moranga",
+    "Camarões na moranga"
+   ],
+   [
+    "camarao",
+    "Camarão ao molho catupiry"
+   ],
+   [
+    "esccam",
+    "Escondidinho de camarão"
+   ],
+   [
+    "entradinhas",
+    "Bolinho de peixe"
+   ],
+   [
+    "filetm",
+    "Filet ao molho madeira"
+   ],
+   [
+    "paella",
+    "Paella de frutos do mar"
+   ],
+   [
+    "caprese",
+    "Tomate cereja c/ azeitona"
+   ],
+   [
+    "medit1",
+    "Mesa Mediterrânea (inclusa)"
+   ],
+   [
+    "burger",
+    "Lanche da Madrugada (incluso)"
+   ],
+   [
+    "porcoes",
+    "Lanche da Madrugada (incluso)"
+   ]
+  ]
+ }
+];
+
+/* Fotos do acervo (Banco de Mídias) usadas no carrossel.
+   A legenda de cada foto é por menu, definida em NIVEIS[].fotos. */
+const FOTO = {
+  paella:       'fotos/hero-paella.jpg',
+  moranga:      'fotos/moranga.jpg',
+  entradinhas:  'fotos/entradinhas.jpg',
+  caldeirada:   'fotos/caldeirada.jpg',
+  gnocchi:      'fotos/gnocchi.jpg',
+  spaghetti:    'fotos/spaghetti.jpg',
+  penne:        'fotos/penne.jpg',
+  caneloni:     'fotos/caneloni.jpg',
+  batataassada: 'fotos/batata-assada.jpg',
+  batatapalha:  'fotos/arroz.jpg',
+  noisette:     'fotos/noisette.jpg',
+  aipim:        'fotos/pure-aipim.jpg',
+  legumesvapor: 'fotos/legumes-vapor.jpg',
+  legumessalt:  'fotos/legumes-salteados.jpg',
+  saladagrande: 'fotos/salada-grande.jpg',
+  caprese:      'fotos/caprese.jpg',
+  arrozbranco:  'fotos/arroz-branco.jpg',
+  esccam:       'fotos/entrada-premium.jpg',
+  frango:       'fotos/frango.jpg',
+  strog:        'fotos/strogonoff.jpg',
+  filetm:       'fotos/filet-medalhao.jpg',
+  camarao:      'fotos/camarao.jpg',
+  carre:        'fotos/carre.jpg',
+  guarnicoes:   'fotos/batata-gratinada.jpg',
+  burger:       'fotos/mini-burger.jpg',
+  porcoes:      'fotos/porcoes.jpg',
+  medit1:       'fotos/mediterranea-1.jpg',
+};
+
+let atual = 'premium';
+
+/* ---- cards do seletor ---- */
+const grid = document.getElementById('menusGrid');
+const bar  = document.getElementById('tierbarOpts');
+const SINGULAR = {entradas:'entrada',principais:'principal',massas:'massa','guarnições':'guarnição',saladas:'salada'};
+NIVEIS.forEach(nv=>{
+  const resumo = nv.secoes.map(s=>`${s.n} ${s.n===1 ? (SINGULAR[s.curto]||s.curto) : s.curto}`).join('<br>');
+  const b = document.createElement('button');
+  b.type='button'; b.className='nivel'; b.dataset.id=nv.id; b.setAttribute('aria-pressed','false');
+  b.innerHTML = `<p class="nivel__nome">${nv.nome}</p>
+    <p class="nivel__preco">${nv.preco}<small>por pessoa</small></p>
+    <p class="nivel__res">${resumo}</p>`
+    + (nv.inclui.length ? `<p class="nivel__inclui">Inclui: ${nv.inclui.join(', ')}</p>` : '');
+  b.addEventListener('click',()=>selecionar(nv.id,true));
+  grid.appendChild(b);
+
+  const t = document.createElement('button');
+  t.type='button'; t.className='tierbar__opt'; t.dataset.id=nv.id; t.textContent=nv.curtoNome;
+  t.setAttribute('aria-pressed','false');
+  t.addEventListener('click',()=>selecionar(nv.id,false));
+  bar.appendChild(t);
+});
+
+/* ---- observador das fotos do carrossel ---- */
+const ioDish = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); ioDish.unobserve(e.target); } });
+},{threshold:.2});
+
+function render(nv){
+  document.getElementById('carrosselNome').textContent = nv.nome;
+
+  const track = document.getElementById('track');
+  track.innerHTML = nv.fotos.map(([key,cap,pos])=>`
+    <figure class="dish"><img src="${FOTO[key]}" alt="${cap}" loading="lazy"${pos?` style="object-position:${pos}"`:''}>
+      <figcaption class="dish__cap"><p class="dish__nome">${cap}</p><p class="dish__tag">Foto real</p></figcaption>
+    </figure>`).join('');
+  track.scrollLeft = 0;
+  track.querySelectorAll('.dish').forEach(el=>ioDish.observe(el));
+
+  const dot = d=>`<i class="d d--${d}"></i>`;
+  document.getElementById('cardapio').innerHTML = nv.secoes.map(s=>`
+    <div class="cat">
+      <div class="cat__head"><span class="cat__nome">${s.label}</span><span class="cat__n">Escolha ${s.n}</span></div>
+      <ul>${s.itens.map(it=>`<li>${it.n}${it.d.length?`<span class="dots">${it.d.map(dot).join('')}</span>`:''}</li>`).join('')}</ul>
+    </div>`).join('');
+}
+
+function selecionar(id, rolar){
+  const nv = NIVEIS.find(n=>n.id===id) || NIVEIS[0];
+  atual = nv.id;
+  document.querySelectorAll('.nivel').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.id===nv.id)));
+  document.querySelectorAll('.tierbar__opt').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.id===nv.id)));
+
+  const alvos = [document.getElementById('track'), document.getElementById('cardapio')];
+  alvos.forEach(el=>el.classList.add('trocando'));
+  setTimeout(()=>{ render(nv); alvos.forEach(el=>el.classList.remove('trocando')); }, 160);
+
+  if(rolar) document.getElementById('carrossel').scrollIntoView({behavior:'smooth', block:'start'});
+}
+selecionar(atual,false);
+
+/* ---- barra fixa: aparece enquanto o cardápio está na tela ---- */
+const tierbar = document.getElementById('tierbar');
+const zona = document.getElementById('menus');
+function toggleBar(){
+  if(!zona) return;
+  const y = window.scrollY + window.innerHeight*0.5;
+  tierbar.classList.toggle('on', y > zona.offsetTop + 300 && y < zona.offsetTop + zona.offsetHeight);
+}
+
+/* ---- nav + progresso ---- */
+const nav = document.getElementById('nav'), prog = document.getElementById('progress');
+function onScroll(){
+  const y = window.scrollY;
+  nav.classList.toggle('scrolled', y > window.innerHeight*0.8);
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  prog.style.width = (h>0 ? (y/h)*100 : 0) + '%';
+  toggleBar();
+}
+addEventListener('scroll', onScroll, {passive:true});
+addEventListener('resize', onScroll, {passive:true});
+onScroll();
+
+/* ---- lojinha de extras: nível 1 (4 experiências) + nível 2 (apresentação) ---- */
+/* Conteúdo das subpáginas: PDFs oficiais de cada experiência (Drive, 2026-08). */
+const EXTRAS = {
+  lanche: {
+    titulo:'Lanche da <em>Madrugada</em>',
+    tag:'O final perfeito pra uma noite inesquecível',
+    texto:'A pista ainda cheia, aquela fome feliz de quem dançou a noite inteira. O lanche chega na hora certa pra festa continuar.',
+    pacotes:[
+      {t:'Pacote 01', meta:'60 minutos de serviço', preco:'R$ 50,00 por pessoa',
+       itens:[['fotos/porcoes.jpg','Batata frita c/ cheddar e bacon'],['fotos/lanche-pipoca.jpg','Pipoca salgada'],
+              ['fotos/mini-burger.jpg','Mini hambúrguer'],['fotos/churros.jpg','Mini churros c/ chocolate quente']]},
+      {t:'Pacote 02', meta:'60 minutos de serviço', preco:'R$ 60,00 por pessoa',
+       itens:[['fotos/porcoes.jpg','Batata frita c/ cheddar e bacon'],['fotos/lanche-pipoca.jpg','Pipoca salgada'],
+              ['fotos/lanche-paoqueijo.jpg','Pão de queijo recheado c/ catupiry'],['fotos/coxinha.jpg','Coxinha de frango c/ catupiry'],
+              ['fotos/mini-burger.jpg','Mini hambúrguer'],['fotos/churros.jpg','Mini churros c/ chocolate quente']]},
+      {t:'Pacote 03', meta:'90 minutos de serviço', preco:'R$ 70,00 por pessoa', selo:'Incluso no Privilege e no Excellence',
+       itens:[['fotos/porcoes.jpg','Batata frita c/ cheddar e bacon'],['fotos/lanche-pipoca.jpg','Pipoca salgada'],
+              ['fotos/lanche-paoqueijo.jpg','Pão de queijo recheado c/ catupiry'],['fotos/lanche-hotdog.jpg','Mini hot dog c/ salsicha Vienna'],
+              ['fotos/coxinha.jpg','Coxinha de frango c/ catupiry'],['fotos/mini-burger.jpg','Mini hambúrguer'],
+              ['fotos/lanche-fondue-frutas.jpg','Fondue de chocolate c/ frutas'],['fotos/churros.jpg','Mini churros c/ chocolate quente'],
+              ['fotos/lanche-paonutella.jpg','Pão de queijo c/ Nutella'],['fotos/lanche-casquinha.jpg','Mini casquinha de sorvete']]},
+    ],
+  },
+  mediterranea: {
+    titulo:'Mesa <em>Mediterrânea</em>',
+    tag:'Inclusa no Menu Excellence',
+    texto:'Os convidados chegam e já encontram uma mesa posta esperando por eles: frios nobres, pães artesanais e antepastos frescos, montados como um cenário que aparece nas fotos. Boas-vindas em forma de comida.',
+    fotos:[['fotos/medit-mesa.jpg','A mesa completa'],['fotos/medit-favo.jpg','Favo de mel e frutas secas'],
+           ['fotos/medit-burrata.jpg','Burrata e tomates confit'],['fotos/medit-bombons.jpg','Bombons de ricota'],
+           ['fotos/medit-paes.jpg','Pães artesanais'],['fotos/medit-gravlax.jpg','Salmão gravlax'],
+           ['fotos/mediterranea-1.jpg','Mini brioche c/ ovas']],
+    blocos:[
+      {t:'Queijos e cremosos', itens:['Brie cremoso c/ caramelo artesanal e amêndoas tostadas','Burrata fresca ao pesto de manjericão e tomates confit','Mozzarella de búfala c/ tomates secos italianos e azeite extra virgem']},
+      {t:'Entradas autorais', itens:['Bombom de ricota temperada c/ linguiça artesanal e crocante de nozes','Bombom de ricota c/ crosta de ciboulette fresca','Croquete crocante de pupunha c/ ervas finas']},
+      {t:'Antipasti e pastas', itens:['Antepasto mediterrâneo de tâmaras e ervas frescas','Homus clássico c/ azeite extra virgem e páprica defumada','Homus de beterraba assada c/ tahine e gergelim']},
+      {t:'Defumados e curados', itens:['Salmão gravlax curado c/ endro e especiarias','Mini brioche c/ sour cream, salmão gravlax e ovas']},
+      {t:'Panificação artesanal', itens:['Crostini artesanal c/ gergelim negro','Focaccia artesanal de damasco e gorgonzola doce']},
+      {t:'Frutados e saladas', itens:['Carpaccio de frutas da estação c/ favo de mel natural','Salada de lâminas de abobrinha e abóbora assada c/ ervas e azeite aromatizado']},
+    ],
+    preco:'R$ 90,00 por pessoa', obs:'90 minutos de serviço (60 minutos de reposição)',
+  },
+  fondue: {
+    titulo:'Fondue',
+    tag:'Experiência adicional',
+    texto:'Chocolate quente, luzinhas e um cheirinho que atravessa o salão. O fondue vira o cantinho de aconchego da festa, daqueles que ninguém esquece.',
+    fotos:[['fotos/fondue.jpg','Servido na hora'],['fotos/fondue-2.jpg','O carrinho Indaiá'],
+           ['fotos/fondue-3.jpg','Feito na frente do convidado'],['fotos/fondue-4.jpg','Acompanhamentos']],
+  },
+  ilha: {
+    titulo:'Ilha <em>Gourmet</em>',
+    tag:'Experiência adicional',
+    texto:'Estações completas funcionando a festa inteira, com montagem cenográfica e preparo na frente dos convidados. A Ilha Gourmet vira um dos grandes destaques da noite.',
+    fotos:[['fotos/ilha.jpg','A ilha no salão'],['fotos/ilha-flores.jpg','Montagem cenográfica'],
+           ['fotos/ilha-4.jpg','Servido na frente de todos']],
+    blocos:[
+      {t:'Fondue de chocolate', itens:['Chocolate meio amargo acompanhado de banana, morango, uva e marshmallow']},
+      {t:'Cascata de Negroni', itens:['Negroni Clássico, Garibaldi, Tropical e Sbagliato','Guarnições especiais c/ frutas e ervas aromáticas']},
+      {t:'Torre de espumante', itens:['2 espumantes inclusos (Perini Brut ou Perini Moscatel)','1 taça por convidado, com entrega das demais individualmente','Gelo translúcido c/ orquídeas rosas congeladas']},
+      {t:'Estação de barista', itens:['Bebidas especiais: café c/ chantilly, chocolate quente, Amarula, licor de menta e mais','Copos de casquinha c/ chocolate, mini churros e mini brownies']},
+      {t:'Open coffee plus', itens:['Máquina de café c/ 7 opções','Acompanhamentos: mini chocolates, mini brownies e mini churros']},
+      {t:'Águas saborizadas', itens:['Abacaxi c/ hortelã, morango c/ manjericão e laranja c/ alecrim','Suqueiras imperiais c/ decoração de LED']},
+    ],
+    preco:'R$ 150,00 por pessoa', obs:'Estações completas com permanência durante toda a festa',
+  },
+};
+
+const ovl = document.getElementById('extrasOverlay');
+const det = document.getElementById('extraDetail');
+document.querySelectorAll('[data-abre-extras]').forEach(a=>a.addEventListener('click',e=>{
+  e.preventDefault();
+  ovl.classList.add('aberto'); ovl.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+}));
+function fotosNoTrack(fotos){
+  document.getElementById('detTrack').innerHTML = fotos.map(([src,cap])=>`
+    <figure class="card in"><img src="${src}" alt="${cap}"><div class="card__meta"><p class="card__t">${cap}</p><p class="card__s">Foto real</p></div></figure>`).join('');
+  document.getElementById('detTrack').scrollLeft = 0;
+}
+function abrirPacote(ex, i){
+  const p = ex.pacotes[i];
+  document.querySelectorAll('.det-tab').forEach((b,bi)=>b.setAttribute('aria-pressed', String(bi===i)));
+  fotosNoTrack(p.itens);
+  document.getElementById('detPreco').innerHTML =
+    `<strong>${p.preco}</strong><span>${p.meta}</span>${p.selo?`<br><span class="selo">${p.selo}</span>`:''}`;
+}
+function abrirDetalhe(key){
+  const ex = EXTRAS[key]; if(!ex) return;
+  document.getElementById('detEyebrow').textContent = ex.tag;
+  document.getElementById('detTitulo').innerHTML = ex.titulo;
+  document.getElementById('detTexto').textContent = ex.texto;
+
+  const tabs = document.getElementById('detTabs');
+  if(ex.pacotes){
+    // um "cardápio" por pacote: a aba troca as fotos dos itens daquele pacote
+    tabs.innerHTML = ex.pacotes.map((p,i)=>
+      `<button type="button" class="det-tab" aria-pressed="false">${p.t}</button>`).join('');
+    [...tabs.children].forEach((b,i)=>b.addEventListener('click',()=>abrirPacote(ex,i)));
+    document.getElementById('detBlocos').innerHTML = '';
+    abrirPacote(ex, 0);
+  } else {
+    tabs.innerHTML = '';
+    fotosNoTrack(ex.fotos);
+    document.getElementById('detBlocos').innerHTML = (ex.blocos||[]).map(b=>`
+      <div class="det-bloco">
+        <h3>${b.t}</h3>
+        ${b.meta?`<p class="meta">${b.meta}</p>`:''}
+        <ul>${b.itens.map(i=>`<li>${i}</li>`).join('')}</ul>
+        ${b.preco?`<p class="preco">${b.preco}</p>`:''}
+        ${b.selo?`<p class="selo">${b.selo}</p>`:''}
+      </div>`).join('');
+    document.getElementById('detPreco').innerHTML = ex.preco
+      ? `<strong>${ex.preco}</strong>${ex.obs?`<span>${ex.obs}</span>`:''}` : '';
+  }
+  det.classList.add('aberto'); det.setAttribute('aria-hidden','false');
+  det.scrollTop = 0;
+}
+document.querySelectorAll('.loja .card[data-extra]').forEach(c=>{
+  c.addEventListener('click',()=>abrirDetalhe(c.dataset.extra));
+  c.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); abrirDetalhe(c.dataset.extra); } });
+});
+function fecharDetalhe(){
+  det.classList.remove('aberto'); det.setAttribute('aria-hidden','true');
+}
+function fecharExtras(){
+  fecharDetalhe();
+  ovl.classList.remove('aberto'); ovl.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+}
+document.getElementById('voltarExtras').addEventListener('click',fecharDetalhe);
+document.getElementById('fecharDetalhe').addEventListener('click',fecharExtras);
+document.getElementById('fecharExtras').addEventListener('click',fecharExtras);
+addEventListener('keydown',e=>{
+  if(e.key!=='Escape') return;
+  if(det.classList.contains('aberto')) fecharDetalhe(); else fecharExtras();
+});
+
+/* ---- menu mobile ---- */
+const burger = document.getElementById('burger'), menuEl = document.getElementById('menu');
+burger.addEventListener('click',()=>{
+  const abrir = burger.getAttribute('aria-expanded')!=='true';
+  burger.setAttribute('aria-expanded', String(abrir));
+  menuEl.classList.toggle('aberto', abrir);
+  document.body.style.overflow = abrir ? 'hidden' : '';
+});
+menuEl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  burger.setAttribute('aria-expanded','false'); menuEl.classList.remove('aberto'); document.body.style.overflow='';
+}));
+
+/* ---- reveal ---- */
+const io = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:.14, rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal,.frame,.band,.card').forEach(el=>io.observe(el));
+
+/* ---- título do hero ---- */
+addEventListener('load',()=>{
+  document.querySelectorAll('#heroTitle .row i').forEach((el,i)=>{
+    el.style.transition = `transform 1.1s cubic-bezier(.16,1,.3,1) ${.15+i*.12}s`;
+    requestAnimationFrame(()=>{ el.style.transform='none'; });
+  });
+});
+
+/* ---- história palavra a palavra ---- */
+const man = document.getElementById('manifesto');
+if(man && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const frag = document.createDocumentFragment();
+  const quebra = node=>{
+    node.textContent.split(/(\s+)/).forEach(t=>{
+      if(!t.trim()){ frag.appendChild(document.createTextNode(t)); return; }
+      const s=document.createElement('span'); s.className='w'; s.textContent=t; s.style.opacity='.16'; frag.appendChild(s);
+    });
+  };
+  man.childNodes.forEach(node=>{
+    if(node.nodeType===3){ quebra(node); }
+    else{
+      node.childNodes.forEach(sub=>{
+        if(sub.nodeType===3){
+          sub.textContent.split(/(\s+)/).forEach(t=>{
+            if(!t.trim()){ frag.appendChild(document.createTextNode(t)); return; }
+            const s=document.createElement('span'); s.className='w '+node.className; s.textContent=t; s.style.opacity='.16'; frag.appendChild(s);
+          });
+        }
+      });
+    }
+  });
+  man.innerHTML=''; man.appendChild(frag);
+  const palavras = [...man.querySelectorAll('.w')];
+  const alvo = document.getElementById('historia');
+  addEventListener('scroll',()=>{
+    const r = alvo.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, (window.innerHeight*0.78 - r.top) / (r.height*0.6)));
+    const n = Math.round(p*palavras.length);
+    palavras.forEach((w,i)=> w.style.opacity = i<n ? '1' : '.16');
+  },{passive:true});
+}
+
+/* ---- palavra-fantasma letra a letra ---- */
+const ghost = document.getElementById('ghost');
+if(ghost){
+  ghost.innerHTML = [...ghost.textContent].map(c=>`<span class="gl">${c===' '?'&nbsp;':c}</span>`).join('');
+  const letras = [...ghost.querySelectorAll('.gl')];
+  letras.forEach(l=>{ l.style.opacity='0'; l.style.transform='translateY(24px)'; l.style.transition='opacity .6s var(--ease), transform .6s var(--ease)'; });
+  const gio = new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){
+      letras.forEach((l,i)=> setTimeout(()=>{ l.style.opacity='1'; l.style.transform='none'; }, i*55));
+      gio.disconnect();
+    }});
+  },{threshold:.4});
+  gio.observe(ghost);
+}
+</script>
+</body>
+</html>
