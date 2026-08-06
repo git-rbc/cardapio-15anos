@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Gastronomia 15 Anos Indaiá</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231A1018'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='13' fill='%23D06E8F' text-anchor='middle'%3E15%3C/text%3E%3C/svg%3E">
+<style>
+@font-face{font-family:'Cormorant Garamond';font-weight:400;font-display:swap;src:url('assets/fonts/cormorant-garamond-400.woff2') format('woff2');}
+@font-face{font-family:'Cormorant Garamond';font-weight:600;font-display:swap;src:url('assets/fonts/cormorant-garamond-600.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-weight:300;font-display:swap;src:url('assets/fonts/montserrat-300.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-weight:500;font-display:swap;src:url('assets/fonts/montserrat-500.woff2') format('woff2');}
+:root{
+  --night:#1A1018;--night-2:#110811;--cream:#F5E9EC;--accent:#D06E8F;
+  --line-light:rgba(245,233,236,.16);
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Montserrat','Segoe UI',system-ui,sans-serif;
+  --maxw:1360px;--pad:clamp(1.25rem,5vw,4.5rem);--ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{background:var(--night);}
+body{background:var(--night);color:var(--cream);font-family:var(--sans);font-weight:300;line-height:1.65;
+  -webkit-font-smoothing:antialiased;min-height:100svh;display:flex;flex-direction:column;}
+img{display:block;max-width:100%;}
+a{color:inherit;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+.grain{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.topo{display:flex;justify-content:center;padding:clamp(2rem,6vh,3.5rem) var(--pad) 0;}
+.topo img{height:34px;width:auto;opacity:.95;}
+.head{max-width:var(--maxw);margin-inline:auto;padding:clamp(2rem,6vh,4rem) var(--pad) clamp(1.5rem,4vh,2.5rem);text-align:center;}
+.eyebrow{font-size:.68rem;letter-spacing:.34em;text-transform:uppercase;font-weight:500;color:var(--accent);}
+h1{font-family:var(--serif);font-weight:400;line-height:1.05;font-size:clamp(1.9rem,5vw,4.1rem);margin-top:.8rem;white-space:nowrap;}
+h1 em{font-style:italic;color:var(--accent);}
+.head p{margin:1.1rem auto 0;color:rgba(245,233,236,.7);font-size:clamp(.85rem,1.6vw,1rem);white-space:nowrap;}
+.bloco{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);width:100%;}
+.bloco__label{display:flex;gap:1rem;align-items:center;margin:clamp(1.5rem,4vh,2.5rem) 0 1.2rem;
+  font-size:.68rem;letter-spacing:.34em;text-transform:uppercase;font-weight:500;color:var(--accent);}
+.bloco__label::after{content:"";flex:1;height:1px;background:var(--line-light);}
+.grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:clamp(1rem,2vw,1.6rem);width:100%;}
+/* bebidas: cards do MESMO tamanho dos de comida, centralizados */
+@media(min-width:760px){.grade--beb{grid-template-columns:repeat(3,1fr);}.grade--beb .exp:first-child{grid-column:1;}}
+.fecho{padding:clamp(2.5rem,6vh,4rem) var(--pad) 0;}
+.exp{position:relative;display:block;aspect-ratio:3/4;overflow:hidden;background:var(--night-2);text-decoration:none;
+  transition:transform .5s var(--ease);}
+.exp:hover{transform:translateY(-6px);}
+.exp img{width:100%;height:100%;object-fit:cover;filter:saturate(.95) contrast(1.04) brightness(.88);
+  transform:scale(1.06);transition:transform 1.2s var(--ease);}
+.exp:hover img{transform:scale(1);}
+.exp__meta{position:absolute;left:1.2rem;right:1.2rem;bottom:1.2rem;z-index:2;}
+.exp__meta::before{content:"";position:absolute;inset:-1.2rem;top:-3rem;z-index:-1;background:linear-gradient(0deg,rgba(16,7,13,.9),transparent);}
+.exp__t{font-family:var(--serif);font-size:clamp(1.6rem,2.6vw,2rem);line-height:1.05;}
+.exp__s{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-top:.45rem;}
+.rodape{margin-top:auto;padding:1.6rem var(--pad) 2rem;text-align:center;font-size:.62rem;letter-spacing:.14em;
+  text-transform:uppercase;color:rgba(245,233,236,.4);border-top:1px solid var(--line-light);}
+@media(max-width:600px){h1{white-space:normal;}.head p{white-space:normal;}}
+@media(prefers-reduced-motion:reduce){.exp,.exp img{transition:none;}}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="topo"><img src="assets/indaia-wordmark-white-trim.png" alt="Eventos Indaiá"></div>
+
+<header class="head">
+  <p class="eyebrow">Gastronomia Indaiá · 15 Anos</p>
+  <h1>O sabor da <em>festa dela</em></h1>
+  <p>Comida e bebida pensadas pra festa de 15.</p>
+</header>
+
+<main class="bloco">
+  <p class="bloco__label">Alimentação</p>
+  <div class="grade">
+    <a class="exp" href="index.html">
+      <img src="fotos/carre.jpg" alt="Carré empratado do buffet Indaiá">
+      <div class="exp__meta"><p class="exp__t">Buffet</p><p class="exp__s">Ver os cinco menus →</p></div>
+    </a>
+    <a class="exp" href="finger-foods.html">
+      <img src="fotos/coq/mini-hamburguer-de-picanha-com-queijo-azul-e-c.jpg" alt="Mini hambúrguer de picanha">
+      <div class="exp__meta"><p class="exp__t">Finger Foods</p><p class="exp__s">Conhecer →</p></div>
+    </a>
+    <a class="exp" href="coquetel.html">
+      <img src="fotos/coq/camaroes-com-catupiry.jpg" alt="Camarões com catupiry do coquetel volante">
+      <div class="exp__meta"><p class="exp__t">Coquetel</p><p class="exp__s">Ver os quatro coquetéis →</p></div>
+    </a>
+  </div>
+
+  <p class="bloco__label">Bebidas</p>
+  <div class="grade grade--beb">
+    <a class="exp" href="open-bar.html">
+      <img src="fotos/beb-openbar.jpg" alt="Bebidas geladas do open bar">
+      <div class="exp__meta"><p class="exp__t">Open Bar</p><p class="exp__s">Conhecer →</p></div>
+    </a>
+    <a class="exp" href="open-drinks.html">
+      <img src="fotos/beb-drinks.jpg" alt="Drinks coloridos em taças de vidro">
+      <div class="exp__meta"><p class="exp__t">Open Drinks</p><p class="exp__s">Conhecer →</p></div>
+    </a>
+  </div>
+  <div class="fecho"></div>
+</main>
+
+<footer class="rodape">Eventos Indaiá · Fotos de eventos reais</footer>
+</body>
+</html>

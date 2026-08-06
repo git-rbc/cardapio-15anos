@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Finger Foods · Gastronomia 15 Anos Indaiá</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231A1018'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='13' fill='%23D06E8F' text-anchor='middle'%3E15%3C/text%3E%3C/svg%3E">
+<style>
+@font-face{font-family:'Cormorant Garamond';font-weight:400;font-display:swap;src:url('assets/fonts/cormorant-garamond-400.woff2') format('woff2');}
+@font-face{font-family:'Cormorant Garamond';font-weight:600;font-display:swap;src:url('assets/fonts/cormorant-garamond-600.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-weight:300;font-display:swap;src:url('assets/fonts/montserrat-300.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-weight:400;font-display:swap;src:url('assets/fonts/montserrat-400.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-weight:500;font-display:swap;src:url('assets/fonts/montserrat-500.woff2') format('woff2');}
+:root{
+  --paper:#F7F0F2;--paper-2:#EFDFE4;--ink:#1C1418;--ink-soft:#5E4A53;--ink-mute-txt:#71575F;
+  --night:#1A1018;--night-2:#110811;--cream:#F5E9EC;--accent:#D06E8F;--accent-txt:#A34667;
+  --line-dark:rgba(28,20,24,.14);--line-light:rgba(245,233,236,.16);
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Montserrat','Segoe UI',system-ui,sans-serif;
+  --maxw:1360px;--pad:clamp(1.25rem,5vw,4.5rem);--ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{background:var(--paper);scroll-behavior:smooth;}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{display:block;max-width:100%;}
+a{color:inherit;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+.grain{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.eyebrow{font-size:.68rem;letter-spacing:.34em;text-transform:uppercase;font-weight:500;}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad);}
+
+/* hero */
+.hero{position:relative;min-height:88svh;background:var(--night);display:flex;align-items:flex-end;overflow:hidden;color:var(--cream);}
+.hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:saturate(.98) contrast(1.03);}
+.hero__scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,10,16,.55),transparent 55%),linear-gradient(180deg,rgba(18,10,16,.6),rgba(18,10,16,.28) 40%,rgba(18,10,16,.94) 100%);}
+.hero__in{position:relative;z-index:2;width:100%;padding:6rem var(--pad) clamp(2.5rem,7vh,4.5rem);max-width:var(--maxw);margin-inline:auto;}
+.hero__logo{height:32px;width:auto;margin-bottom:2rem;opacity:.95;}
+.hero__kicker{color:var(--accent);display:flex;gap:1rem;align-items:center;margin-bottom:1.2rem;}
+.hero__kicker::before{content:"";width:44px;height:1px;background:var(--accent);}
+.hero h1{font-family:var(--serif);font-weight:400;line-height:.92;font-size:clamp(3rem,11vw,7.5rem);text-transform:uppercase;}
+.hero h1 em{font-style:italic;color:var(--accent);text-transform:none;}
+.hero__sub{font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,2.4vw,1.55rem);color:rgba(245,233,236,.85);margin-top:1.2rem;max-width:36ch;}
+.hero__volta{position:absolute;top:1.2rem;left:1.4rem;z-index:3;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--cream);text-decoration:none;border:1px solid var(--line-light);padding:.7rem 1rem;transition:.3s;}
+.hero__volta:hover{background:var(--accent);border-color:var(--accent);}
+
+/* seções claras */
+.sec{padding-block:clamp(3rem,8vh,5rem) clamp(2rem,5vh,3rem);}
+.sec__head{border-top:1px solid var(--line-dark);padding-top:1.4rem;margin-bottom:clamp(1.8rem,4vh,2.6rem);}
+.sec__eyebrow{color:var(--accent-txt);}
+.sec__title{font-family:var(--serif);font-weight:400;line-height:.98;font-size:clamp(2.2rem,6.5vw,4.6rem);margin-top:.6rem;}
+.sec__title em{font-style:italic;}
+.sec__lead{max-width:48ch;color:var(--ink-soft);margin-top:1rem;font-size:clamp(1rem,1.5vw,1.1rem);}
+.gal{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(1rem,3vw,2.2rem);align-items:end;}
+.frame{position:relative;overflow:hidden;background:var(--paper-2);}
+.frame--54{aspect-ratio:5/4;}.frame--34{aspect-ratio:3/4;}
+.frame__img{width:100%;height:100%;object-fit:cover;}
+.frame__cap{position:absolute;left:1rem;bottom:.9rem;z-index:2;font-size:.58rem;letter-spacing:.2em;
+  text-transform:uppercase;color:#fff;opacity:.9;text-shadow:0 1px 8px rgba(0,0,0,.6);}
+@media(max-width:820px){.gal{grid-template-columns:1fr;}}
+
+/* banda escura */
+.band{position:relative;min-height:88vh;min-height:88svh;overflow:hidden;display:flex;align-items:flex-end;background:var(--night);color:var(--cream);}
+.band__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%;filter:saturate(.95) contrast(1.05) brightness(.92);}
+.band__scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,10,16,.5) 0%,rgba(18,10,16,.05) 30%,rgba(18,10,16,.86) 100%);}
+.band__in{position:relative;z-index:2;width:100%;padding-bottom:clamp(3rem,8vh,6rem);}
+.band__eyebrow{color:var(--accent);margin-bottom:1rem;display:flex;gap:1rem;align-items:center;}
+.band__eyebrow::before{content:"";width:40px;height:1px;background:var(--accent);}
+.band__title{font-family:var(--serif);font-weight:400;line-height:.96;font-size:clamp(2.6rem,8.4vw,6.4rem);letter-spacing:-.005em;}
+.band__title em{font-style:italic;color:var(--accent);}
+.band__note{margin-top:1.4rem;max-width:54ch;font-size:.88rem;line-height:1.8;color:rgba(245,233,236,.75);}
+.band__note strong{color:var(--cream);font-weight:500;}
+.band__cap{position:absolute;right:clamp(1.25rem,5vw,4.5rem);bottom:1.2rem;z-index:2;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,233,236,.6);}
+
+/* vitrine escura */
+.stage{background:var(--night);color:var(--cream);padding-block:clamp(4rem,10vh,7rem);}
+.stage__head{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad);margin-bottom:2.4rem;}
+.stage__head .eyebrow{color:var(--accent);margin-bottom:1rem;}
+.stage__head h2{font-family:var(--serif);font-weight:400;line-height:1;font-size:clamp(2.2rem,6vw,4.4rem);}
+.stage__head h2 em{font-style:italic;color:var(--accent);}
+.stage__head p{margin-top:1.2rem;max-width:46ch;color:rgba(245,233,236,.68);font-size:.98rem;}
+.stage__track{display:flex;gap:clamp(1rem,2.4vw,2rem);padding-inline:var(--pad);overflow-x:auto;scroll-snap-type:x mandatory;
+  padding-bottom:1.5rem;scrollbar-width:thin;scrollbar-color:var(--accent) transparent;}
+.stage__track::-webkit-scrollbar{height:3px;}
+.stage__track::-webkit-scrollbar-thumb{background:var(--accent);}
+.card{position:relative;flex:0 0 auto;width:min(64vw,300px);aspect-ratio:3/4;overflow:hidden;background:#0e0711;scroll-snap-align:start;}
+.card img{width:100%;height:100%;object-fit:cover;}
+.card__meta{position:absolute;left:1.1rem;bottom:1.1rem;right:1.1rem;z-index:2;}
+.card__meta::before{content:"";position:absolute;inset:0;top:auto;height:260%;z-index:-1;background:linear-gradient(0deg,rgba(16,7,13,.9),transparent);}
+.card__t{font-family:var(--serif);font-size:1.3rem;line-height:1.1;}
+.card__s{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-top:.35rem;}
+.stage__hint{max-width:var(--maxw);margin:1rem auto 0;padding-inline:var(--pad);font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(245,233,236,.45);}
+
+/* pacotes */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.6rem,1.2vw,1rem);margin-top:1.6rem;}
+@media(max-width:900px){.grid3{grid-template-columns:1fr;}}
+.pacote{position:relative;border:1px solid var(--line-dark);padding:1.6rem 1.3rem 1.4rem;display:flex;flex-direction:column;gap:.5rem;}
+.pacote__nome{font-family:var(--serif);font-size:clamp(1.35rem,2.2vw,1.7rem);line-height:1.05;}
+.pacote__res{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute-txt);line-height:1.9;}
+.nota{margin-top:1.8rem;padding:1rem 1.2rem;border-left:2px solid var(--accent);background:rgba(208,110,143,.07);
+  font-size:.84rem;line-height:1.7;color:var(--ink-soft);max-width:62ch;}
+.nota strong{color:var(--ink);font-weight:500;}
+
+/* fechamento + footer */
+.fim{padding-block:clamp(3rem,7vh,5rem);text-align:center;}
+.fim__card{max-width:640px;margin-inline:auto;padding:clamp(2rem,5vw,3.5rem) clamp(1.5rem,4vw,3rem);
+  border:1px solid var(--accent);background:linear-gradient(160deg,rgba(208,110,143,.08),transparent);}
+.fim__t{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.3rem,3vw,1.9rem);margin-bottom:1rem;line-height:1.3;}
+.fim__s{color:var(--ink-soft);font-size:.92rem;max-width:44ch;margin:0 auto;}
+.footer{background:var(--night);color:var(--cream);padding:2.2rem 0;}
+.footer__in{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad);display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;}
+.footer__logo{height:26px;width:auto;opacity:.9;}
+.footer__links{display:flex;gap:1.4rem;flex-wrap:wrap;}
+.footer__links a{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,233,236,.7);text-decoration:none;}
+.footer__links a:hover{color:var(--accent);}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="hero">
+  <a class="hero__volta" href="gastronomia.html">‹ Gastronomia</a>
+  <img class="hero__bg" src="fotos/hero-finger.jpg" alt="Debutante sorrindo no túnel de LED da festa de 15 anos" fetchpriority="high">
+  <div class="hero__scrim" aria-hidden="true"></div>
+  <div class="hero__in">
+    <img class="hero__logo" src="assets/indaia-wordmark-white-trim.png" alt="Eventos Indaiá">
+    <p class="eyebrow hero__kicker">Gastronomia Indaiá · 15 Anos</p>
+    <h1>Finger<br><em>foods</em></h1>
+    <p class="hero__sub">A festa não para pra comer. Nem precisa.</p>
+  </div>
+</header>
+
+<main class="wrap sec">
+  <div class="sec__head">
+    <p class="eyebrow sec__eyebrow">Comida de mão</p>
+    <h2 class="sec__title">Sabor que <em>acompanha</em></h2>
+    <p class="sec__lead">Comidinhas caprichadas pra comer com a mão, circulando pelo salão a festa inteira: sem prato, sem talher, sem precisar sentar. Ela dança, as amigas dançam, e o sabor vai junto.</p>
+  </div>
+  <div class="gal">
+    <div class="gal__col">
+      <figure class="frame frame--54">
+        <img class="frame__img" src="fotos/coq/mini-hamburguer-de-picanha-com-queijo-azul-e-c.jpg" alt="Mini hambúrguer de picanha com queijo azul" loading="lazy">
+        <figcaption class="frame__cap">Mini hambúrguer de picanha, foto do acervo</figcaption>
+      </figure>
+    </div>
+    <div class="gal__col">
+      <figure class="frame frame--34">
+        <img class="frame__img" src="fotos/coq/dadinho-de-tapioca-com-geleia-de-pimenta.jpg" alt="Dadinho de tapioca com geleia de pimenta" loading="lazy">
+        <figcaption class="frame__cap">Dadinho de tapioca, foto do acervo</figcaption>
+      </figure>
+    </div>
+  </div>
+</main>
+
+<!-- banda: a pista -->
+<section class="band">
+  <img class="band__img" src="fotos/finger-danca.jpg" alt="Debutante dançando sob o teto de balões com luzes" loading="lazy">
+  <div class="band__scrim" aria-hidden="true"></div>
+  <div class="band__in wrap">
+    <p class="eyebrow band__eyebrow">Na festa dela</p>
+    <h2 class="band__title">Boa de comer<br><em>dançando</em>.</h2>
+    <p class="band__note">É o formato que a galera dela ama: <strong>ninguém precisa sentar</strong> pra comer bem, e a pista não esvazia.</p>
+  </div>
+  <p class="band__cap">Foto de evento real</p>
+</section>
+
+<!-- vitrine -->
+<section class="stage">
+  <div class="stage__head">
+    <p class="eyebrow">Do nosso acervo</p>
+    <h2>Na palma da <em>mão</em></h2>
+    <p>Sabores do nosso acervo no espírito finger food: pequenos, caprichados e fáceis de comer em pé.</p>
+  </div>
+  <div class="stage__track">
+    <figure class="card"><img src="fotos/coq/mini-hamburguer-de-picanha-com-queijo-azul-e-c.jpg" alt="Mini hambúrguer de picanha" loading="lazy"><div class="card__meta"><p class="card__t">Mini hambúrguer de picanha</p><p class="card__s">Foto do nosso acervo</p></div></figure>
+    <figure class="card"><img src="fotos/coq/croquette-de-linguica-com-catupiry.jpg" alt="Croquette de linguiça com catupiry" loading="lazy"><div class="card__meta"><p class="card__t">Croquette de linguiça c/ catupiry</p><p class="card__s">Foto do nosso acervo</p></div></figure>
+    <figure class="card"><img src="fotos/coq/dadinho-de-tapioca-com-geleia-de-pimenta.jpg" alt="Dadinho de tapioca com geleia de pimenta" loading="lazy"><div class="card__meta"><p class="card__t">Dadinho de tapioca c/ geleia de pimenta</p><p class="card__s">Foto do nosso acervo</p></div></figure>
+    <figure class="card"><img src="fotos/coq/batata-rustica-com-fondue-de-queijos.jpg" alt="Batatas rústicas com fondue de queijos" loading="lazy"><div class="card__meta"><p class="card__t">Batatas rústicas c/ fondue de queijos</p><p class="card__s">Foto do nosso acervo</p></div></figure>
+    <figure class="card"><img src="fotos/coq/mini-cubos-de-frango-ao-molho-de-curry.jpg" alt="Mini cubos de frango ao molho de curry" loading="lazy"><div class="card__meta"><p class="card__t">Mini cubos de frango ao curry</p><p class="card__s">Foto do nosso acervo</p></div></figure>
+    <figure class="card"><img src="fotos/coq/mini-pastelzinho-de-carne-seca-com-catupiry.jpg" alt="Mini pastelzinho de carne seca com catupiry" loading="lazy"><div class="card__meta"><p class="card__t">Mini pastelzinho de carne seca</p><p class="card__s">Foto do nosso acervo</p></div></figure>
+    <figure class="card"><img src="fotos/coq/bolinho-de-peixe.jpg" alt="Bolinho de peixe" loading="lazy"><div class="card__meta"><p class="card__t">Bolinho de peixe</p><p class="card__s">Foto do nosso acervo</p></div></figure>
+    <figure class="card"><img src="fotos/coq/chips-de-batata-doce.jpg" alt="Chips de batata-doce" loading="lazy"><div class="card__meta"><p class="card__t">Chips de batata-doce</p><p class="card__s">Foto do nosso acervo</p></div></figure>
+    <figure class="card"><img src="fotos/coq/mini-churros.jpg" alt="Mini churros" loading="lazy"><div class="card__meta"><p class="card__t">Mini churros</p><p class="card__s">Foto do nosso acervo</p></div></figure>
+    <figure class="card"><img src="fotos/coq/mini-sorvete.jpg" alt="Mini sorvete" loading="lazy"><div class="card__meta"><p class="card__t">Mini sorvete</p><p class="card__s">Foto do nosso acervo</p></div></figure>
+    <figure class="card"><img src="fotos/coq/verrine-de-chocolate-com-frutas.jpg" alt="Verrine de chocolate com frutas" loading="lazy"><div class="card__meta"><p class="card__t">Verrine de chocolate c/ frutas</p><p class="card__s">Foto do nosso acervo</p></div></figure>
+  </div>
+  <p class="stage__hint">Deslize para o lado →</p>
+</section>
+
+<!-- pacotes -->
+<section class="wrap sec" id="pacotes">
+  <div class="sec__head">
+    <p class="eyebrow sec__eyebrow">Escolham o da festa</p>
+    <h2 class="sec__title">Três <em>pacotes</em></h2>
+    <p class="sec__lead">O que muda de um pro outro é o tamanho da experiência: mais sabores circulando pela festa.</p>
+  </div>
+  <div class="grid3">
+    <div class="pacote"><p class="pacote__nome">Finger Foods 1</p><p class="pacote__res">O ponto de partida</p></div>
+    <div class="pacote"><p class="pacote__nome">Finger Foods 2</p><p class="pacote__res">Mais sabores na festa</p></div>
+    <div class="pacote"><p class="pacote__nome">Finger Foods 3</p><p class="pacote__res">A experiência completa</p></div>
+  </div>
+  <p class="nota"><strong>O cardápio de cada pacote, item a item, e os valores, o nosso time apresenta com vocês.</strong> E tem também a versão infantil, pensada pros primos pequenos.</p>
+</section>
+
+<section class="fim wrap">
+  <div class="fim__card">
+    <p class="fim__t">Cada escolha conta uma história. Cada sabor vira lembrança.</p>
+    <p class="fim__s">O nosso time apresenta valores, combinações e o formato ideal pra festa dela.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__in">
+    <img class="footer__logo" src="assets/indaia-wordmark-white-trim.png" alt="Eventos Indaiá">
+    <div class="footer__links">
+      <a href="gastronomia.html">Gastronomia</a>
+      <a href="index.html">Buffet</a>
+      <a href="https://www.eventosindaia.com.br" target="_blank" rel="noopener">eventosindaia.com.br</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
