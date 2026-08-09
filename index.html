@@ -231,19 +231,7 @@ a{color:inherit;}
 .tierbar__opt:hover{color:#fff;border-color:var(--accent);}
 .tierbar__opt[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff;}
 
-/* ===== BANDA ESCURA ===== */
-.band{position:relative;min-height:92vh;min-height:92svh;overflow:hidden;display:flex;align-items:flex-end;background:var(--night);color:var(--cream);}
-.band__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;
-  filter:saturate(.95) contrast(1.05) brightness(.9);transform:scale(1.12);transition:transform 2.2s var(--ease);}
-.band.in .band__img{transform:scale(1.02);}
-.band__scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,10,16,.5) 0%,rgba(18,10,16,.05) 30%,rgba(18,10,16,.86) 100%);}
-.band__in{position:relative;z-index:2;width:100%;padding-bottom:clamp(3rem,8vh,6rem);}
-.band__eyebrow{color:var(--accent);margin-bottom:1rem;}
-.band__title{font-family:var(--serif);font-weight:400;line-height:.96;font-size:clamp(2.6rem,8.4vw,6.4rem);letter-spacing:-.005em;}
-.band__title em{font-style:italic;color:var(--accent);}
-.band__note{margin-top:1.4rem;max-width:54ch;font-size:.88rem;line-height:1.8;color:rgba(245,233,236,.75);}
-.band__note strong{color:var(--cream);font-weight:500;}
-.band__cap{position:absolute;right:clamp(1.25rem,5vw,4.5rem);bottom:1.2rem;z-index:2;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,233,236,.6);}
+/* o bloco .band (banda escura do jantar) saiu junto com a secao */
 
 /* ===== FRASE ===== */
 .frase{position:relative;min-height:76svh;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--night);color:var(--cream);}
@@ -359,7 +347,7 @@ a{color:inherit;}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto;}
   .reveal{opacity:1;transform:none;filter:none;}
-  .frame__img,.band__img,.card img{transform:none;}
+  .frame__img,.card img{transform:none;}
 }
 </style>
 <style>/* ===== CARTOES DE MENU: enfase e legibilidade (ref: doces-15anos) =====
@@ -547,19 +535,9 @@ body{font-weight:400;overflow-x:hidden;overflow-x:clip;}
   </div>
 </section>
 
-<!-- A palavra-fantasma gigante ("SABOR") saiu em 2026-08-09 a pedido. -->
-
-<!-- ===== BANDA: A FESTA SENTA ===== -->
-<section class="band" id="jantar">
-  <img class="band__img" src="fotos/buffet-luzes.jpg" alt="Mesa do buffet montada com luzes" loading="lazy">
-  <div class="band__scrim" aria-hidden="true"></div>
-  <div class="band__in wrap">
-    <p class="eyebrow band__eyebrow">O jantar</p>
-    <h2 class="band__title">Um jantar à altura<br>do <em>sonho dela</em>.</h2>
-    <p class="band__note">Um buffet feito pra <strong>encher os olhos</strong> de quem chega e ser lembrado por quem prova. É o que os convidados mais comentam depois da festa.</p>
-  </div>
-  <p class="band__cap">Foto de evento real</p>
-</section>
+<!-- Sairam em 2026-08-09, a pedido: a palavra-fantasma gigante ("SABOR") e a
+     banda "Um jantar a altura do sonho dela" (foto da mesa de buffet com as
+     luzes). O manifesto agora emenda direto nas Entradas. -->
 
 <!-- ===== ENTRADAS =====
      Subiu pra ANTES dos menus em 2026-08-09, a pedido: as entradas vem antes do
@@ -2651,7 +2629,7 @@ menuEl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
 const io = new IntersectionObserver(es=>{
   es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
 },{threshold:.14, rootMargin:'0px 0px -8% 0px'});
-document.querySelectorAll('.reveal,.frame,.band,.card').forEach(el=>io.observe(el));
+document.querySelectorAll('.reveal,.frame,.card').forEach(el=>io.observe(el));
 
 /* ---- título do hero ---- */
 addEventListener('load',()=>{
@@ -2751,7 +2729,7 @@ if(man && !matchMedia('(prefers-reduced-motion: reduce)').matches){
    virava uma tarja branca no meio da foto. */
 (function () {
   var nav = document.getElementById('nav');
-  var escuros = [].slice.call(document.querySelectorAll('.menus,.sec--dark,.band,.frase'));
+  var escuros = [].slice.call(document.querySelectorAll('.menus,.sec--dark,.frase'));
   if (!nav || !escuros.length) return;
 
   function ajusta() {

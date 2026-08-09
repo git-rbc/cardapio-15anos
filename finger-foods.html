@@ -90,16 +90,8 @@ a{color:inherit;}
 .carrossel__titulo{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.2rem);}
 .carrossel__titulo em{font-style:italic;color:var(--accent-txt);}
 .carrossel__hint{font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-mute-txt);}
-.track{display:flex;gap:clamp(.8rem,1.8vw,1.4rem);overflow-x:auto;scroll-snap-type:x mandatory;
-  padding-bottom:1.2rem;scrollbar-width:thin;scrollbar-color:var(--accent) transparent;}
-.track::-webkit-scrollbar{height:3px;}
-.track::-webkit-scrollbar-thumb{background:var(--accent);}
-.dish{position:relative;flex:0 0 auto;width:min(70vw,360px);aspect-ratio:3/4;overflow:hidden;background:var(--paper-2);scroll-snap-align:start;}
-.dish img{width:100%;height:100%;object-fit:cover;}
-.dish__cap{position:absolute;left:.9rem;bottom:.9rem;right:.9rem;z-index:2;color:#fff;}
-.dish__cap::before{content:"";position:absolute;inset:-1rem -.9rem -.9rem;z-index:-1;background:linear-gradient(0deg,rgba(16,7,13,.85),transparent);}
-.dish__nome{font-family:var(--serif);font-size:1.45rem;line-height:1.12;text-shadow:0 1px 10px rgba(0,0,0,.5);}
-.dish__tag{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;opacity:.85;}
+/* o .dish (card 3/4 numa faixa que rolava sozinha) foi substituido pelo
+   .pc do trilho, no bloco TRILHO NA PEGADA DO OPEN DE DRINKS */
 .trocando{opacity:.25;transition:opacity .25s;}
 
 /* ===== CARDÁPIO: categorias GRANDES que rolam pro lado ===== */
@@ -153,6 +145,105 @@ a{color:inherit;}
 .footer__links a{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,233,236,.7);text-decoration:none;}
 .footer__links a:hover{color:var(--accent);}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}.nivel{transition:none;}}
+</style>
+<style>/* ===== ESCALA E LARGURA (mesmo bloco do buffet e do coquetel) =====
+   base era 16px num container de 1360px: sobrava tela dos dois lados e faltava
+   corpo de letra. Subir o font-size do <html> escala TUDO que esta em rem de
+   uma vez. Nao repetir tamanho a mao. */
+html{font-size:18px;}
+:root{--maxw:1680px;}
+@media(min-width:1600px){:root{--maxw:1800px;}}
+/* tokens que o buffet tem e esta pagina nao tinha, usados nos blocos abaixo */
+:root{--night-2:#110811;--gold:#D06E8F;}
+/* neutros do doces: os daqui estavam claros demais e lavavam na tela secundaria */
+:root{--ink-soft:#3E2F37;--ink-mute:#8A767F;--ink-mute-txt:#4A3842;}
+/* Montserrat 300 sumia; 400 e o peso do buffet.
+   overflow-x:hidden no body faz dele um CONTAINER DE ROLAGEM e isso mata o
+   position:sticky do trilho. O clip corta igual sem criar o container. */
+body{font-weight:400;overflow-x:hidden;overflow-x:clip;}
+
+/* ===== CARTOES DE PACOTE: enfase e legibilidade ===== */
+.nivel__res{text-transform:none;letter-spacing:.005em;font-size:.82rem;line-height:1.72;font-weight:400;}
+.nivel__preco{font-size:1.22rem;}
+.nivel__preco small{font-size:.6rem;letter-spacing:.1em;}
+.nivel{gap:.5rem;padding:1.5rem 1.3rem 1.3rem;}
+</style>
+<style>/* ===== SECAO DOS PACOTES NO ESCURO =====
+   claro-sobre-claro nao separava os cartoes do fundo; o escuro da o contraste.
+   Sangra ate a borda da tela, igual ao buffet e ao coquetel. */
+.menus{background:var(--night);color:var(--cream);
+  padding-block:clamp(3.5rem,8vh,6rem) clamp(2.5rem,6vh,4.5rem);
+  box-shadow:0 0 0 100vmax var(--night);clip-path:inset(0 -100vmax);}
+.menus .sec__head{border-color:var(--line-light);}
+.menus .sec__title{color:var(--cream);}
+.menus .sec__eyebrow{color:var(--accent);}
+.menus .num{color:rgba(245,233,236,.5);}
+.menus .sec__lead{color:rgba(245,233,236,.88);}
+.nivel{border-color:rgba(245,233,236,.3);color:var(--cream);background:rgba(255,255,255,.035);}
+.nivel__nome{color:var(--cream);}
+.nivel__preco{color:var(--gold);}
+.nivel__preco small{color:rgba(245,233,236,.72);}
+.nivel__res{color:rgba(245,233,236,.95);}
+.nivel:hover{border-color:var(--accent);}
+/* no escuro quem inverte e o ESCOLHIDO: cartao claro no meio dos escuros */
+.nivel[aria-pressed="true"]{background:var(--cream);border-color:var(--cream);color:var(--ink);}
+.nivel[aria-pressed="true"] .nivel__nome{color:var(--ink);}
+.nivel[aria-pressed="true"] .nivel__preco{color:#8C3A55;}
+.nivel[aria-pressed="true"] .nivel__preco small{color:var(--ink-mute-txt);}
+.nivel[aria-pressed="true"] .nivel__res{color:var(--ink);}
+/* o cardapio grande que rola pro lado tambem esta dentro da secao */
+.menus .cardapio__lbl em,.menus .carrossel__titulo em{color:var(--accent);}
+.menus .cardapio__hint,.menus .carrossel__hint{color:rgba(245,233,236,.62);}
+.menus .cat__head{border-top-color:rgba(245,233,236,.62);}
+/* a Cormorant tem haste fina e lava em creme sobre escuro: 600 segura, 700 borra */
+.menus .cat li{color:rgba(245,233,236,.96);border-bottom-color:rgba(245,233,236,.16);font-weight:600;}
+/* os itens FORA do pacote continuam apagados, mas legiveis no escuro */
+.menus .cat li.fora{color:rgba(245,233,236,.42);opacity:1;}
+.menus .cat li.fora .marca{color:rgba(245,233,236,.42);}
+/* a contagem do cabecalho da categoria vem com cor inline no JS */
+.menus .cat__head span[style]{color:var(--accent)!important;}
+.menus .nota{color:rgba(245,233,236,.88);background:rgba(255,255,255,.05);}
+.menus .nota strong{color:var(--accent);}
+.menus .seta{border-color:var(--line-light);color:rgba(245,233,236,.8);}
+.menus .seta:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
+.menus .seta[disabled]:hover{background:none;border-color:var(--line-light);color:rgba(245,233,236,.8);}
+</style>
+<style>/* ===== TRILHO NA PEGADA DO OPEN DE DRINKS (igual ao buffet e ao coquetel) =====
+   Rolar pra baixo faz as fotos passarem de lado: o bloco gruda na tela
+   (position:sticky) e o track anda em translate. Sem biblioteca nenhuma. */
+.trilho{position:relative;margin-inline:calc(50% - 50vw);}
+.trilho__pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;
+  display:flex;align-items:center;}
+.trilho__track{display:flex;gap:clamp(1rem,2vw,1.8rem);align-items:stretch;
+  padding-inline:clamp(1.25rem,5vw,4.5rem);will-change:transform;}
+.pc{position:relative;flex:0 0 auto;width:min(86vw,520px);aspect-ratio:1/1.16;
+  overflow:hidden;background:#261a23;border:1px solid rgba(245,233,236,.09);
+  transition:border-color .4s;}
+.pc:hover{border-color:rgba(208,110,143,.45);}
+.pc img{width:100%;height:100%;object-fit:cover;display:block;}
+.pc__meta{position:absolute;left:0;right:0;bottom:0;z-index:2;color:#fff;padding:1.1rem 1.5rem 1.4rem;}
+.pc__meta::before{content:"";position:absolute;left:0;right:0;bottom:0;top:-3rem;z-index:-1;
+  background:linear-gradient(0deg,rgba(16,7,13,.94),rgba(16,7,13,.7) 42%,transparent);}
+.pc__nome{font-family:var(--serif);font-size:clamp(1.5rem,2.6vw,2.05rem);line-height:1.12;
+  text-shadow:0 1px 12px rgba(16,7,13,.55);}
+.pc__cat{font-size:clamp(.86rem,1.1vw,.98rem);line-height:1.5;color:rgba(245,233,236,.74);margin-top:.35rem;}
+.pc__tag{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;
+  color:rgba(245,233,236,.7);margin-top:.5rem;}
+/* celular e quem pediu menos movimento: faixa lateral comum, nada preso na tela */
+.trilho--flat{height:auto!important;margin-inline:0;}
+.trilho--flat .trilho__pin{position:static;height:auto;overflow-x:auto;
+  scroll-snap-type:x mandatory;padding-bottom:1.2rem;padding-inline:0;
+  scrollbar-width:thin;scrollbar-color:var(--accent) transparent;}
+.trilho--flat .trilho__track{transform:none!important;padding-inline:0;}
+.trilho--flat .trilho__pin::-webkit-scrollbar{height:3px;}
+.trilho--flat .trilho__pin::-webkit-scrollbar-thumb{background:var(--accent);}
+.trilho--flat .pc{width:min(78vw,420px);scroll-snap-align:start;}
+@media(prefers-reduced-motion:reduce){
+  .trilho{height:auto!important;margin-inline:0;}
+  .trilho__pin{position:static;height:auto;overflow-x:auto;}
+  .trilho__track{transform:none!important;}
+  .pc{width:min(80vw,420px);}
+}
 </style>
 </head>
 <body>
@@ -208,9 +299,13 @@ a{color:inherit;}
   <div class="carrossel" id="carrossel">
     <div class="carrossel__head">
       <h3 class="carrossel__titulo">Na mão, o <em id="carrosselNome"></em></h3>
-      <p class="carrossel__hint">Deslize para o lado →</p>
+      <p class="carrossel__hint">Role &middot; as fotos passam de lado</p>
     </div>
-    <div class="track" id="track"></div>
+    <div class="trilho" id="trilho">
+      <div class="trilho__pin">
+        <div class="trilho__track" id="track"></div>
+      </div>
+    </div>
   </div>
 
   <div class="cardapio__head">
@@ -305,11 +400,17 @@ function render(i){
   document.getElementById('cardapioLbl').innerHTML = 'O que vem no <em>' + p.nome + '</em>';
 
   const track = document.getElementById('track');
+  /* a linha de baixo do card diz de qual categoria o item sai; vem sempre do
+     proprio dado (it.cat), nunca de legenda escrita a mao. Mesmo criterio do
+     buffet e do coquetel. */
   track.innerHTML = ITENS.filter(it => it.p[i] && it.f).map(it => `
-    <figure class="dish"><img src="${FOTO(it.f)}" alt="${it.n}" loading="lazy">
-      <figcaption class="dish__cap"><p class="dish__nome">${it.n}</p><p class="dish__tag">Foto ilustrativa</p></figcaption>
+    <figure class="pc"><img src="${FOTO(it.f)}" alt="${it.n}" loading="lazy">
+      <figcaption class="pc__meta"><p class="pc__nome">${it.n}</p>
+        ${it.cat ? `<p class="pc__cat">${it.cat}</p>` : ''}
+        <p class="pc__tag">Foto ilustrativa</p>
+      </figcaption>
     </figure>`).join('');
-  track.scrollLeft = 0;
+  if(window.montaTrilho) window.montaTrilho();
 
   /* a lista mostra TODOS os itens: os do pacote com marca, os de fora apagados,
      pra conversa de upgrade acontecer na tela */
@@ -368,6 +469,55 @@ addEventListener('scroll', () => {
   const y = window.scrollY + window.innerHeight * 0.5;
   tierbar.classList.toggle('on', y > zona.offsetTop + 200 && y < zona.offsetTop + zona.offsetHeight);
 }, {passive:true});
+</script>
+<script>
+/* ===== TRILHO OPEN-DRINKS =====
+   Rolar pra baixo faz as fotos passarem de lado. O .trilho recebe altura =
+   tela + o quanto o track passa da largura da tela; enquanto essa altura corre,
+   o .trilho__pin fica grudado (sticky) e o track anda em translate. Sem
+   bibliotecas, igual ao buffet, ao coquetel e ao open de drinks. */
+(function () {
+  var trilho = document.getElementById('trilho');
+  var track = document.getElementById('track');
+  if (!trilho || !track) return;
+
+  /* Quanto a foto anda de lado pra cada pixel rolado. UNICO numero a mexer se
+     pedirem "mais rapido" ou "mais devagar". */
+  var VEL_TRILHO = 1.4;
+  var dist = 0, agendado = false;
+
+  function semPin() {
+    return innerWidth <= 900
+        || matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  function mede() {
+    track.style.transform = 'none';
+    var plano = semPin();
+    trilho.classList.toggle('trilho--flat', plano);
+    if (!track.children.length || plano) { trilho.style.height = ''; dist = 0; return; }
+    dist = Math.max(0, Math.round(track.scrollWidth - innerWidth));
+    trilho.style.height = (innerHeight + Math.round(dist / VEL_TRILHO)) + 'px';
+    move();
+  }
+
+  function move() {
+    if (!dist) return;
+    var percurso = trilho.offsetHeight - innerHeight;
+    if (percurso <= 0) return;
+    var p = Math.min(1, Math.max(0, -trilho.getBoundingClientRect().top / percurso));
+    track.style.transform = 'translate3d(' + (-p * dist).toFixed(1) + 'px,0,0)';
+  }
+
+  window.montaTrilho = mede;
+  addEventListener('scroll', function () {
+    if (agendado) return;
+    agendado = true;
+    requestAnimationFrame(function () { move(); agendado = false; });
+  }, { passive: true });
+  addEventListener('resize', mede);
+  mede();
+})();
 </script>
 </body>
 </html>
