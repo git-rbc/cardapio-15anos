@@ -75,7 +75,11 @@ a{color:inherit;}
 .pacote__nome{font-family:var(--serif);font-size:clamp(1.35rem,2.2vw,1.7rem);line-height:1.05;}
 .pacote__preco{font-family:var(--serif);font-size:1.1rem;color:var(--accent-txt);}
 .pacote__preco small{font-family:var(--sans);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute-txt);margin-left:.3rem;}
-.pacote__res{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute-txt);}
+.pacote__res{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute-txt);line-height:1.9;}
+/* o total ("7 itens, 3 categorias") vira rodape do card: continua util como
+   resumo, mas DEPOIS da composicao, nao no lugar dela. Mesmo card do casamento. */
+.pacote__total{margin-top:auto;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent-txt);line-height:1.8;border-top:1px solid var(--line-dark);padding-top:.6rem;}
 .pacote[aria-pressed="true"]{border-color:var(--accent);background:linear-gradient(160deg,rgba(208,110,143,.1),transparent);}
 .pacote[aria-pressed="true"]::after{content:"Selecionado";position:absolute;top:-1px;right:-1px;
   font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;background:var(--accent);color:#fff;padding:.35rem .6rem;}
@@ -143,7 +147,10 @@ body{font-weight:400;overflow-x:hidden;overflow-x:clip;}
 
 /* ===== CARTOES DE PACOTE: enfase e legibilidade =====
    o caixa-alta espacado sumia no branco e mais ainda em tela secundaria */
+/* a composicao sai do caixa-alta espacado, que sumia na tela secundaria.
+   O buffet de 15 anos ja esta assim; o de casamento manteve a caixa alta. */
 .pacote__res{text-transform:none;letter-spacing:.005em;font-size:.82rem;line-height:1.72;font-weight:400;}
+.pacote__total{text-transform:none;letter-spacing:.005em;font-size:.75rem;line-height:1.6;font-weight:400;}
 .pacote__preco{font-size:1.22rem;}
 .pacote__preco small{font-size:.6rem;letter-spacing:.1em;}
 .pacote{gap:.5rem;padding:1.5rem 1.3rem 1.3rem;}
@@ -163,6 +170,7 @@ body{font-weight:400;overflow-x:hidden;overflow-x:clip;}
 .pacote__preco{color:var(--gold);}
 .pacote__preco small{color:rgba(245,233,236,.72);}
 .pacote__res{color:rgba(245,233,236,.95);}
+.pacote__total{color:var(--gold);border-top-color:rgba(245,233,236,.22);}
 .pacote:hover{border-color:var(--accent);}
 /* no escuro quem inverte e o ESCOLHIDO: cartao claro no meio dos escuros */
 .pacote[aria-pressed="true"]{background:var(--cream);border-color:var(--cream);color:var(--ink);}
@@ -170,6 +178,7 @@ body{font-weight:400;overflow-x:hidden;overflow-x:clip;}
 .pacote[aria-pressed="true"] .pacote__preco{color:#8C3A55;}
 .pacote[aria-pressed="true"] .pacote__preco small{color:var(--ink-mute-txt);}
 .pacote[aria-pressed="true"] .pacote__res{color:var(--ink);}
+.pacote[aria-pressed="true"] .pacote__total{color:#7A2F49;border-top-color:rgba(28,20,24,.24);}
 /* o cardapio grande que rola pro lado tambem esta dentro da secao */
 #pacotes .cardapio__lbl em,#pacotes .carrossel__titulo em{color:var(--accent);}
 #pacotes .cardapio__hint,#pacotes .carrossel__hint{color:rgba(245,233,236,.62);}
@@ -245,7 +254,7 @@ body{font-weight:400;overflow-x:hidden;overflow-x:clip;}
     <img class="hero__logo" src="assets/indaia-wordmark-white-trim.png" alt="Eventos Indaiá">
     <p class="eyebrow hero__kicker">Gastronomia Indaiá · 15 Anos</p>
     <h1>Coquetel<br><em>volante</em></h1>
-    <p class="hero__sub">A festa inteira de pé, com sabor passando de mão em mão.</p>
+    <p class="hero__sub">A comida vai até onde a festa está: na roda de amigas, no sofá, na pista.</p>
   </div>
 </header>
 
@@ -928,13 +937,39 @@ const COQ = [
 ];
 
 let atual = 'c2';
+
+/* "1 carnes" fica errado no card. Só as categorias que aparecem com 1 item
+   precisam de par no singular; o que não estiver aqui cai no rótulo original.
+   Mesma lista do coquetel de casamento. */
+const SINGULAR = {
+  'Crocantes e entradas':'Crocante ou entrada',
+  'Massas e risotos':'Massa ou risoto',
+  'Frutos do mar':'Fruto do mar',
+  'Ilhas de serviço':'Ilha de serviço',
+  'Racletteiras':'Racletteira',
+  'Saladas':'Salada',
+  'Carnes':'Carne',
+  'Doces':'Doce'
+};
+
 const grid = document.getElementById('grid');
 COQ.forEach(c=>{
   const b = document.createElement('button');
   b.type='button'; b.className='pacote'; b.dataset.id=c.id; b.setAttribute('aria-pressed','false');
+  /* A composição vem das SEÇÕES, não do campo `resumo` do PDF. "7 itens, 3
+     categorias" é abstrato: não diz o que o cliente leva nem deixa comparar um
+     pacote com o outro. Quebrado por categoria (igual ao coquetel de casamento
+     e ao buffet), a diferença entre os quatro fica visível no próprio card, sem
+     precisar abrir a lista. Gerado a partir dos dados, então nunca desencontra
+     do que está embaixo. */
+  const composicao = c.secoes.map(s=>{
+    const n = s.itens.length;
+    return `${n} ${n===1 ? (SINGULAR[s.label] || s.label) : s.label}`;
+  }).join('<br>');
   b.innerHTML = `<p class="pacote__nome">${c.nome}</p>
     <p class="pacote__preco">${c.preco}<small>por pessoa</small></p>
-    <p class="pacote__res">${c.resumo}</p>`;
+    <p class="pacote__res">${composicao}</p>
+    <p class="pacote__total">${c.resumo}</p>`;
   b.addEventListener('click',()=>selecionar(c.id,true));
   grid.appendChild(b);
 });
