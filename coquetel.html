@@ -120,6 +120,24 @@ a{color:inherit;}
   font-size:.84rem;line-height:1.7;color:var(--ink-soft);max-width:62ch;}
 .nota strong{color:var(--ink);font-weight:500;}
 
+/* ===== BANDA: a foto de gente pegando comida =====
+   A pagina inteira era prato fotografado de perto, sem ninguem. Faltava a cena
+   de comer no meio da festa, que e o argumento do coquetel volante. Mesmo
+   componente do buffet (.band), so que aqui a foto e um recorte de mao. */
+.band{position:relative;min-height:82vh;min-height:82svh;overflow:hidden;display:flex;align-items:flex-end;
+  background:var(--night);color:var(--cream);margin-inline:calc(50% - 50vw);}
+.band__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;
+  filter:saturate(1) contrast(1.03) brightness(.82);}
+.band__scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,10,16,.45) 0%,rgba(18,10,16,.08) 28%,rgba(18,10,16,.92) 100%);}
+.band__in{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin-inline:auto;
+  padding:0 var(--pad) clamp(3rem,8vh,6rem);}
+.band__eyebrow{color:var(--accent);margin-bottom:1rem;}
+.band__title{font-family:var(--serif);font-weight:400;line-height:.96;font-size:clamp(2.4rem,7vw,5.4rem);letter-spacing:-.005em;}
+.band__title em{font-style:italic;color:var(--accent);}
+.band__note{margin-top:1.4rem;max-width:54ch;font-size:.92rem;line-height:1.8;color:var(--cream);font-weight:500;}
+.band__cap{position:absolute;right:clamp(1.25rem,5vw,4.5rem);bottom:1.2rem;z-index:2;
+  font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,233,236,.6);}
+
 /* footer (o bloco .fim do cartao de fechamento saiu junto com a secao) */
 .footer{background:var(--night);color:var(--cream);padding:2.2rem 0;}
 .footer__in{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad);display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;}
@@ -257,6 +275,19 @@ body{font-weight:400;overflow-x:hidden;overflow-x:clip;}
     <p class="hero__sub">A comida vai até onde a festa está: na roda de amigas, no sofá, na pista.</p>
   </div>
 </header>
+
+<!-- A banda entra ANTES dos pacotes: impacto antes das opcoes, mesma ordem que a
+     consultora pediu no buffet. E a unica foto da pagina com gente. -->
+<section class="band">
+  <img class="band__img" src="fotos/coq-mao-burger.jpg" alt="Convidada pegando um mini hambúrguer da bandeja durante a festa" loading="lazy">
+  <div class="band__scrim" aria-hidden="true"></div>
+  <div class="band__in">
+    <p class="eyebrow band__eyebrow">No meio da festa</p>
+    <h2 class="band__title">Chega <em>até ela</em></h2>
+    <p class="band__note">Os salgados circulam pelo salão a noite inteira. Ela pega um, prova, volta pra pista, e daqui a pouco vem outro. É o formato que a turma dela mais gosta.</p>
+  </div>
+  <p class="band__cap">Foto ilustrativa</p>
+</section>
 
 <main class="wrap sec" id="pacotes">
   <div class="sec__head">
