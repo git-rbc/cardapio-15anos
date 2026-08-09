@@ -122,22 +122,8 @@ a{color:inherit;}
 .statement__text .w{transition:opacity .3s linear;}
 .statement__text .accent{color:var(--accent-txt);font-style:italic;}
 
-/* ===== TÍTULO-FANTASMA ===== */
-.ghost{padding:clamp(2rem,8vh,5rem) 0;overflow:hidden;display:flex;justify-content:center;}
-.ghost__word{
-  --ghost-base:color-mix(in oklab,var(--ink-soft) 48%,var(--paper));
-  --ghost-glow:color-mix(in oklab,var(--ghost-base) 86%,var(--accent));
-  --ghost-mid:color-mix(in oklab,var(--ink-mute) 30%,var(--paper));
-  --ghost-top:color-mix(in oklab,var(--paper-2) 40%,var(--paper));
-  font-family:var(--serif);font-weight:600;text-transform:uppercase;line-height:1;text-align:center;
-  font-size:clamp(1.5rem,11.4vw,18rem);letter-spacing:.01em;white-space:nowrap;will-change:transform;
-  color:color-mix(in oklab,var(--ink-soft) 34%,var(--paper));animation:ghostFloat 7s ease-in-out infinite;}
-@keyframes ghostFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-.ghost__word .gl{display:inline-block;will-change:transform,opacity;}
-@supports ((-webkit-background-clip:text) or (background-clip:text)){
-  .ghost__word .gl{background-image:linear-gradient(to top,var(--ghost-glow) 0%,var(--ghost-base) 28%,var(--ghost-mid) 64%,var(--ghost-top) 100%);
-    background-repeat:no-repeat;background-size:100% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;}}
-@media(prefers-reduced-motion:reduce){.ghost__word{animation:none;}}
+/* o bloco .ghost (palavra-fantasma "SABOR") saiu junto com a secao.
+   Cuidado: .btn--ghost la de cima e outra coisa, e continua em uso. */
 
 /* ===== SEÇÃO ===== */
 .sec{padding-block:clamp(4rem,10vh,8rem);}
@@ -347,22 +333,8 @@ a{color:inherit;}
   background:linear-gradient(160deg,rgba(208,110,143,.06),transparent);font-size:.9rem;line-height:1.75;color:var(--ink-soft);}
 .escopo strong{color:var(--ink);font-weight:500;}
 
-/* ===== ASSINATURA ===== */
-.sig{background:var(--night-2);color:var(--cream);}
-.sig__pin{position:relative;min-height:100svh;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4rem 1rem;}
-.sig__marquee{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:2vh;pointer-events:none;opacity:.06;overflow:hidden;}
-.sig__row{white-space:nowrap;font-family:var(--serif);font-weight:600;text-transform:uppercase;font-size:clamp(3rem,9vw,8rem);letter-spacing:.02em;}
-.sig__row--a{animation:mqA 40s linear infinite;}
-.sig__row--b{align-self:flex-end;animation:mqB 46s linear infinite;}
-@keyframes mqA{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@keyframes mqB{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-.sig__hero{position:relative;z-index:1;width:min(76vw,460px);aspect-ratio:3/2;overflow:hidden;background:#0f0711;}
-.sig__hero img{width:100%;height:100%;object-fit:cover;object-position:center;}
-.sig__logo{position:relative;z-index:2;width:min(42vw,260px);height:auto;margin-top:2rem;}
-.sig__headline{position:relative;z-index:2;text-align:center;margin-top:1.2rem;font-family:var(--serif);
-  font-size:clamp(1.2rem,3vw,2rem);font-style:italic;color:rgba(245,233,236,.9);line-height:1.35;max-width:26ch;}
-
-/* o bloco .valor (cartao "O proximo passo") saiu junto com a secao */
+/* os blocos .sig (assinatura) e .valor (cartao "O proximo passo") sairam
+   junto com as respectivas secoes */
 
 /* ===== FOOTER ===== */
 .footer{background:var(--night);color:var(--cream);padding:clamp(3rem,7vh,5rem) 0 2rem;}
@@ -387,7 +359,6 @@ a{color:inherit;}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto;}
   .reveal{opacity:1;transform:none;filter:none;}
-  .sig__row--a,.sig__row--b{animation:none;}
   .frame__img,.band__img,.card img{transform:none;}
 }
 </style>
@@ -576,7 +547,7 @@ body{font-weight:400;overflow-x:hidden;overflow-x:clip;}
   </div>
 </section>
 
-<div class="ghost" aria-hidden="true"><div class="ghost__word" id="ghost">Sabor</div></div>
+<!-- A palavra-fantasma gigante ("SABOR") saiu em 2026-08-09 a pedido. -->
 
 <!-- ===== BANDA: A FESTA SENTA ===== -->
 <section class="band" id="jantar">
@@ -590,10 +561,35 @@ body{font-weight:400;overflow-x:hidden;overflow-x:clip;}
   <p class="band__cap">Foto de evento real</p>
 </section>
 
+<!-- ===== ENTRADAS =====
+     Subiu pra ANTES dos menus em 2026-08-09, a pedido: as entradas vem antes do
+     jantar na festa de verdade, e o cliente le a cena antes de ver os valores. -->
+<section class="sec wrap" id="entradas">
+  <div class="sec__head">
+    <div class="sec__meta"><span class="num">01</span><p class="eyebrow sec__eyebrow">Enquanto isso, no salão</p></div>
+    <h2 class="sec__title reveal">As <em>entradas</em></h2>
+    <p class="sec__lead reveal" data-d="1">Antes do jantar, a festa tem os seus momentos, e cada família celebra do seu jeito. Enquanto tudo isso acontece, as entradas já circulam pelo salão: todo mundo se acomoda, conversa e belisca desde o início. Quando o jantar chega, ninguém ficou esperando: a festa já começou.</p>
+  </div>
+  <div class="gal">
+    <div class="gal__col">
+      <figure class="frame frame--54 reveal">
+        <img class="frame__img" src="fotos/entradinhas.jpg" alt="Entradinhas da casa com patês" loading="lazy">
+        <figcaption class="frame__cap">Entradinhas da casa, foto real</figcaption>
+      </figure>
+    </div>
+    <div class="gal__col gal__col--offset">
+      <figure class="frame frame--34 reveal" data-d="1">
+        <img class="frame__img" src="fotos/entrada-premium.jpg" alt="Escondidinho de camarão em taça de vidro" loading="lazy">
+        <figcaption class="frame__cap">Escondidinho de camarão, foto real</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <!-- ===== MENUS ===== -->
 <section class="menus wrap" id="menus">
   <div class="sec__head">
-    <div class="sec__meta"><span class="num">01</span><p class="eyebrow sec__eyebrow">Escolham o de vocês</p></div>
+    <div class="sec__meta"><span class="num">02</span><p class="eyebrow sec__eyebrow">Escolham o de vocês</p></div>
     <h2 class="sec__title reveal">Cinco <em>menus</em></h2>
     <p class="sec__lead reveal" data-d="1">O que muda de um menu pro outro é o tamanho da experiência: mais sabores, mais surpresas, mais momentos na festa. E a certeza de impressionar em qualquer uma das escolhas.</p>
   </div>
@@ -633,29 +629,6 @@ body{font-weight:400;overflow-x:hidden;overflow-x:clip;}
   </div>
 
   <p class="nota"><strong>Sem pressa.</strong> As escolhas do cardápio são feitas na Reunião Final, cerca de 30 dias antes do evento, e podem ser alteradas até essa data sem qualquer transtorno.</p>
-</section>
-
-<!-- ===== ENTRADAS ===== -->
-<section class="sec wrap" id="entradas">
-  <div class="sec__head">
-    <div class="sec__meta"><span class="num">02</span><p class="eyebrow sec__eyebrow">Enquanto isso, no salão</p></div>
-    <h2 class="sec__title reveal">As <em>entradas</em></h2>
-    <p class="sec__lead reveal" data-d="1">Antes do jantar, a festa tem os seus momentos, e cada família celebra do seu jeito. Enquanto tudo isso acontece, as entradas já circulam pelo salão: todo mundo se acomoda, conversa e belisca desde o início. Quando o jantar chega, ninguém ficou esperando: a festa já começou.</p>
-  </div>
-  <div class="gal">
-    <div class="gal__col">
-      <figure class="frame frame--54 reveal">
-        <img class="frame__img" src="fotos/entradinhas.jpg" alt="Entradinhas da casa com patês" loading="lazy">
-        <figcaption class="frame__cap">Entradinhas da casa, foto real</figcaption>
-      </figure>
-    </div>
-    <div class="gal__col gal__col--offset">
-      <figure class="frame frame--34 reveal" data-d="1">
-        <img class="frame__img" src="fotos/entrada-premium.jpg" alt="Escondidinho de camarão em taça de vidro" loading="lazy">
-        <figcaption class="frame__cap">Escondidinho de camarão, foto real</figcaption>
-      </figure>
-    </div>
-  </div>
 </section>
 
 <!-- ===== RESTRIÇÕES ===== -->
@@ -758,18 +731,10 @@ body{font-weight:400;overflow-x:hidden;overflow-x:clip;}
   <p class="escopo"><strong>Bom saber:</strong> aos valores de cada menu soma-se a taxa de serviço de 15% sobre o consumo. Os valores de tabela podem ser reajustados até a data do evento, mas quem já tem contrato fechado <strong>mantém os preços combinados</strong>: valores atualizados valem apenas pra adicionais e alterações feitas depois da contratação. As fotos deste material são de eventos reais da Eventos Indaiá. Algum ingrediente pode mudar conforme a época do ano. Nesse caso, a troca é sempre combinada com vocês.</p>
 </section>
 
-<!-- ===== ASSINATURA ===== -->
-<section class="sig">
-  <div class="sig__pin">
-    <div class="sig__marquee" aria-hidden="true">
-      <div class="sig__row sig__row--a">Cada prato, uma memória &nbsp;·&nbsp; Cada prato, uma memória &nbsp;·&nbsp; Cada prato, uma memória &nbsp;·&nbsp;</div>
-      <div class="sig__row sig__row--b">Cada prato, uma memória &nbsp;·&nbsp; Cada prato, uma memória &nbsp;·&nbsp; Cada prato, uma memória &nbsp;·&nbsp;</div>
-    </div>
-    <figure class="sig__hero"><img src="fotos/sig-doces.jpg" alt="Debutante na mesa de doces da festa de 15 anos" loading="lazy"></figure>
-    <img class="sig__logo" src="assets/indaia-wordmark-white-trim.png" alt="Eventos Indaiá">
-    <p class="sig__headline">Daqui a outros quinze anos, um prato vai trazer ela de volta pra essa noite.</p>
-  </div>
-</section>
+<!-- A ASSINATURA saiu em 2026-08-09 a pedido: era o bloco final com a marquise
+     "Cada prato, uma memoria", a foto da debutante na mesa de doces, o logo e a
+     linha "Daqui a outros quinze anos...". A pagina agora acaba em Como
+     funciona e vai direto pro rodape. -->
 
 <!-- A secao FECHAMENTO ("O proximo passo") saiu em 2026-08-08 a pedido, igual
      ao que ja tinha sido feito no material de doces. A pagina fecha na
@@ -2730,20 +2695,7 @@ if(man && !matchMedia('(prefers-reduced-motion: reduce)').matches){
   },{passive:true});
 }
 
-/* ---- palavra-fantasma letra a letra ---- */
-const ghost = document.getElementById('ghost');
-if(ghost){
-  ghost.innerHTML = [...ghost.textContent].map(c=>`<span class="gl">${c===' '?'&nbsp;':c}</span>`).join('');
-  const letras = [...ghost.querySelectorAll('.gl')];
-  letras.forEach(l=>{ l.style.opacity='0'; l.style.transform='translateY(24px)'; l.style.transition='opacity .6s var(--ease), transform .6s var(--ease)'; });
-  const gio = new IntersectionObserver(es=>{
-    es.forEach(e=>{ if(e.isIntersecting){
-      letras.forEach((l,i)=> setTimeout(()=>{ l.style.opacity='1'; l.style.transform='none'; }, i*55));
-      gio.disconnect();
-    }});
-  },{threshold:.4});
-  gio.observe(ghost);
-}
+/* o script que animava a palavra-fantasma letra a letra saiu com a secao */
 </script>
 <script>
 /* ===== TRILHO OPEN-DRINKS =====
@@ -2799,7 +2751,7 @@ if(ghost){
    virava uma tarja branca no meio da foto. */
 (function () {
   var nav = document.getElementById('nav');
-  var escuros = [].slice.call(document.querySelectorAll('.menus,.sec--dark,.band,.sig,.frase'));
+  var escuros = [].slice.call(document.querySelectorAll('.menus,.sec--dark,.band,.frase'));
   if (!nav || !escuros.length) return;
 
   function ajusta() {
