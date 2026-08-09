@@ -19,8 +19,8 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{background:var(--night);}
-body{background:var(--night);color:var(--cream);font-family:var(--sans);font-weight:300;line-height:1.65;
-  -webkit-font-smoothing:antialiased;min-height:100svh;display:flex;flex-direction:column;}
+body{background:var(--night);color:var(--cream);font-family:var(--sans);font-weight:400;line-height:1.65;
+  min-height:100svh;display:flex;flex-direction:column;}
 img{display:block;max-width:100%;}
 a{color:inherit;}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
@@ -56,6 +56,18 @@ h1 em{font-style:italic;color:var(--accent);}
   text-transform:uppercase;color:rgba(245,233,236,.4);border-top:1px solid var(--line-light);}
 @media(max-width:600px){h1{white-space:normal;}}
 @media(prefers-reduced-motion:reduce){.exp,.exp img{transition:none;}}
+
+/* ===== ESCALA E LARGURA (ref: hub do casamento / cardapio-doces) =====
+   Base era 16px num container de 1360px: em monitor grande sobrava tela vazia
+   dos dois lados e os cards ficavam menores que os do casamento. Subir o
+   font-size do <html> escala TUDO que esta em rem de uma vez, e o --maxw maior
+   estica a grade. Os cards nao tem largura fixa (auto-fit 1fr), entao crescem
+   junto com o container. Nao repetir tamanho a mao. */
+html{font-size:18px;}
+:root{--maxw:1680px;}
+@media(min-width:1600px){:root{--maxw:1800px;}}
+/* medido de 600 a 1920px: mesmo no 18px o titulo continua cabendo em uma linha
+   so, entao a quebra segue valendo so no celular (regra de 600px la em cima) */
 </style>
 </head>
 <body>
