@@ -51,6 +51,7 @@ h1 em{font-style:italic;color:var(--accent);}
 .exp__meta{position:absolute;left:1.2rem;right:1.2rem;bottom:1.2rem;z-index:2;}
 .exp__meta::before{content:"";position:absolute;inset:-1.2rem;top:-3rem;z-index:-1;background:linear-gradient(0deg,rgba(16,7,13,.9),transparent);}
 .exp__t{font-family:var(--serif);font-size:clamp(1.6rem,2.6vw,2rem);line-height:1.05;}
+.exp__t em{font-style:italic;color:var(--accent);}
 .exp__s{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-top:.45rem;}
 .rodape{margin-top:auto;padding:1.6rem var(--pad) 2rem;text-align:center;font-size:.62rem;letter-spacing:.14em;
   text-transform:uppercase;color:rgba(245,233,236,.4);border-top:1px solid var(--line-light);}
@@ -108,6 +109,13 @@ html{font-size:18px;}
     <a class="exp" href="open-drinks.html">
       <img src="fotos/beb-drinks.jpg" alt="Drinks coloridos servidos em taças e copos de vidro">
       <div class="exp__meta"><p class="exp__t">Open Drinks</p><p class="exp__s">Ver as quatro cartas →</p></div>
+    </a>
+    <!-- material proprio, em repo separado (git-rbc/open-drinks-15anos): sao os
+         12 drinks 100% sem alcool, num pacote unico. Nao e a mesma carta do
+         open-drinks.html, que tem gin, vodka e whisky. -->
+    <a class="exp" href="https://git-rbc.github.io/open-drinks-15anos/" target="_blank" rel="noopener">
+      <img src="fotos/card-sem-alcool.jpg" alt="Adolescentes brindando com drinks sem álcool na pista">
+      <div class="exp__meta"><p class="exp__t">Drinks <em>sem álcool</em></p><p class="exp__s">Ver os doze drinks →</p></div>
     </a>
   </div>
   <div class="fecho"></div>
