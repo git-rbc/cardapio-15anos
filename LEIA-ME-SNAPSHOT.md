@@ -18,8 +18,9 @@ Só existem aqui (não estão na `main`):
 - `doces.html`
 - `drinks-sem-alcool.html`
 
-Só existe na `main`:
-- `gastronomia.html`
+O `gastronomia.html` existe nos dois, mas aqui ele é só um **redirect de 496
+bytes** para a raiz: nesta versão o hub virou a inicial. Na `main` ele ainda é
+o hub de verdade.
 
 Falta um arquivo: `fotos/doces-card.webp` deu 404 no próprio site de origem, ou
 seja, já estava quebrado em produção.
