@@ -85,7 +85,7 @@ a{color:inherit;}
 /* ===== ABERTURA ===== */
 /* texto embaixo: a rodinha ocupa o meio da foto e a debutante fica no centro,
    entao titulo centralizado passaria por cima dela */
-.overture{position:relative;min-height:100vh;min-height:100svh;background:var(--night);display:flex;align-items:flex-end;overflow:hidden;color:var(--cream);}
+.overture{position:relative;min-height:100vh;min-height:100svh;background:var(--night);display:flex;align-items:safe flex-end;overflow:hidden;color:var(--cream);}
 .overture__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;
   filter:saturate(1.02) contrast(1.05);transform:scale(1.06);}
 .overture__scrim{position:absolute;inset:0;
@@ -271,7 +271,7 @@ a{color:inherit;}
   display:flex;align-items:center;perspective:1500px;}
 .trilho__track{display:flex;gap:clamp(1.4rem,3.2vw,3rem);align-items:center;
   padding-inline:clamp(1.25rem,5vw,4.5rem);transform-style:preserve-3d;will-change:transform;}
-.pc{position:relative;flex:0 0 auto;width:min(88vw,72vh,820px);aspect-ratio:1/1;
+.pc{position:relative;flex:0 0 auto;width:min(88vw,76vh,900px);aspect-ratio:1/1;
   overflow:hidden;background:#241a22;backface-visibility:hidden;
   box-shadow:0 42px 80px -38px rgba(10,5,10,.6),0 14px 30px -18px rgba(10,5,10,.42);}
 .pc img{width:100%;height:100%;object-fit:cover;display:block;}
@@ -344,6 +344,25 @@ a{color:inherit;}
   html{scroll-behavior:auto;}
   .reveal{opacity:1;transform:none;filter:none;}
 }
+
+/* ===== O QUE FICA (respiro) =====
+   Mesmo respiro da pagina de cerimonia na praia: uma faixa que para a
+   apresentacao e fala com o sentimento, nao com o produto. La o fundo e video;
+   aqui e foto com um zoom lento, porque este material nao tem video. Se um dia
+   houver, e so trocar o <img> por <video muted loop playsinline>. */
+.respiro{position:relative;min-height:86svh;min-height:86vh;overflow:hidden;display:flex;
+  align-items:safe center;justify-content:center;text-align:center;background:var(--night);color:var(--cream);}
+.respiro__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.62;
+  filter:saturate(.95) contrast(1.05);animation:respiroZoom 24s ease-in-out infinite alternate;}
+.respiro__scrim{position:absolute;inset:0;
+  background:radial-gradient(120% 100% at 50% 50%,rgba(12,9,16,.32),rgba(12,9,16,.78));}
+.respiro__in{position:relative;z-index:2;padding:4rem var(--pad);}
+.respiro__eyebrow{color:var(--accent);margin-bottom:1.4rem;}
+.respiro__frase{font-family:var(--serif);font-size:clamp(1.8rem,5vw,3.6rem);line-height:1.25;
+  max-width:20ch;margin-inline:auto;text-wrap:balance;}
+.respiro__frase em{font-style:italic;color:var(--accent);}
+@keyframes respiroZoom{from{transform:scale(1.02)}to{transform:scale(1.12)}}
+@media(prefers-reduced-motion:reduce){.respiro__img{animation:none;transform:none;}}
 </style>
 </head>
 <body>
@@ -382,7 +401,6 @@ a{color:inherit;}
       <a class="btn btn--ghost" href="#funciona">Como funciona</a>
     </div>
   </div>
-  <p class="scrollcue" aria-hidden="true">Role</p>
 </header>
 <div class="dawn" aria-hidden="true"></div>
 
@@ -469,6 +487,16 @@ a{color:inherit;}
           <figcaption class="pc__meta"><p class="pc__nome">A caipirinha</p><p class="pc__sub">Open Caipirinha Classic no Pacote 6.</p></figcaption></figure>
       </div>
     </div>
+  </div>
+</section>
+
+
+<section class="respiro" id="momento">
+  <img class="respiro__img" src="fotos/ob/rodinha.jpg" alt="Debutante no meio da roda de amigas na pista" loading="lazy">
+  <div class="respiro__scrim" aria-hidden="true"></div>
+  <div class="respiro__in">
+    <p class="eyebrow respiro__eyebrow">O que fica</p>
+    <p class="respiro__frase reveal">A rodinha se forma e <em>não desfaz a noite inteira</em>.</p>
   </div>
 </section>
 
