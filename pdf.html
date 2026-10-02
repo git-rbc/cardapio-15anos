@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<title>Menu Indaiá · PDF</title>
+<!--
+  MOLDE DOS PDFs do cardápio de buffet (A4 em pé).
+  Não é página pro cliente: é daqui que saem os arquivos de /pdf/.
+  Os dados (menus, pratos, fotos, preços) são lidos do próprio buffet.html,
+  então o PDF nunca diverge do site. Mudou o buffet.html (preço, prato, foto)?
+  Gere os PDFs de novo: sirva a pasta (python -m http.server), abra
+  pdf.html?menu=<id> no Chromium e imprima em A4 com fundo (Playwright:
+  page.pdf({format:'A4', printBackground:true, preferCSSPageSize:true}),
+  esperando body[data-pronto]). Saída em /pdf com os nomes que o painel usa:
+  Indaia-Menu-Superior, -Superior-II, -Premium, -Privilege, -Excellence e
+  Indaia-Menus-Completo (?menu=todos).
+
+  ?menu=superior | superior2 | premium | privilege | excellence | todos
+  &fonte=finger-foods.html  usa o material de Finger Foods (?menu=pacote1..3|todos).
+  Cada material pode declarar `const MATERIAL = {...}` com os textos próprios;
+  sem ele valem os do buffet (DEF abaixo).
+-->
+<style>
+@font-face{font-family:'Cormorant Garamond';font-weight:400;src:url('assets/fonts/cormorant-garamond-400.woff2') format('woff2');}
+@font-face{font-family:'Cormorant Garamond';font-weight:600;src:url('assets/fonts/cormorant-garamond-600.woff2') format('woff2');}
+@font-face{font-family:'Cormorant Garamond';font-weight:700;src:url('assets/fonts/cormorant-garamond-700.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-weight:400;src:url('assets/fonts/montserrat-400.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-weight:500;src:url('assets/fonts/montserrat-500.woff2') format('woff2');}
+
+:root{
+  --night:#1A1018;--night-2:#110811;--cream:#F5E9EC;--accent:#D06E8F;
+  --linha:rgba(245,233,236,.16);--suave:rgba(245,233,236,.62);
+  --sg:#C4763B;--sl:#5F7E9E;--vg:#6E8B57;
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Montserrat',system-ui,sans-serif;
+}
+@page{size:A4;margin:0;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{background:#555;}
+body{font-family:var(--sans);color:var(--cream);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+@media print{html,body{background:none;}}
+
+.pg{width:210mm;height:297mm;position:relative;overflow:hidden;background:var(--night);
+  page-break-after:always;break-after:page;margin:0 auto;}
+@media screen{.pg{margin:8mm auto;box-shadow:0 4px 30px rgba(0,0,0,.5);}}
+.pg__in{position:absolute;inset:16mm 15mm 18mm;}
+.rodape{position:absolute;left:15mm;right:15mm;bottom:8mm;display:flex;justify-content:space-between;align-items:center;
+  font-size:6.5pt;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,233,236,.42);}
+.rodape img{height:3.6mm;opacity:.55;}
+
+.eyebrow{font-size:7pt;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);font-weight:500;display:flex;align-items:center;gap:3mm;}
+.eyebrow::before{content:"";width:9mm;height:1px;background:var(--accent);}
+.titulo{font-family:var(--serif);font-weight:400;font-size:30pt;line-height:1.05;margin-top:3mm;}
+.titulo em{font-style:italic;color:var(--accent);}
+
+/* ---------- capa ---------- */
+.capa__foto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 50%;}
+.capa__veu{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(18,10,16,.55) 0%,rgba(18,10,16,.25) 35%,rgba(18,10,16,.82) 68%,rgba(18,10,16,.97) 100%);}
+.capa__logo{position:absolute;top:18mm;left:16mm;height:9mm;}
+.capa__txt{position:absolute;left:16mm;right:16mm;bottom:24mm;}
+.capa__menu{font-family:var(--serif);font-weight:400;font-size:64pt;letter-spacing:.02em;line-height:.9;margin-top:6mm;}
+.capa__nome{font-family:var(--serif);font-style:italic;font-weight:400;font-size:46pt;line-height:1;color:var(--accent);margin-top:2mm;}
+.capa__frase{font-family:var(--serif);font-style:italic;font-size:15pt;line-height:1.35;color:rgba(245,233,236,.86);margin-top:7mm;max-width:120mm;}
+.capa__preco{margin-top:9mm;display:inline-flex;align-items:baseline;gap:3mm;border-top:1px solid var(--accent);padding-top:4mm;}
+.capa__preco b{font-family:var(--serif);font-weight:600;font-size:22pt;color:var(--cream);}
+.capa__preco span{font-size:7pt;letter-spacing:.24em;text-transform:uppercase;color:var(--suave);}
+
+/* ---------- fotos ---------- */
+.fotos{display:grid;grid-template-columns:1fr 1fr;gap:5mm 5mm;margin-top:8mm;}
+.fotos--4{grid-template-rows:repeat(2,1fr);height:205mm;}
+.fotos--resto{height:255mm;margin-top:0;}
+.foto--larga{grid-column:1 / -1;}
+.foto{position:relative;overflow:hidden;background:#261a23;}
+.foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.foto figcaption{position:absolute;left:0;right:0;bottom:0;padding:9mm 4mm 3.2mm;
+  background:linear-gradient(180deg,transparent,rgba(18,10,16,.88));
+  font-family:var(--serif);font-weight:600;font-size:11.5pt;line-height:1.15;}
+.foto figcaption small{display:block;font-family:var(--sans);font-weight:400;font-size:5.6pt;letter-spacing:.24em;
+  text-transform:uppercase;color:rgba(245,233,236,.6);margin-top:1mm;}
+
+/* ---------- cardápio ---------- */
+.cab{display:flex;justify-content:space-between;align-items:flex-end;gap:6mm;}
+.cab__preco{text-align:right;font-family:var(--serif);font-size:17pt;color:var(--accent);white-space:nowrap;}
+.cab__preco small{display:block;font-family:var(--sans);font-size:6pt;letter-spacing:.22em;text-transform:uppercase;color:var(--suave);}
+.blocos{margin-top:7mm;}
+.cat{break-inside:avoid;margin-bottom:6mm;}
+.cat__head{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--cream);padding-top:2.6mm;margin-bottom:1mm;}
+.cat__nome{font-size:7.6pt;letter-spacing:.26em;text-transform:uppercase;font-weight:500;}
+.cat__n{font-size:6.4pt;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:1mm 2mm;}
+.cat ul{list-style:none;columns:2;column-gap:9mm;}
+.cat li{break-inside:avoid;display:flex;align-items:baseline;gap:2mm;padding:1.55mm 0;border-bottom:1px solid var(--linha);
+  font-family:var(--serif);font-weight:600;font-size:11.6pt;line-height:1.22;}
+.dots{margin-left:auto;display:inline-flex;gap:1mm;flex-shrink:0;}
+.d{width:1.7mm;height:1.7mm;border-radius:50%;display:inline-block;}
+.d--sg{background:var(--sg);}.d--sl{background:var(--sl);}.d--vg{background:var(--vg);}
+.legenda{display:flex;flex-wrap:wrap;gap:2mm 6mm;align-items:center;font-size:6.6pt;letter-spacing:.14em;text-transform:uppercase;color:var(--suave);margin-top:2mm;}
+.legenda span{display:inline-flex;align-items:center;gap:1.6mm;}
+.inclui{margin-top:6mm;border-left:2px solid var(--accent);background:rgba(208,110,143,.08);padding:3.5mm 5mm;}
+.inclui p{font-size:7pt;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:500;}
+.inclui ul{list-style:none;display:flex;flex-wrap:wrap;gap:1mm 7mm;margin-top:2mm;}
+.inclui li{font-family:var(--serif);font-style:italic;font-size:13pt;}
+
+/* ---------- comparativo ---------- */
+table.comp{width:100%;border-collapse:collapse;margin-top:10mm;}
+.comp th,.comp td{padding:3.4mm 2mm;text-align:center;border-bottom:1px solid var(--linha);}
+.comp thead th{font-family:var(--serif);font-weight:600;font-size:12.5pt;border-bottom:1px solid rgba(245,233,236,.45);vertical-align:bottom;}
+.comp thead th small{display:block;font-family:var(--sans);font-weight:400;font-size:5.4pt;letter-spacing:.24em;text-transform:uppercase;color:var(--suave);margin-bottom:1mm;}
+.comp tbody th,.comp tfoot th{text-align:left;font-weight:500;font-size:6.4pt;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,233,236,.82);}
+.comp td{font-family:var(--serif);font-weight:600;font-size:14pt;}
+.comp td.sim{font-style:italic;color:var(--accent);font-size:11.5pt;}
+.comp td.nao::after{content:"";display:inline-block;width:4mm;height:1px;background:rgba(245,233,236,.35);vertical-align:middle;}
+.comp tfoot th,.comp tfoot td{border-bottom:0;padding-top:5mm;}
+.comp tfoot td{color:var(--accent);font-size:12.5pt;white-space:nowrap;}
+.comp--itens th,.comp--itens td{padding:2.3mm 2mm;}
+.comp--itens tr.grupo th{color:var(--accent);padding-top:5mm;border-bottom-color:rgba(245,233,236,.3);}
+.comp--itens th.item{text-transform:none;letter-spacing:.02em;font-size:9pt;font-weight:400;color:var(--cream);}
+.comp--itens td.sim{font-size:10.5pt;}
+
+/* ---------- como funciona ---------- */
+.regras{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9mm 9mm;margin-top:10mm;}
+.regras li{border-top:1px solid var(--linha);padding-top:4mm;}
+.regras h3{font-family:var(--serif);font-weight:600;font-size:15pt;line-height:1.15;}
+.regras p{font-size:8.4pt;line-height:1.6;color:rgba(245,233,236,.8);margin-top:2mm;}
+.regras strong,.escopo strong{color:var(--accent);font-weight:500;}
+.escopo{margin-top:12mm;font-size:7.6pt;line-height:1.7;color:rgba(245,233,236,.66);}
+.fim{position:absolute;left:0;right:0;bottom:30mm;text-align:center;}
+.fim img{height:10mm;opacity:.9;}
+.fim p{font-family:var(--serif);font-style:italic;font-size:15pt;color:rgba(245,233,236,.8);margin-top:5mm;}
+</style>
+</head>
+<body>
+<div id="doc"></div>
+<script>
+(async function(){
+  const qs = new URLSearchParams(location.search);
+  const pedido = qs.get('menu') || 'todos';
+
+  /* ---- os dados vêm da própria página do material: uma fonte só ---- */
+  const fonte = qs.get('fonte') || 'buffet.html';
+  const src = await (await fetch(fonte,{cache:'no-store'})).text();
+  const DEF = {capaFoto:'fotos/hero-mesa.jpg', capaPos:'60% 50%', linha1:'MENU', linha2Todos:'Indaiá', eyebrow:'Gastronomia Indaiá',
+    frase:'Tem prato que a gente prova uma vez e leva pra vida inteira.',
+    fraseTodos:'Cinco menus pra noite de vocês. Tem prato que a gente prova uma vez e leva pra vida inteira.',
+    aMesa:'À mesa no', oQue:'O que vocês <em>escolhem</em>', contagem:'escolha', rotuloTodos:'Menu Indaiá',
+    comparaTitulo:'Cinco menus', comparaNota:'Valores por pessoa, acrescidos da taxa de serviço de 15%. Nas próximas páginas, cada menu em detalhe: as fotos dos pratos e tudo o que vocês podem escolher.',
+    compara:'categorias', fimFrase:'Tem prato que a gente prova uma vez e leva pra vida inteira.', legenda:true};
+  const iM = src.indexOf('const MATERIAL = ');
+  const M = Object.assign({}, DEF, iM<0 ? {} : JSON.parse(src.slice(src.indexOf('{',iM), src.indexOf('};',iM)+1)));
+  const iI = src.indexOf('const ITENS = ');
+  const ITENS = iI<0 ? [] : JSON.parse(src.slice(src.indexOf('[',iI), src.indexOf('];',iI)+1));
+  const iN = src.indexOf('const NIVEIS');
+  const NIVEIS = JSON.parse(src.slice(src.indexOf('[',iN), src.indexOf('];',iN)+1));
+  const iF = src.indexOf('const FOTO');
+  const blocoF = src.slice(iF, src.indexOf('};',iF));
+  const FOTO = {}; blocoF.replace(/(\w+):\s*'([^']+)'/g,(_,k,v)=>{FOTO[k]=v;});
+
+  /* fontes antes de medir: a paginação do cardápio depende da altura real do texto */
+  await Promise.all(['400 12pt "Cormorant Garamond"','600 12pt "Cormorant Garamond"','italic 400 12pt "Cormorant Garamond"',
+    '400 8pt Montserrat','500 8pt Montserrat'].map(f=>document.fonts.load(f).catch(()=>{})));
+
+  const esc = t=>String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+  const doc = document.getElementById('doc');
+  const LOGO = 'assets/indaia-wordmark-white-trim.png';
+  let nPag = 0;
+  const pagina = (html, rotulo, semRodape)=>{
+    nPag++;
+    const el = document.createElement('section'); el.className='pg';
+    el.innerHTML = html + (semRodape ? '' : `<div class="rodape"><img src="${LOGO}" alt=""><span>${esc(rotulo)}</span><span>${String(nPag).padStart(2,'0')}</span></div>`);
+    doc.appendChild(el); return el;
+  };
+
+  const capa = (linha2, frase, preco)=>pagina(`
+    <img class="capa__foto" src="${M.capaFoto}" alt="" style="object-position:${M.capaPos}">
+    <div class="capa__veu"></div>
+    <img class="capa__logo" src="${LOGO}" alt="Eventos Indaiá">
+    <div class="capa__txt">
+      <p class="eyebrow">${M.eyebrow}</p>
+      <p class="capa__menu">${M.linha1}</p>
+      <p class="capa__nome">${linha2}</p>
+      <p class="capa__frase">${frase}</p>
+      ${preco ? `<div class="capa__preco"><b>${esc(preco)}</b><span>por pessoa</span></div>` : ''}
+    </div>`, '', true);
+
+  const figura = f=>`<figure class="foto"><img src="${FOTO[f[0]]}" alt=""${f[2]?` style="object-position:${f[2]}"`:''}>
+      <figcaption>${esc(f[1])}<small>Foto real</small></figcaption></figure>`;
+
+  function paginasDeFotos(nv){
+    const fotos = nv.fotos.filter(f=>FOTO[f[0]]);
+    const primeira = fotos.slice(0,4), resto = fotos.slice(4);
+    pagina(`<div class="pg__in">
+      <p class="eyebrow">${esc(nv.nome)}</p>
+      <h2 class="titulo">${M.aMesa} <em>${esc(nv.curtoNome)}</em></h2>
+      <div class="fotos fotos--4">${primeira.map(figura).join('')}</div></div>`, nv.nome);
+    /* o resto se divide por igual (até 8 por página), pra nunca sobrar
+       uma página com uma ou duas fotos sozinhas; número ímpar: a última
+       foto da página ocupa a largura inteira */
+    if(resto.length){
+      const nPg = Math.ceil(resto.length/8), por = Math.ceil(resto.length/nPg);
+      for(let i=0;i<resto.length;i+=por){
+        const lote = resto.slice(i,i+por), linhas = Math.ceil(lote.length/2);
+        const figs = lote.map((f,k)=>{ const h = figura(f);
+          return (lote.length%2 && k===lote.length-1) ? h.replace('<figure class="foto"','<figure class="foto foto--larga"') : h; }).join('');
+        pagina(`<div class="pg__in"><div class="fotos fotos--resto" style="grid-template-rows:repeat(${linhas},1fr)">${figs}</div></div>`, nv.nome);
+      }
+    }
+  }
+
+  const dot = d=>`<i class="d d--${d}"></i>`;
+  const blocoCat = s=>`<div class="cat">
+      <div class="cat__head"><span class="cat__nome">${esc(s.label)}</span><span class="cat__n">${M.contagem==='escolha' ? `Escolha ${s.n} de ${s.itens.length}` : `${s.n} ${s.n===1?'item':'itens'}`}</span></div>
+      <ul>${s.itens.map(it=>`<li>${esc(it.n)}${it.d.length?`<span class="dots">${it.d.map(dot).join('')}</span>`:''}</li>`).join('')}</ul></div>`;
+  const legenda = `<div class="legenda"><span><i class="d d--sg"></i> Sem glúten</span><span><i class="d d--sl"></i> Sem lactose</span><span><i class="d d--vg"></i> Vegetariano</span></div>`;
+
+  /* o cardápio é paginado medindo: cada categoria entra inteira na página
+     enquanto couber, senão abre página nova */
+  function paginasDeCardapio(nv){
+    const cab = (cont)=>`<div class="cab"><div><p class="eyebrow">${esc(nv.nome)}${cont?' · continuação':''}</p>
+      <h2 class="titulo">${M.oQue}</h2></div>
+      <div class="cab__preco">${esc(nv.preco)}<small>por pessoa</small></div></div>`;
+    const extras = M.legenda ? [legenda] : [];
+    if(nv.tempo) extras.push(`<div class="inclui"><p>Serviço volante</p><ul><li>${esc(nv.tempo)} de serviço, pelos garçons da casa</li></ul></div>`);
+    if(nv.inclui.length) extras.push(`<div class="inclui"><p>Já incluso neste menu</p><ul>${nv.inclui.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`);
+    const pecas = nv.secoes.map(blocoCat).concat(extras);
+    let pg = null, caixa = null, cont = false;
+    const nova = ()=>{
+      pg = pagina(`<div class="pg__in">${cab(cont)}<div class="blocos"></div></div>`, nv.nome);
+      caixa = pg.querySelector('.blocos'); cont = true;
+    };
+    nova();
+    const limite = ()=>pg.querySelector('.pg__in').getBoundingClientRect().bottom;
+    for(const html of pecas){
+      caixa.insertAdjacentHTML('beforeend', html);
+      const el = caixa.lastElementChild;
+      if(el.getBoundingClientRect().bottom > limite() && caixa.children.length > 1){
+        el.remove(); nova(); caixa.insertAdjacentHTML('beforeend', html);
+      }
+    }
+  }
+
+  function comparativo(){
+    if(M.compara==='itens') return comparativoItens();
+    const qtd = (nv,c)=>{ const s = nv.secoes.find(x=>x.curto===c); return s ? s.n : 0; };
+    const tem = (nv,x)=>nv.inclui.includes(x);
+    const linhas = [['Entradas',nv=>qtd(nv,'entradas')],['Saladas',nv=>qtd(nv,'saladas')],['Massas',nv=>qtd(nv,'massas')],
+      ['Guarnições',nv=>qtd(nv,'guarnições')],['Pratos principais',nv=>qtd(nv,'principais')],
+      ['Lanche da Madrugada',nv=>tem(nv,'Lanche da Madrugada')],['Decoração Elegance',nv=>tem(nv,'Decoração Elegance')],
+      ['Mesa Mediterrânea',nv=>tem(nv,'Mesa Mediterrânea')]];
+    const cel = v=>v===true?'<td class="sim">Incluso</td>':(v?`<td>${v}</td>`:'<td class="nao"></td>');
+    pagina(`<div class="pg__in"><p class="eyebrow">${M.comparaTitulo}</p><h2 class="titulo">Lado a <em>lado</em></h2>
+      <table class="comp"><thead><tr><th></th>${NIVEIS.map(nv=>`<th><small>Menu</small>${esc(nv.curtoNome)}</th>`).join('')}</tr></thead>
+      <tbody>${linhas.map(([r,f])=>`<tr><th>${r}</th>${NIVEIS.map(nv=>cel(f(nv))).join('')}</tr>`).join('')}</tbody>
+      <tfoot><tr><th>Por pessoa</th>${NIVEIS.map(nv=>`<td>${esc(nv.preco)}</td>`).join('')}</tr></tfoot></table>
+      <p class="escopo">${M.comparaNota}</p></div>`, M.comparaTitulo);
+  }
+
+  /* comparativo item a item (Finger Foods): grupos, total e tempo de serviço */
+  function comparativoItens(){
+    const cel = v=>v?'<td class="sim">Incluso</td>':'<td class="nao"></td>';
+    let corpo = '', g = null;
+    for(const it of ITENS){
+      if(it.grupo!==g){ g = it.grupo; corpo += `<tr class="grupo"><th colspan="${NIVEIS.length+1}">${esc(g)}</th></tr>`; }
+      corpo += `<tr><th class="item">${esc(it.n)}</th>${NIVEIS.map(nv=>cel(nv.itensIds.includes(it.id))).join('')}</tr>`;
+    }
+    corpo += `<tr><th>Total de itens</th>${NIVEIS.map(nv=>`<td>${nv.itensIds.length}</td>`).join('')}</tr>`;
+    corpo += `<tr><th>Tempo de serviço</th>${NIVEIS.map(nv=>`<td>${esc(nv.tempo.replace('minutos','min'))}</td>`).join('')}</tr>`;
+    pagina(`<div class="pg__in"><p class="eyebrow">${M.comparaTitulo}</p><h2 class="titulo">Lado a <em>lado</em></h2>
+      <table class="comp comp--itens"><thead><tr><th></th>${NIVEIS.map(nv=>`<th>${esc(nv.curtoNome)}</th>`).join('')}</tr></thead>
+      <tbody>${corpo}</tbody>
+      <tfoot><tr><th>Por pessoa</th>${NIVEIS.map(nv=>`<td>${esc(nv.preco)}</td>`).join('')}</tr></tfoot></table>
+      <p class="escopo">${M.comparaNota}</p></div>`, M.comparaTitulo);
+  }
+
+  /* "Como funciona" e o "Bom saber" saem da própria página do material */
+  function comoFunciona(rotulo){
+    const tmp = document.createElement('div');
+    const iR = src.indexOf('<ul class="regras">');
+    tmp.innerHTML = src.slice(iR, src.indexOf('</section>', iR));
+    const itens = [...tmp.querySelectorAll('.regras li')].map(li=>`<li>${li.querySelector('h3').outerHTML}${li.querySelector('p').outerHTML}</li>`).join('');
+    const escopo = tmp.querySelector('.escopo');
+    pagina(`<div class="pg__in"><p class="eyebrow">Simples assim</p><h2 class="titulo">Como <em>funciona</em></h2>
+      <ul class="regras">${itens}</ul>${escopo ? `<p class="escopo">${escopo.innerHTML}</p>` : ''}
+      <div class="fim"><img src="${LOGO}" alt="Eventos Indaiá"><p>${M.fimFrase}</p></div></div>`, rotulo);
+  }
+
+  if(pedido === 'todos'){
+    capa(M.linha2Todos, M.fraseTodos, null);
+    comparativo();
+    for(const nv of NIVEIS){ paginasDeFotos(nv); paginasDeCardapio(nv); }
+    comoFunciona(M.rotuloTodos);
+  } else {
+    const nv = NIVEIS.find(n=>n.id===pedido) || NIVEIS[0];
+    capa(esc(nv.curtoNome), M.frase, nv.preco);
+    paginasDeFotos(nv); paginasDeCardapio(nv); comoFunciona(nv.nome);
+  }
+
+  /* avisa o gerador quando todas as imagens e fontes chegaram */
+  await document.fonts.ready;
+  await Promise.all([...document.images].map(im=>im.complete?0:new Promise(r=>{im.onload=im.onerror=r;})));
+  document.body.dataset.pronto = '1';
+})();
+</script>
+</body>
+</html>
