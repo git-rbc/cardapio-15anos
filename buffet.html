@@ -2874,7 +2874,11 @@ if(man && !matchMedia('(prefers-reduced-motion: reduce)').matches){
 (function(){
   const libsOk = !!(window.gsap && window.ScrollTrigger);
   const menosMovimento = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(!libsOk || menosMovimento) return;
+  /* A TRAVA DAS FOTOS NÃO DEPENDE DO "reduzir movimento" do sistema: com as
+     animações do Windows desligadas a página pulava o trilho inteiro e as fotos
+     deixavam de ser obrigatórias (02/10/2026). Nesse caso só os efeitos
+     decorativos saem (giro 3D das fotos, câmera lenta, galeria). */
+  if(!libsOk) return;
 
   document.documentElement.classList.add('motion');
   gsap.registerPlugin(ScrollTrigger);
@@ -2926,6 +2930,7 @@ if(man && !matchMedia('(prefers-reduced-motion: reduce)').matches){
         let t = ((r.left + r.width/2) - meio) / innerWidth;
         t = Math.max(-1.1, Math.min(1.1, t));
         const a = Math.abs(t);
+        if(menosMovimento) return;
         gsap.set(foto, {rotateY: -18*t, z: -240*a, scale: 1 - .09*a, opacity: 1 - .28*a});
       });
     };
@@ -3000,6 +3005,8 @@ if(man && !matchMedia('(prefers-reduced-motion: reduce)').matches){
     /* as fontes mudam a altura do cabeçalho depois que carregam: remedir */
     if(document.fonts && document.fonts.ready) document.fonts.ready.then(()=>ScrollTrigger.refresh());
   }
+
+  if(menosMovimento) return;
 
   /* ---- 2 · CÂMERA LENTA nas fotos que ocupam a tela inteira ----
      A escala fica fixa em 1.18 e só o Y se move: é a folga que a translação
